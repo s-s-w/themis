@@ -1,0 +1,27 @@
+<%= link_to 'Back to questions', questions_path %>
+
+<h1>Ask a question</h1>
+
+<div class='form'>
+	<%= form_for @question do |f| %>
+		<div>
+			<%= label_with_errors @question, :summary %>
+			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: 'Summarize your question briefly', style: 'height:auto;' %>
+		</div>
+		
+		<div>
+			<%= label_with_errors @question, :body %>
+			<%= f.text_area :body, rows: 20, cols: 100, placeholder: 'Expand on your question', style: 'height:auto;' %>
+		</div>
+		
+		<div class='row'>
+			<div class='small-6 columns'>
+				<%= f.submit 'Ask Question', :class => 'submit' %>
+			</div>
+			
+			<div class='small-6 columns'>
+				<%= link_to 'Cancel', questions_path, :class => 'cancel' %>
+			</div>
+		</div>
+	<% end -%>
+</div>

@@ -1,7 +1,7 @@
 class Node < ActiveRecord::Base
 	
-	belongs_to :parent, polymorphic: true
-	has_many :children, as: :parent, class_name: 'Node'
+	belongs_to :parent, class_name: 'Node', inverse_of: :children
+	has_many :children, class_name: 'Node', inverse_of: :parent
 	
 	validates_presence_of :summary
 	

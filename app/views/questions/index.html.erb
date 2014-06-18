@@ -1,4 +1,4 @@
-<%= link_to 'Ask a question', new_question_path, :class => 'button success' %>
+<%= link_to 'Ask a question', (new_node_path + '?type=Question'), :class => 'button success' %>
 
 <h1>Questions</h1>
 
@@ -10,7 +10,7 @@
 		<li>
 			<div class='question'>
 				<div class='summary'>
-					<%= link_to question.summary, question_path(question) %>
+					<%#= link_to question.summary, node_path(question) %>
 				</div>
 			</div>
 		</li>
