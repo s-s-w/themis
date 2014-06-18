@@ -7,7 +7,7 @@ feature 'Displaying questions list' do
 	
 	scenario 'No questions' do
 		visit questions_path
-		assert page.has_css? '.question', text: 'no'
+		assert page.has_css? '.question', text: 'no questions'
 	end
 	
 	scenario 'One question' do
@@ -38,7 +38,11 @@ feature 'Creating a question' do
 		assert_difference('Question.count') { click_on 'Ask' }
 		current_path.must_equal node_path(Question.count)
 		page.must_have_content 'Question'
-		page.must_have_css '#node .summary', text: summary
-		page.must_have_css '#node .body', text: body
+		page.must_have_css '#question .summary', text: summary
+		page.must_have_css '#question .body', text: body
+		
+		visit questions_path
+		click_on 'Here'
+		current_path.must_equal node_path(Question.count)
 	end
 end

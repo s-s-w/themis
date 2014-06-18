@@ -1,0 +1,22 @@
+<%= open_tag list_type %>
+	<% collection.reverse.each do |element| -%>
+		
+		<li>
+			<div class='<%= element.type.downcase %>'>
+				<div class='header'>
+					<div class='summary'>
+						<% tag = (element.class == Question ? :div : :h3) -%>
+						<%= html tag, link_to(element.summary, node_path(element)) %>
+					</div>
+				</div>
+				
+				<% if show_body %>
+					<div class='body'>
+						<%= simple_format @node.body %>
+					</div>
+				<% end -%>
+			</div>
+		</li>
+		
+	<% end -%>
+<%= close_tag list_type %>

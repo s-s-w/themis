@@ -4,16 +4,4 @@
 
 <%= render 'empty', element_name: 'question' if @questions.blank? -%>
 
-<ul>
-	<% @questions.reverse.each do |question| %>
-		
-		<li>
-			<div class='question'>
-				<div class='summary'>
-					<%= link_to question.summary, node_path(question) %>
-				</div>
-			</div>
-		</li>
-		
-	<% end -%>
-</ul>
+<%= render 'list', collection: @questions, list_type: :ul, show_body: false if @questions.any? -%>

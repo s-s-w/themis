@@ -1,27 +1,28 @@
 module ApplicationHelper
 	
-	def back_link_for node
-		text = 'Back to '
+	def back_link_for node, text=nil, args={}
+		set_text = 'Back to '
 		
 		if node.class == Question
-			text += 'questions'
+			set_text += 'questions'
 			url = questions_path
 		else
-			url = node_path(node)
+			url = node_path(node.parent)
 			
 			if node.parent.class == Question
-				text += 'question'
+				set_text += 'question'
 			else
-				text += 'previous response'
+				set_text += 'previous response'
 			end
 		end
 		
-		link_to text, url
+		text ||= set_text
+		link_to text, url, args
 	end
 	
 	def label_with_errors model, attribute
 		content = attribute.to_s.titleize + errors_for(model, attribute)
-		html(:label, content).html_safe
+		html :label, content
 	end
 	
 	def errors_for model, attribute
@@ -31,15 +32,17 @@ module ApplicationHelper
 	end
 	
 	def html type, content=nil, args={}
-		open_tag(type, args) + content.to_s + close_tag(type)
+		( open_tag(type, args) + content.to_s + close_tag(type) ).html_safe
 	end
 	
 	def open_tag type, args={}
-		'<' + ( [ type.to_s ] + args.map{|k, v| "#{k}='#{v}'"} ).join(' ') + '>'
+		tag = '<' + ( [ type.to_s ] + args.map{|k, v| "#{k}='#{v}'"} ).join(' ') + '>'
+		tag.html_safe
 	end
 	
 	def close_tag type
-		'</' + type.to_s + '>'
+		tag = '</' + type.to_s + '>'
+		tag.html_safe
 	end
 	
 	def dash

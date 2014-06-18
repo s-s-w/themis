@@ -1,0 +1,27 @@
+<h1>
+	New <%= node.type %>
+</h1>
+
+<div class='form'>
+	<%= form_for node do |f| %>
+		<div>
+			<%= label_with_errors node, :summary %>
+			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: "Summarize your #{node.type.downcase} briefly", style: 'height:auto;' %>
+		</div>
+		
+		<div>
+			<%= label_with_errors node, :body %>
+			<%= f.text_area :body, rows: 20, cols: 100, placeholder: "Expand on your #{node.type.downcase}", style: 'height:auto;' %>
+		</div>
+		
+		<div class='row'>
+			<div class='small-6 columns'>
+				<%= f.submit "Ask #{node.type}", :class => 'submit' %>
+			</div>
+			
+			<div class='small-6 columns'>
+				<%= back_link_for node, 'Cancel', :class => 'cancel' %>
+			</div>
+		</div>
+	<% end -%>
+</div>
