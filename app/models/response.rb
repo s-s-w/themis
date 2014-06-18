@@ -1,0 +1,2 @@
+class Response < Node
+end

@@ -2,7 +2,7 @@ class NodesController < ApplicationController
 	
 	def show
 		@node = Node.find id
-		@new = Node.new parent: @node
+		@new_child = Node.new parent: @node
 	end
 	
 	def new

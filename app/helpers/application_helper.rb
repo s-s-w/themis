@@ -1,5 +1,24 @@
 module ApplicationHelper
 	
+	def back_link_for node
+		text = 'Back to '
+		
+		if node.class == Question
+			text += 'questions'
+			url = questions_path
+		else
+			url = node_path(node)
+			
+			if node.parent.class == Question
+				text += 'question'
+			else
+				text += 'previous response'
+			end
+		end
+		
+		link_to text, url
+	end
+	
 	def label_with_errors model, attribute
 		content = attribute.to_s.titleize + errors_for(model, attribute)
 		html(:label, content).html_safe

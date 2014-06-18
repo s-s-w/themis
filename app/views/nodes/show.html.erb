@@ -1,77 +1,22 @@
-<%= link_to 'Back to questions', questions_path %>
+<%= back_link_for @node %>
 
-<h1>Question</h1>
+<h1><%= @node.type %></h1>
 
-<div id='question'>
+<div id='node'>
 	<div class='header'>
 		<div class='summary'>
-			<h2>
-				<%= @question.summary %>
-			</h2>
+			<h3>
+				<%= @node.summary %>
+			</h3>
 		</div>
 	</div>
 	
 	<div class='body'>
-		<%= simple_format @question.body %>
+		<%= simple_format @node.body %>
 	</div>
 </div>
 
-<h2>Answers</h2>
+<h2>Responses</h2>
 
-<%= render 'empty', type: 'answer' unless @question.has_children? -%>
+<%= render 'empty', element_name: 'response' if @node.children.blank? -%>
 
-<% if @question.answers.blank? %>
-	<div class='answer'>
-		<div>
-			<p>There are no answers yet.</p>
-		</div>
-	</div>
-<% end -%>
-
-<ol>
-	<% @question.answers.each do |answer| %>
-		<li>
-			<div class='answer'>
-				<h3>
-					<span class='summary'>
-						<%= link_to answer.summary, answer_path(answer) %>
-					</span>
-				</h3>
-				
-				<div class='body'>
-					<%= simple_format answer.body %>
-				</div>
-			</div>
-		</li>
-	<% end -%>
-</ol>
-
-<h2>Answer this question</h2>
-
-<div class='form'>
-	<%= form_for @answer do |f| %>
-		<div style='display:none;'>
-			<%= f.text_field :question_id, value: @question.id %>
-		</div>
-		
-		<div>
-			<%= label_with_errors @answer, :summary %>
-			<%= f.text_area :summary, rows: 3, placeholder: 'Summarize your answer briefly', style: 'height:auto;' %>
-		</div>
-	  
-		<div>
-			<%= label_with_errors @answer, :body %>
-			<%= f.text_area :body, rows: 10, placeholder: 'Expand on your answer', style: 'height:auto;' %>
-		</div>
-	  
-	  <div class='row'>
-		  <div class='small-6 columns'>
-			  <%= f.submit 'Answer Question', :class => 'submit' %>
-			</div>
-			
-			<div class='small-6 columns'>
-				<%= link_to 'Cancel', question_path(@question), :class => 'cancel' %>
-			</div>
-		</div>
-	<% end -%>
-</div>

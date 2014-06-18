@@ -29,7 +29,7 @@ div.field_with_errors {
 	@extend .secondary;
 }
 
-.question, #question, .answer, #answer, .argument, #argument, .form {
+.question, #node, .response, .form {
 	@extend .panel;
 	padding-bottom:0;
 }
@@ -40,7 +40,7 @@ div.field_with_errors {
 	margin:5px;
 }
 
-#question, #answer, #argument {
+#question, #node {
 	@extend .callout;
 }
 

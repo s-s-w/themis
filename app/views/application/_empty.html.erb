@@ -1,5 +1,7 @@
-<div class='<%= type %>'>
-	<p>
-		There are no <%= type.pluralize %> yet.
-	</p>
+<div class='<%= element_name %>'>
+	<div>
+		<p>
+			There are no <%= element_name.pluralize %> yet. <%= 'Ask one!' if element_name == 'question' %>
+		</p>
+	</div>
 </div>

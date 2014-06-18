@@ -1,8 +1,8 @@
-<%= link_to 'Ask a question', (new_node_path + '?type=Question'), :class => 'button success' %>
+<%= link_to 'Ask Question', (new_node_path + '?type=Question'), :class => 'button success' %>
 
 <h1>Questions</h1>
 
-<%= render 'empty', type: 'question' if @questions.blank? -%>
+<%= render 'empty', element_name: 'question' if @questions.blank? -%>
 
 <ul>
 	<% @questions.reverse.each do |question| %>
