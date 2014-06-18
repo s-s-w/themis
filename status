@@ -1,0 +1,13 @@
+clear
+echo 'GIT LOG --GRAPH --DECORATE --PRETTY=SHORT -n 7'
+echo ''
+git log --graph --decorate --pretty=short -n 7
+echo ''
+echo 'GIT BRANCH'
+echo ''
+git branch
+echo ''
+echo 'GIT STATUS'
+echo ''
+git status
+echo ''
