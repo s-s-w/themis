@@ -1,5 +1,9 @@
 require 'test_helper'
 
+feature 'Creating a node' do
+	scenario ''
+end
+
 #feature 'Creating a question' do
 #	scenario 'Clicking link to create new question' do
 #		visit questions_path
