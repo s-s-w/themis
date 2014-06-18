@@ -1,0 +1,19 @@
+<%= link_to 'Ask a question', new_question_path, :class => 'button success' %>
+
+<h1>Questions</h1>
+
+<%= render 'empty', type: 'question' if @questions.blank? -%>
+
+<ul>
+	<% @questions.reverse.each do |question| %>
+		
+		<li>
+			<div class='question'>
+				<div class='summary'>
+					<%= link_to question.summary, question_path(question) %>
+				</div>
+			</div>
+		</li>
+		
+	<% end -%>
+</ul>

@@ -1,0 +1,53 @@
+@import 'foundation_and_overrides';
+
+html body {
+	background:#bcd;
+}
+
+div.field_with_errors {
+	margin-bottom: 0;
+}
+
+.field_with_errors input, .field_with_errors textarea {
+	border: 1px solid red;
+}
+
+.errors {
+	color: red;
+}
+
+.submit, .cancel {
+	@extend .button;
+	@extend .expand;
+}
+
+.submit {
+	@extend .success;
+}
+
+.cancel {
+	@extend .secondary;
+}
+
+.question, #question, .answer, #answer, .argument, #argument, .form {
+	@extend .panel;
+	padding-bottom:0;
+}
+
+.question {
+	@extend .panel;
+	padding:10px;
+	margin:5px;
+}
+
+#question, #answer, #argument {
+	@extend .callout;
+}
+
+.body {
+	
+}
+
+label {
+	font-weight: bold;
+}
