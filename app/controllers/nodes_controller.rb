@@ -12,7 +12,7 @@ class NodesController < ApplicationController
 	def create
 		@new_node = class_to_create.create node_params
 		if @new_node.valid?
-			redirect_to(node_path(@new_node))
+			redirect_to(node_path(@new_node.parent || @new_node))
 		else
 			render('new')
 		end

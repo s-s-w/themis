@@ -29,15 +29,19 @@ div.field_with_errors {
 	@extend .secondary;
 }
 
+.question {
+	@extend .panel;
+	padding:10px;
+	margin:5px;
+}
+
 #question, #response, .response, .form {
 	@extend .panel;
 	padding-bottom:0;
 }
 
-.question {
-	@extend .panel;
-	padding:10px;
-	margin:5px;
+.question p.empty {
+	margin-bottom:0;
 }
 
 #question, #response {
