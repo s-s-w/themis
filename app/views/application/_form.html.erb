@@ -1,9 +1,13 @@
-<h1>
+<h2>
 	New <%= node.type %>
-</h1>
+</h2>
 
 <div class='form'>
-	<%= form_for node do |f| %>
+	<%= form_for node, url: nodes_path do |f| %>
+		<div style='display:none;'>
+			<%= f.text_field :parent_id %>
+		</div>
+		
 		<div>
 			<%= label_with_errors node, :summary %>
 			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: "Summarize your #{node.type.downcase} briefly", style: 'height:auto;' %>
@@ -16,7 +20,7 @@
 		
 		<div class='row'>
 			<div class='small-6 columns'>
-				<%= f.submit "Ask #{node.type}", :class => 'submit' %>
+				<%= f.submit "Publish #{node.type}", :class => 'submit' %>
 			</div>
 			
 			<div class='small-6 columns'>

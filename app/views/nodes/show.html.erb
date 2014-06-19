@@ -9,3 +9,5 @@
 <%= render 'empty', element_name: 'response' if @node.children.blank? -%>
 
 <%= render 'list', collection: @node.children, list_type: :ol if @node.children.any? -%>
+
+<%= render 'form', node: @new_node -%>

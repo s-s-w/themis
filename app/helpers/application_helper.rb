@@ -36,13 +36,11 @@ module ApplicationHelper
 	end
 	
 	def open_tag type, args={}
-		tag = '<' + ( [ type.to_s ] + args.map{|k, v| "#{k}='#{v}'"} ).join(' ') + '>'
-		tag.html_safe
+		'<' + ( [ type.to_s ] + args.map{|k, v| "#{k}='#{v}'"} ).join(' ') + '>'
 	end
 	
 	def close_tag type
-		tag = '</' + type.to_s + '>'
-		tag.html_safe
+		'</' + type.to_s + '>'
 	end
 	
 	def dash

@@ -27,7 +27,7 @@ feature 'Creating a question' do
 	
 	scenario 'Submitting form does not create new question if invalid' do
 		fill_in 'question[summary]', with: ''
-		refute_difference('Question.count') { click_on 'Ask' }
+		refute_difference('Question.count') { click_on 'Publish' }
 	end
 	
 	scenario 'Submitting form creates new question if valid' do
@@ -35,7 +35,7 @@ feature 'Creating a question' do
 		fill_in 'question[summary]', with: summary
 		body = 'And here is a question body'
 		fill_in 'question[body]', with: body
-		assert_difference('Question.count') { click_on 'Ask' }
+		assert_difference('Question.count') { click_on 'Publish' }
 		current_path.must_equal node_path(Question.count)
 		page.must_have_content 'Question'
 		page.must_have_css '#question .summary', text: summary

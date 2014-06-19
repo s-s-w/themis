@@ -34,12 +34,12 @@ feature 'Creating a sub-response' do
 		page.must_have_css 'form'
 	end
 	
-	#scenario 'Submitting form does not create new question if invalid' do
+	scenario 'Submitting form does not create new question if invalid' do
 #		visit new_question_path
 #		fill_in 'question[summary]', with: ''
 #		
 #		refute_difference('Question.count') { click_on 'Ask' }
-	#end
+	end
 	
 #	scenario 'Submitting form creates new question if valid' do
 #		visit new_question_path
