@@ -20,24 +20,26 @@ feature 'Viewing a response' do
 		page.must_have_css '#response .summary', text: @response.summary
 		page.must_have_css '#response .body', text: @response.body
 		page.must_have_css '.response .summary', text: @sub_response.summary
-		page.must_have_css '.response .body' #, text: @sub_response.body
+		page.must_have_css '.response .body', text: @sub_response.body
 	end
 end
 
-#feature 'Creating a question' do
-#	scenario 'Clicking link to create new question' do
-#		visit questions_path
-#		click_on 'Ask'
-#		
-#		page.must_have_css 'form'
-#	end
+feature 'Creating a sub-response' do
+	before do
+		Node.all.each { |n| n.destroy }
+		@question = Question.create summary: 'Blah?'
+		@response = Response.create summary: 'Blah.', body: 'Blahty-blah.', parent: @question
+		visit node_path(@response)
+		
+		page.must_have_css 'form'
+	end
 	
-#	scenario 'Submitting form does not create new question if invalid' do
+	#scenario 'Submitting form does not create new question if invalid' do
 #		visit new_question_path
 #		fill_in 'question[summary]', with: ''
 #		
 #		refute_difference('Question.count') { click_on 'Ask' }
-#	end
+	#end
 	
 #	scenario 'Submitting form creates new question if valid' do
 #		visit new_question_path
@@ -51,4 +53,4 @@ end
 #		page.must_have_css '#question .summary', text: summary
 #		page.must_have_css '#question .body', text: body
 #	end
-#end
+end

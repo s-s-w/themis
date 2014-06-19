@@ -2,22 +2,10 @@
 
 <h1><%= @node.type %></h1>
 
-<div id='<%= @node.type.downcase %>'>
-	<div class='header'>
-		<div class='summary'>
-			<h3>
-				<%= @node.summary %>
-			</h3>
-		</div>
-	</div>
-	
-	<div class='body'>
-		<%= simple_format @node.body %>
-	</div>
-</div>
+<%= render 'node', node: @node, id_or_class: 'id' -%>
 
 <h2>Responses</h2>
 
 <%= render 'empty', element_name: 'response' if @node.children.blank? -%>
 
-<%= render 'list', collection: @node.children, list_type: :ol, show_body: true if @node.children.any? -%>
+<%= render 'list', collection: @node.children, list_type: :ol if @node.children.any? -%>

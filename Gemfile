@@ -18,4 +18,5 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
   gem 'minitest-rails-capybara'
+  gem 'debugger'
 end

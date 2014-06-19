@@ -1,0 +1,23 @@
+<% is_question_list = ('Question' == node.type and 'class' == id_or_class) -%>
+
+<div <%= id_or_class %>='<%= node.type.downcase %>'>
+	<div class='header'>
+		<div class='summary'>
+			<%= "<h3>".html_safe unless is_question_list -%>
+			
+			<% if id_or_class == 'id' -%>
+				<%= node.summary -%>
+			<% elsif id_or_class == 'class' -%>
+				<%= link_to node.summary, node_path(node) -%>
+			<% end -%>
+			
+			<%= "</h3>".html_safe unless is_question_list -%>
+		</div>
+	</div>
+	
+	<% unless is_question_list -%>
+		<div class='body'>
+			<%= simple_format node.body %>
+		</div>
+	<% end -%>
+</div>
