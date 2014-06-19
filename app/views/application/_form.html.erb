@@ -1,9 +1,8 @@
-<h2>
-	New <%= node.type %>
-</h2>
+<% publish_or_update = node.new_record? ? 'Publish' : 'Update' -%>
+<% url = node.new_record? ? nodes_path : node_path(node) -%>
 
 <div class='form'>
-	<%= form_for node, url: nodes_path do |f| %>
+	<%= form_for node, url: url do |f| %>
 		<div style='display:none;'>
 			<%= f.text_field :parent_id %>
 		</div>
@@ -20,7 +19,7 @@
 		
 		<div class='row'>
 			<div class='small-6 columns'>
-				<%= f.submit "Publish #{node.type}", :class => 'submit' %>
+				<%= f.submit "#{publish_or_update} #{node.type}", :class => 'submit' %>
 			</div>
 			
 			<div class='small-6 columns'>

@@ -13,6 +13,10 @@
 			
 			<%= "</h3>".html_safe unless is_question_list -%>
 		</div>
+		
+		<div class='actions'>
+			<%= link_to 'edit', edit_node_path(node), :class => 'edit' unless is_question_list %>
+		</div>
 	</div>
 	
 	<% unless is_question_list -%>

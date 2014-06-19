@@ -4,6 +4,10 @@ html body {
 	background:#bcd;
 }
 
+label {
+	font-weight: bold;
+}
+
 div.field_with_errors {
 	margin-bottom: 0;
 }
@@ -48,10 +52,18 @@ div.field_with_errors {
 	@extend .callout;
 }
 
-.body {
-	
+#question, .question, #response, .response {
+	position:relative;
 }
 
-label {
-	font-weight: bold;
+.header .actions {
+	position:absolute;
+	right:3px;
+	top:-4px;
+}
+
+.header .actions a.edit {
+	//$padding: 0.1rem;
+  //@include button($padding);
+  font-size:75%;
 }
