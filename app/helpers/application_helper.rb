@@ -1,5 +1,13 @@
 module ApplicationHelper
 	
+	def support_or_oppose node
+		case node.in_support
+		when true then "<div class='support'></div>".html_safe
+		when false then "<div class='oppose'></div>".html_safe
+		else ''
+		end
+	end
+	
 	def back_link_for node, text=nil, args={}
 		set_text = 'Back to '
 		

@@ -67,3 +67,19 @@ div.field_with_errors {
   //@include button($padding);
   font-size:75%;
 }
+
+.support, .oppose {
+	position:absolute;
+	left:0;
+	top:0;
+	width:7px;
+	height:100%;
+}
+
+.support {
+	background-color:$success-color;
+}
+
+.oppose {
+	background-color:$alert-color;
+}
