@@ -19,13 +19,13 @@ feature 'Question create' do
 		body = 'And here is a question body'
 		fill_in 'question[body]', with: body
 		assert_difference('Question.count') { click_on 'Publish' }
-		current_path.must_equal node_path(Question.count)
+		current_path.must_equal node_path(Question.last)
 		page.must_have_content 'Question'
 		page.must_have_css '#question .summary', text: summary
 		page.must_have_css '#question .body', text: body
 		
 		visit questions_path
 		click_on 'Here'
-		current_path.must_equal node_path(Question.count)
+		current_path.must_equal node_path(Question.last)
 	end
 end
