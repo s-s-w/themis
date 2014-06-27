@@ -1,10 +1,20 @@
 module ApplicationHelper
 	
-	def support_or_oppose node
-		case node.in_support
-		when true then "<div class='support'></div>".html_safe
-		when false then "<div class='oppose'></div>".html_safe
-		else ''
+	def parent_relations_for node
+		if node.type == 'Question'
+			[ nil ]
+		elsif node.parent.type == 'Question'
+			[ 'Answer', 'Subtype' ]
+		else
+			[ 'Support', 'Oppose', 'Subtype' ]
+		end
+	end
+	
+	def child_relations_for node
+		if node.type == 'Question'
+			[ 'Answer', 'Subtype' ]
+		else
+			[ 'Support', 'Oppose', 'Subtype' ]
 		end
 	end
 	

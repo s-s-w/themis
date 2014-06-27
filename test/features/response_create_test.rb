@@ -1,10 +1,12 @@
 require 'test_helper'
 
 feature 'Response create' do
+	include ApplicationHelper
+	
 	before do
 		Node.all.each { |n| n.destroy }
 		@question = Question.create summary: 'Blah?'
-		@response = Response.create summary: 'Blah.', body: 'Blahty-blah.', parent: @question
+		@response = Response.create summary: 'Blah.', body: 'Blahty-blah.', parent: @question, parent_relation: 'Answer'
 	end
 	
 	scenario 'Forms exists' do
@@ -20,7 +22,7 @@ feature 'Response create' do
 			visit node_path(node)
 			fill_in 'response[summary]', with: ''
 			
-			refute_difference('Response.count') { click_on 'Publish' }
+			refute_difference('Response.count') { click_on child_relations_for(node).first }
 		end
 	end
 	
@@ -32,10 +34,19 @@ feature 'Response create' do
 			body = 'And this is a response body'
 			fill_in 'response[body]', with: body
 			
-			assert_difference('Response.count') { click_on 'Publish' }
+			assert_difference('Response.count') { click_on child_relations_for(node).first }
 			current_path.must_equal node_path(node)
 			page.must_have_css '.response .summary', text: summary
 			page.must_have_css '.response .body', text: body
+		end
+	end
+	
+	scenario 'Supporting, Opposing, and Subtype responses display appropriately' do
+		[ 'Support', 'Oppose', 'Subtype' ].each do |button|
+			visit node_path(@response)
+			click_on button
+			
+			page.must_have_css ".#{button.downcase}"
 		end
 	end
 end

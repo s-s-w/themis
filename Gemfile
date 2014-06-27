@@ -21,3 +21,7 @@ group :test do
   gem 'minitest-rails-capybara'
   gem 'debugger'
 end
+
+group :development, :test do
+	gem 'factory_girl_rails', '~> 4.0'
+end

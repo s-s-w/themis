@@ -1,8 +1,12 @@
 class Node < ActiveRecord::Base
 	
-	belongs_to :parent, class_name: 'Node', inverse_of: :children
-	has_many :children, class_name: 'Node', foreign_key: :parent_id, inverse_of: :parent
+	NODE = 'Node'
+	QUESTION = 'Question'
 	
-	validates_presence_of :summary
+	belongs_to :parent, class_name: NODE, inverse_of: :children
+	has_many :children, class_name: NODE, foreign_key: :parent_id, inverse_of: :parent
+	
+	validates :summary, presence: true
+	validates :parent, presence: true, :unless => lambda { QUESTION == type }
 	
 end

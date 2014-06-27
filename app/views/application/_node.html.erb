@@ -1,7 +1,8 @@
 <% is_question_list = ('Question' == node.type and 'class' == id_or_class) -%>
 
 <div <%= id_or_class %>='<%= node.type.downcase %>'>
-	<%= support_or_oppose node %>
+	<div class='<%= node.parent_relation %>'>
+	</div>
 	
 	<div class='header'>
 		<div class='summary'>

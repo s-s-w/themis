@@ -1,6 +1,8 @@
 require 'test_helper'
 
 feature 'Node edit' do
+	include ApplicationHelper
+	
 	before do
 		Node.all.each { |n| n.destroy }
 		@question = Question.create summary: 'Blah?'
@@ -16,7 +18,6 @@ feature 'Node edit' do
 			
 			[ '#' + type , '.response' ].each do |selector|
 				visit node_path(node)
-				child = node.children.first
 				
 				within "#{selector} .header .actions" do
 					click_on 'edit'
@@ -27,7 +28,7 @@ feature 'Node edit' do
 				body = 'Updated blah blah.'
 				fill_in "#{ selector[1..-1] }[body]", with: body
 				
-				refute_difference("#{node.class.to_s}.count") { click_on 'Update' }
+				refute_difference("#{node.class.to_s}.count") { click_on( parent_relations_for(node).first || 'Ask' ) }
 				page.must_have_css "##{selector[1..-1]} .header .summary", text: summary
 				page.must_have_css "##{selector[1..-1]} .body", text: body
 			end

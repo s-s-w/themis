@@ -1,4 +1,3 @@
-<% publish_or_update = node.new_record? ? 'Publish' : 'Update' -%>
 <% url = node.new_record? ? nodes_path : node_path(node) -%>
 
 <div class='form'>
@@ -18,11 +17,13 @@
 		</div>
 		
 		<div class='row'>
-			<div class='small-6 columns'>
-				<%= f.submit "#{publish_or_update} #{node.type}", :class => 'submit' %>
-			</div>
+			<% parent_relations_for(node).each do |parent_relation| -%>
+				<div class='large-3 small-6 columns'>
+					<%= f.submit (parent_relation || 'Ask'), params: { parent_relation: parent_relation } , :class => 'submit' %>
+				</div>
+			<% end -%>
 			
-			<div class='small-6 columns'>
+			<div class='large-3 small-6 columns left'>
 				<%= back_link_for node, 'Cancel', :class => 'cancel' %>
 			</div>
 		</div>

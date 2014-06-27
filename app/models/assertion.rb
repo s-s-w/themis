@@ -1,0 +1,2 @@
+class Assertion < Node
+end
