@@ -1,8 +1,8 @@
-module MyModule
+module QA
 	class Node < ActiveRecord::Base
 		
-		NODE = 'MyModule::Node'
-		QUESTION = 'MyModule::Question'
+		NODE = 'QA::Node'
+		QUESTION = 'QA::Question'
 		
 		belongs_to :parent, class_name: NODE, inverse_of: :children
 		has_many :children, class_name: NODE, foreign_key: :parent_id, inverse_of: :parent

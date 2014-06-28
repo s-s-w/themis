@@ -1,4 +1,4 @@
-module MyModule
+module QA
 	class Answer < Node
 	end
 end

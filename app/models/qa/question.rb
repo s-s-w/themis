@@ -1,4 +1,4 @@
-module MyModule
+module QA
 	class Question < Node
 		
 		validate :is_valid_parent_type?

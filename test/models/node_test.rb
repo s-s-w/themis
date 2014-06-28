@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MyModule::NodeTest < ActiveSupport::TestCase
+class QA::NodeTest < ActiveSupport::TestCase
   include ApplicationHelper
   
   test 'invalid without summary' do
