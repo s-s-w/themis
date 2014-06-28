@@ -1,2 +1,0 @@
-class SupportingAssertion < Assertion
-end

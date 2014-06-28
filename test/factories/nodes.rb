@@ -1,19 +1,21 @@
 FactoryGirl.define do
   
-  factory :node do
+  factory :node, :class => MyModule::Node do
     summary 'Blah?'
     
-    factory :question, :class => 'Question', traits: [ :subtype ]
-    
-    #factory :assertion, :class => 'Assertion', traits: [ :subtype ] #do
-    #  factory :supporting_assertion
-    #  factory :opposing_assertion
-    #end
-    
-    trait :subtype do
-      after(:build) do |node|
-        node.parent = node.class.new
-      end
+    factory :question, :class => MyModule::Question
+    factory :answer, :class => MyModule::Answer
+  end
+  
+  trait :answer_is_parent do
+    after(:build) do |node|
+      node.parent = build_stubbed(:answer)
+    end
+  end
+  
+  trait :question_is_parent do
+    after(:build) do |node|
+      node.parent = build_stubbed(:question)
     end
   end
   

@@ -1,0 +1,2 @@
+class SupportingResponse < Response
+end

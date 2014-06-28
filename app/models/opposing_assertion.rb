@@ -1,2 +1,0 @@
-class OpposingAssertion < Assertion
-end
