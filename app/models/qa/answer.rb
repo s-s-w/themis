@@ -1,7 +1,9 @@
 module Qa
 	class Answer < Node
 		
-		VALID_PARENT_TYPES = [QUESTION, ANSWER]
+		def valid_parent_classes
+			[Question, Answer]
+		end
 		
 	end
 end

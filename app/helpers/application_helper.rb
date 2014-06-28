@@ -1,5 +1,9 @@
 module ApplicationHelper
 	
+	def css_class_for node
+		node.class.split('::').last.downcase
+	end
+	
 	def parent_relations_for node
 		if node.type == 'Question'
 			[ nil ]

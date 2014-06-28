@@ -9,6 +9,8 @@ require 'minitest/reporters'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 #Minitest::Reporters.use! Minitest::Reporters::DefaultReporter.new
 
+require 'database_cleaner'
+
 #class ActionDispatch::IntegrationTest
 #	include Capybara::DSL
 #	include Capybara::Assertions
@@ -21,4 +23,14 @@ class ActiveSupport::TestCase
     #FactoryGirl.lint
   end
   prepare
+end
+
+class MiniTest::Spec
+  before :each do
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
 end

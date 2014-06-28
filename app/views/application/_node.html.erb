@@ -1,7 +1,7 @@
 <% is_question_list = ('Question' == node.type and 'class' == id_or_class) -%>
 
 <div <%= id_or_class %>='<%= node.type.downcase %>'>
-	<div class='<%= node.parent_relation %>'>
+	<div class='<%= css_class_for node %>'>
 	</div>
 	
 	<div class='header'>

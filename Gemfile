@@ -20,6 +20,7 @@ group :test do
   gem 'minitest-reporters'
   gem 'minitest-rails-capybara'
   gem 'debugger'
+  gem 'database_cleaner'
 end
 
 group :development, :test do

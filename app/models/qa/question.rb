@@ -1,7 +1,9 @@
 module Qa
 	class Question < Node
 		
-		VALID_PARENT_TYPES = [nil, QUESTION]
+		def valid_parent_classes
+			[NilClass, Question]
+		end
 		
 	end
 end
