@@ -4,12 +4,16 @@ feature 'Response create' do
 	include ApplicationHelper
 	
 	before do
+		skip
+		
 		Node.all.each { |n| n.destroy }
 		@question = Question.create summary: 'Blah?'
 		@response = Response.create summary: 'Blah.', body: 'Blahty-blah.', parent: @question, parent_relation: 'Answer'
 	end
 	
 	scenario 'Forms exists' do
+		skip
+		
 		visit node_path(@question)
 		page.must_have_css 'form'
 		
@@ -18,6 +22,8 @@ feature 'Response create' do
 	end
 	
 	scenario 'Create new response fails if invalid' do
+		skip
+		
 		[ @question, @response ].each do |node|
 			visit node_path(node)
 			fill_in 'response[summary]', with: ''
@@ -27,6 +33,8 @@ feature 'Response create' do
 	end
 	
 	scenario 'Creates new response succeeds if valid' do
+		skip
+		
 		[ @question, @response ].each do |node|
 			visit node_path(node)
 			summary = 'This is a response summary.'
@@ -42,6 +50,8 @@ feature 'Response create' do
 	end
 	
 	scenario 'Supporting, Opposing, and Subtype responses display appropriately' do
+		skip
+		
 		[ 'Support', 'Oppose', 'Subtype' ].each do |button|
 			visit node_path(@response)
 			click_on button
@@ -49,4 +59,5 @@ feature 'Response create' do
 			page.must_have_css ".#{button.downcase}"
 		end
 	end
+	
 end

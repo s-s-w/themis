@@ -1,9 +1,13 @@
 require 'test_helper'
 
+#module QA
+	
 feature 'Node edit' do
 	include ApplicationHelper
 	
 	before do
+		skip
+		
 		Node.all.each { |n| n.destroy }
 		@question = Question.create summary: 'Blah?'
 		@response = Response.create summary: 'Blah.', parent: @question
@@ -11,6 +15,8 @@ feature 'Node edit' do
 	end
 	
 	scenario 'Click edit link and fill out form' do
+		skip
+		
 		visit node_path(@question)
 		
 		[ @question, @response ].each do |node|
@@ -36,3 +42,5 @@ feature 'Node edit' do
 	end
 	
 end
+
+#end

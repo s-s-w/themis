@@ -1,10 +1,10 @@
 FactoryGirl.define do
   
-  factory :node, :class => QA::Node do
+  factory :node, :class => Qa::Node do
     summary 'Blah?'
     
-    factory :question, :class => QA::Question
-    factory :answer, :class => QA::Answer
+    factory :question, :class => Qa::Question
+    factory :answer, :class => Qa::Answer
   end
   
   trait :answer_is_parent do

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module QA
+module Qa
   class NodeTest < ActiveSupport::TestCase
     
     include ApplicationHelper
