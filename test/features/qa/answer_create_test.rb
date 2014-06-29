@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Qa
-	feature 'Response create' do
+	feature 'Answer create' do
 		include ApplicationHelper
 		
 		before do

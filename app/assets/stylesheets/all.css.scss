@@ -8,7 +8,7 @@ label {
 	font-weight: bold;
 }
 
-div.field_with_errors {
+.field_with_errors {
 	margin-bottom: 0;
 }
 
@@ -16,20 +16,16 @@ div.field_with_errors {
 	border: 1px solid red;
 }
 
-.errors {
+div .errors {
 	color: red;
 }
 
-.submit, .cancel {
-	@extend .button;
-	@extend .expand;
-}
-
-.submit {
-	@extend .success;
-}
-
-.cancel {
+#subtype_button, #question_button, #answer_button, #cancel_button {
+  @extend .button;
+  @extend .expand;
+ }
+ 
+#cancel_button {
 	@extend .secondary;
 }
 
@@ -39,7 +35,7 @@ div.field_with_errors {
 	margin:5px;
 }
 
-#question, #response, .response, .form {
+#question, #answer, .answer, .form {
 	@extend .panel;
 	padding-bottom:0;
 }
@@ -48,15 +44,15 @@ div.field_with_errors {
 	margin-bottom:0;
 }
 
-#question, #response {
+#question, #answer {
 	@extend .callout;
 }
 
-#question, .question, #response, .response {
+div #question, .question, #answer, .answer {
 	position:relative;
 }
 
-.header .actions {
+div .header .actions {
 	position:absolute;
 	right:3px;
 	top:-4px;

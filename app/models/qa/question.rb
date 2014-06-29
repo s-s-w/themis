@@ -1,8 +1,12 @@
 module Qa
 	class Question < Node
 		
-		def valid_parent_classes
-			[NilClass, Question]
+		def self.valid_parent_classes
+			[NilClass]
+		end
+		
+		def valid_child_classes
+			[Subtype, Answer]
 		end
 		
 	end

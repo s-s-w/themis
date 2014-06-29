@@ -19,10 +19,10 @@ group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
   gem 'minitest-rails-capybara'
-  gem 'debugger'
   gem 'database_cleaner'
 end
 
 group :development, :test do
+	gem 'debugger'
 	gem 'factory_girl_rails', '~> 4.0'
 end

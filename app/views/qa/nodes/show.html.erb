@@ -1,12 +1,12 @@
 <%= back_link_for @node %>
 
-<h1><%= @node.type %></h1>
+<h1><%= type_for(@node).titleize %></h1>
 
 <%= render 'node', node: @node, id_or_class: 'id' -%>
 
 <h2>Responses</h2>
 
-<%= render 'empty', element_name: 'response' if @node.children.blank? -%>
+<%= render 'empty', element_name: 'answer' if @node.children.blank? -%>
 
 <%= render 'list', collection: @node.children, list_type: :ol if @node.children.any? -%>
 

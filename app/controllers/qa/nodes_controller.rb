@@ -3,15 +3,15 @@ module Qa
 		
 		def show
 			@node = Node.find params[:id]
-			@new_node = Response.new parent: @node
+			@new_node = Node.new parent: @node
 		end
 		
 		def new
-			@new_node = Question.new
+			@new_node = Node.new
 		end
 		
 		def create
-			@new_node = class_to_create.create node_params
+			@new_node = Node.create node_params
 			if @new_node.valid?
 				redirect_to( node_path(@new_node.parent || @new_node) )
 			else
@@ -23,8 +23,8 @@ module Qa
 		private
 			
 			def path_to_form
-				return 'new' if Question == class_to_create
-				return 'show' if Response == class_to_create
+				return 'new' if Question == new_class
+				return 'show' if Answer == new_class
 			end
 			
 	public
@@ -42,18 +42,21 @@ module Qa
 	private
 		
 		def node_params
-			permitted_params = [:id, :summary, :body]
-			
-			if 'Response' == class_to_create.to_s
-				permitted_params += [:parent_relation, :parent_id]
-				params[:response][:parent_relation] = params[:relation]
-			end
-			
-			params.require( class_to_create.to_s.downcase.to_sym ).permit( permitted_params )
+			params[new_type] = params.delete(:qa_node)
+			params[new_type][:type] = new_class.name
+			params.require(new_type).permit(:id, :type, :parent_id, :summary, :body)
 		end
 		
-		def class_to_create
-			params[:commit].include?('Ask') ? Question : Response
+		def new_class
+			"Qa::#{new_short_type.classify}".constantize
+		end
+		
+		def new_type
+			'qa' + new_short_type
+		end
+		
+		def new_short_type
+			(params[:commit] == 'Ask') ? 'question' : params[:commit].downcase
 		end
 		
 	end

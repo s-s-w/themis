@@ -8,23 +8,23 @@
 		
 		<div>
 			<%= label_with_errors node, :summary %>
-			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: "Summarize your #{node.type.downcase} briefly", style: 'height:auto;' %>
+			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: "Be brief!", style: 'height:auto;' %>
 		</div>
 		
 		<div>
 			<%= label_with_errors node, :body %>
-			<%= f.text_area :body, rows: 20, cols: 100, placeholder: "Expand on your #{node.type.downcase}", style: 'height:auto;' %>
+			<%= f.text_area :body, rows: 20, cols: 100, placeholder: "Expand here...", style: 'height:auto;' %>
 		</div>
 		
 		<div class='row'>
-			<% parent_relations_for(node).each do |parent_relation| -%>
+			<% node.parent.valid_child_classes.each do |klass| -%>
 				<div class='large-3 small-6 columns'>
-					<%= f.submit (parent_relation || 'Ask'), params: { parent_relation: parent_relation } , :class => 'submit' %>
+					<%= f.submit submit_text_for(klass), :id => "#{type_for klass}_button" %>
 				</div>
 			<% end -%>
 			
 			<div class='large-3 small-6 columns left'>
-				<%= back_link_for node, 'Cancel', :class => 'cancel' %>
+				<%= back_link_for node, 'Cancel', :id => 'cancel_button' %>
 			</div>
 		</div>
 	<% end -%>

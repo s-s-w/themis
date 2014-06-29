@@ -1,8 +1,17 @@
 module Qa
 	module ApplicationHelper
 		
+		def submit_text_for new_child_class
+			if Question == new_child_class
+				'Ask'
+			else
+				new_child_class.name.demodulize
+			end
+		end
+		
 		def type_for node
-			node.class.name.split('::').last.underscore
+			node_class = (node.class == Class) ? node : node.class
+			node_class.name.demodulize.underscore
 		end
 		
 		def color_type_for node
@@ -10,24 +19,9 @@ module Qa
 			color_type.in?( ['support', 'oppose'] ) ? color_type : nil
 		end
 		
-		def back_link_for node, text=nil, args={}
-			set_text = 'Back to '
-			
-			if node.class == Question
-				set_text += 'questions'
-				url = questions_path
-			else
-				url = node_path(node.parent)
-				
-				if node.parent.class == Question
-					set_text += 'question'
-				else
-					set_text += 'previous response'
-				end
-			end
-			
-			text ||= set_text
-			link_to text, url, args
+		def back_link_for node, text='Back', args={}
+			parent = node.parent
+			link_to text, (parent.nil? ? questions_path : node_path(parent)), args
 		end
 		
 		def label_with_errors model, attribute
@@ -54,7 +48,7 @@ module Qa
 		end
 		
 		def dash
-			' &mdash; '
+			" &mdash; ".html_safe
 		end
 		
 	end

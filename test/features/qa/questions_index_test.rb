@@ -5,7 +5,7 @@ module Qa
 		
 		scenario 'No questions' do
 			visit questions_path
-			assert page.has_css? '.question', text: 'no questions'
+			assert page.has_css? '.question', text: 'None'
 		end
 		
 		scenario 'One question' do

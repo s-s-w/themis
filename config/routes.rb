@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :nodes, except: [ :delete ]#, controller: QA::NodesController
+  resources :nodes, except: [ :delete ], controller: 'qa/nodes'
   resources :questions, only: [ :index ], controller: 'qa/questions'
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,17 +5,30 @@ FactoryGirl.define do
     
     factory :question, :class => Qa::Question
     factory :answer, :class => Qa::Answer
-  end
-  
-  trait :answer_is_parent do
-    after(:build) do |node|
-      node.parent = build_stubbed(:answer)
-    end
+    factory :subtype, :class => Qa::Subtype
   end
   
   trait :question_is_parent do
-    after(:build) do |node|
-      node.parent = build_stubbed(:question)
+    after :build do |node|
+      node.parent = build_stubbed :question
+    end
+  end
+  
+  trait :answer_is_parent do
+    after :build  do |node|
+      node.parent = build_stubbed :answer
+    end
+  end
+  
+  trait :subtyped_question_is_parent do
+    after :build  do |node|
+      node.parent = build :subtype, parent: build_stubbed(:question)
+    end
+  end
+  
+  trait :subtyped_answer_is_parent do
+    after :build do |node|
+      node.parent = build :subtype, parent: build_stubbed(:answer)
     end
   end
   
