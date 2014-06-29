@@ -20,14 +20,14 @@ module Qa
 			body = 'And here is a question body'
 			fill_in 'qa_node[body]', with: body
 			assert_difference('Qa::Question.count') { click_on 'Ask' }
-			#current_path.must_equal node_path(Question.last)
-			#page.must_have_content 'Question'
-			#page.must_have_css '#question .summary', text: summary
-			#page.must_have_css '#question .body', text: body
+			current_path.must_equal node_path(Question.last)
+			page.must_have_content 'Question'
+			page.must_have_css '#question .summary', text: summary
+			page.must_have_css '#question .body', text: body
 			
-			#visit questions_path
-			#click_on 'Here'
-			#current_path.must_equal node_path(Question.last)
+			visit questions_path
+			click_on 'Here'
+			current_path.must_equal node_path(Question.last)
 		end
 		
 	end
