@@ -1,8 +1,10 @@
-<% is_question_list = ('Question' == node.type and 'class' == id_or_class) -%>
+<% is_question_list = ('question' == type_for(node) and 'class' == id_or_class) -%>
 
-<div <%= id_or_class %>='<%= node.type.downcase %>'>
-	<div class='<%= css_class_for node %>'>
-	</div>
+<div <%= id_or_class %>='<%= type_for(node) %>'>
+	<% if color_type_for(node) -%>
+		<div class='color_<%= color_type_for(node) %>'>
+		</div>
+	<% end -%>
 	
 	<div class='header'>
 		<div class='summary'>

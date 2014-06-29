@@ -68,7 +68,7 @@ div.field_with_errors {
   font-size:75%;
 }
 
-.support, .oppose {
+.color_supporting_response, .color_opposing_response {
 	position:absolute;
 	left:0;
 	top:0;
@@ -76,10 +76,10 @@ div.field_with_errors {
 	height:100%;
 }
 
-.support {
+.color_supporting_response {
 	background-color:$success-color;
 }
 
-.oppose {
+.color_opposing_response {
 	background-color:$alert-color;
 }

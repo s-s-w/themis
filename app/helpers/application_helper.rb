@@ -1,25 +1,12 @@
 module ApplicationHelper
 	
-	def css_class_for node
-		node.class.split('::').last.downcase
+	def type_for node
+		node.class.name.split('::').last.underscore
 	end
 	
-	def parent_relations_for node
-		if node.type == 'Question'
-			[ nil ]
-		elsif node.parent.type == 'Question'
-			[ 'Answer', 'Subtype' ]
-		else
-			[ 'Support', 'Oppose', 'Subtype' ]
-		end
-	end
-	
-	def child_relations_for node
-		if node.type == 'Question'
-			[ 'Answer', 'Subtype' ]
-		else
-			[ 'Support', 'Oppose', 'Subtype' ]
-		end
+	def color_type_for node
+		color_type = type_for node
+		color_type.in?( ['support', 'oppose'] ) ? color_type : nil
 	end
 	
 	def back_link_for node, text=nil, args={}
