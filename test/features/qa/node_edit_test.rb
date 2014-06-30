@@ -5,10 +5,10 @@ module Qa
 		include ApplicationHelper
 		
 		before do
-			@question = Question.create summary: 'Blah?'
-			@question_subtype = Subtype.create summary: 'Blah blah?', parent: @question
-			@answer = Answer.create summary: 'Blah.', parent: @question
-			@answer_subtype = Subtype.create summary: 'Blah blah.', parent: @answer
+			@question = create :question
+			@question_subtype = create :subtype, parent: @question
+			@answer = create :answer, parent: @question
+			@answer_subtype = create :subtype, parent: @answer
 		end
 		
 		scenario 'Click edit link and fill out form' do
