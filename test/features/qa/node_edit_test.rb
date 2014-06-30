@@ -28,10 +28,8 @@ module Qa
 				
 				refute_difference("#{node.class.to_s}.count") { click_on submit_text_for(node.class) }
 				
-				#debugger
-				
-				page.must_have_css "##{type_for(node)} .header .summary" #, text: summary
-				page.must_have_css "##{type_for(node)} .body" #, text: body
+				page.must_have_css "##{type_for(node)} .header .summary", text: summary
+				page.must_have_css "##{type_for(node)} .body", text: body
 			end
 		end
 		
