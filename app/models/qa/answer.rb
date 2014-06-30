@@ -5,9 +5,5 @@ module Qa
 			[Question]
 		end
 		
-		def valid_child_classes
-			[Subtype]
-		end
-		
 	end
 end

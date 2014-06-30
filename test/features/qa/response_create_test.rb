@@ -9,14 +9,6 @@ module Qa
 			@answer = create :answer, :question_is_parent
 		end
 		
-		scenario 'Forms exists' do
-			visit node_path(@question)
-			page.must_have_css 'form'
-			
-			visit node_path(@answer)
-			page.must_have_css 'form'
-		end
-		
 		scenario 'Create new response fails if invalid' do
 			[ @question, @answer ].each do |node|
 				node.valid_child_classes.each do |valid_child_class|

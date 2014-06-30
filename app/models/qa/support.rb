@@ -1,8 +1,8 @@
 module Qa
-	class Question < Node
+	class Support < Node
 		
 		def self.valid_parent_classes
-			[NilClass]
+			[Answer, Support, Oppose]
 		end
 		
 	end

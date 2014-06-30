@@ -20,11 +20,19 @@ div .errors {
 	color: red;
 }
 
-#subtype_button, #question_button, #answer_button, #cancel_button {
+#subtype_button, #question_button, #answer_button, #support_button, #oppose_button, #cancel_button {
   @extend .button;
   @extend .expand;
  }
- 
+
+#support_button {
+	@extend .success;
+}
+
+#oppose_button {
+	@extend .alert;
+}
+
 #cancel_button {
 	@extend .secondary;
 }
@@ -35,7 +43,7 @@ div .errors {
 	margin:5px;
 }
 
-#question, #answer, .answer, #subtype, .subtype, .form {
+#question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose, .form {
 	@extend .panel;
 	padding-bottom:0;
 }
@@ -44,11 +52,11 @@ div .errors {
 	margin-bottom:0;
 }
 
-#question, #answer, #subtype {
+#subtype, #question, #answer, #support, #oppose {
 	@extend .callout;
 }
 
-div #question, .question, #answer, .answer, #subtype, .subtype {
+div #subtype, .subtype, #question, .question, #answer, .answer, #support, .support, #oppose, .oppose {
 	position:relative;
 }
 

@@ -1,2 +1,0 @@
-class SupportingResponse < Response
-end

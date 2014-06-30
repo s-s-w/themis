@@ -8,10 +8,22 @@ module Qa
 		validates :parent, presence: true, :unless => lambda { Question == self.class }
 		validate :valid_ancestor_class?
 		
-	private
+		def valid_child_classes
+			[ Subtype ] +
+			Node.all_subclasses
+				.reject{ |nc| nc == Subtype }
+				.reject{ |nc| !nc.is_valid_child_class_of typed_node_for(self).class }
+				.reverse
+		end
+			
+			def self.is_valid_child_class_of klass
+				valid_parent_classes.include? klass
+			end
+		
+ 	#private
 		
 		def valid_ancestor_class?
-			ancestor = ancestor_excluding_subtype
+			ancestor = typed_node_for parent
 			
 			unless ancestor.class.in? self.class.valid_parent_classes
 				message  = "is #{demodulized_name_for ancestor.class} "
@@ -19,16 +31,6 @@ module Qa
 				errors.add(:parent, message)
 			end
 		end
-			
-			def ancestor_excluding_subtype
-				ancestor = parent
-				
-				while ancestor and (ancestor.class == Subtype)
-					ancestor = ancestor.parent
-				end
-				
-				ancestor
-			end
 			
 			def demodulized_names_for klasses
 				klasses.map{ |klass| demodulized_name_for klass }
@@ -42,5 +44,17 @@ module Qa
 				self.class.valid_parent_classes.map{ |klass| klass.name.demodulize }.join(' or ')
 			end
 			
+		def Node.all_subclasses
+		  ObjectSpace.each_object(Class).select{ |klass| klass < Node }.uniq
+		end
+		
+		def typed_node_for node
+			while node and (node.class == Subtype)
+				node = node.parent
+			end
+			
+			node
+		end
+  
 	end
 end

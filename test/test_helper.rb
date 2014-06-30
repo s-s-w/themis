@@ -11,6 +11,8 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require 'database_cleaner'
 
+Rails.application.eager_load!
+
 #class ActionDispatch::IntegrationTest
 #	include Capybara::DSL
 #	include Capybara::Assertions

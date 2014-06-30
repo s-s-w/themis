@@ -1,2 +1,0 @@
-class OpposingResponse < Response
-end

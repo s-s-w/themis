@@ -6,6 +6,8 @@ FactoryGirl.define do
     factory :question, :class => Qa::Question
     factory :answer, :class => Qa::Answer
     factory :subtype, :class => Qa::Subtype
+    factory :support, :class => Qa::Support
+    factory :oppose, :class => Qa::Oppose
   end
   
   trait :question_is_parent do

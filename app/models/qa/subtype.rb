@@ -2,7 +2,7 @@ module Qa
 	class Subtype < Node
 		
 		def self.valid_parent_classes
-			[Question, Answer]
+			Node.all_subclasses
 		end
 		
 		def valid_child_classes

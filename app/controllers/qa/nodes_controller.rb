@@ -28,7 +28,7 @@ module Qa
 			def path_to_form
 				case new_class.name.demodulize
 				when 'Question' then 'new'
-				when 'Answer', 'Subtype' then 'show'
+				else 'show'
 				end
 			end
 			
