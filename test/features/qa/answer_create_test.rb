@@ -5,31 +5,25 @@ module Qa
 		include ApplicationHelper
 		
 		before do
-			skip
-			
-			Node.all.each { |n| n.destroy }
-			@question = Question.create summary: 'Blah?'
-			@response = Response.create summary: 'Blah.', body: 'Blahty-blah.', parent: @question, parent_relation: 'Answer'
+			@question = create :question
+			@answer = create :answer, :question_is_parent
 		end
 		
 		scenario 'Forms exists' do
-			skip
-			
 			visit node_path(@question)
 			page.must_have_css 'form'
 			
-			visit node_path(@response)
+			visit node_path(@answer)
 			page.must_have_css 'form'
 		end
 		
 		scenario 'Create new response fails if invalid' do
-			skip
-			
-			[ @question, @response ].each do |node|
-				visit node_path(node)
-				fill_in 'response[summary]', with: ''
-				
-				refute_difference('Response.count') { click_on child_relations_for(node).first }
+			[ @question, @answer ].each do |node|
+				node.valid_child_classes.each do |valid_child_class|
+					visit node_path(node)
+					fill_in 'qa_node[summary]', with: ''
+					refute_difference("#{valid_child_class.name}.count") { click_on submit_text_for(valid_child_class) }
+				end
 			end
 		end
 		

@@ -23,8 +23,10 @@ module Qa
 		private
 			
 			def path_to_form
-				return 'new' if Question == new_class
-				return 'show' if Answer == new_class
+				case new_class.name.demodulize
+				when 'Question' then 'new'
+				when 'Answer', 'Subtype' then 'show'
+				end
 			end
 			
 	public
@@ -42,9 +44,11 @@ module Qa
 	private
 		
 		def node_params
-			params[new_type] = params.delete(:qa_node)
-			params[new_type][:type] = new_class.name
-			params.require(new_type).permit(:id, :type, :parent_id, :summary, :body)
+			#params[new_type] = params.delete(:qa_node)
+			#params[new_type][:type] = new_class.name
+			#params.require(new_type).permit(:id, :type, :parent_id, :summary, :body)
+			params[:qa_node][:type] = new_class.name
+			params.require(:qa_node).permit(:id, :type, :parent_id, :summary, :body)
 		end
 		
 		def new_class

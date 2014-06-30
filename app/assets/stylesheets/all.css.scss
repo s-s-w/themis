@@ -72,10 +72,14 @@ div .header .actions {
 	height:100%;
 }
 
-.color_supporting_response {
+.color_subtype {
+	background-color:$primary-color;
+}
+
+.color_support {
 	background-color:$success-color;
 }
 
-.color_opposing_response {
+.color_oppose {
 	background-color:$alert-color;
 }
