@@ -45,14 +45,5 @@ module Qa
 			end
 		end
 		
-		scenario 'Supporting, Opposing, and Subtype responses display appropriately' do
-			[ 'Support', 'Oppose', 'Subtype' ].each do |button|
-				visit node_path(@response)
-				click_on button
-				
-				page.must_have_css ".#{button.downcase}"
-			end
-		end
-		
 	end
 end
