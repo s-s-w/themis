@@ -1,15 +1,19 @@
 <%= back_link_for @node %>
 
 <h1><%= type_for(@node).titleize %></h1>
-
 <%= render 'node', node: @node, id_or_class: 'id' -%>
 
-<h2>Responses</h2>
-
-<%= render 'empty', element_name: 'answer' if @node.children.blank? -%>
-
-<%= render 'list', collection: @node.children, list_type: :ol if @node.children.any? -%>
+<% @node.valid_child_classes.each do |child_class| -%>
+	<% nodes = @node.children.where( type: child_class.name ) -%>
+	
+	<% unless nodes.empty? -%>
+		<% unless 'subtype' == type_for(child_class) -%>
+			<h2><%= type_for(child_class).titleize.pluralize %></h2>
+		<% end -%>
+		
+		<%= render 'list', collection: nodes, list_type: :ol -%>
+	<% end -%>
+<% end -%>
 
 <h2>New Response</h2>
-
 <%= render 'form', node: @new_node -%>

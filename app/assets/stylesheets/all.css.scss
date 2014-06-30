@@ -35,7 +35,7 @@ div .errors {
 	margin:5px;
 }
 
-#question, #answer, .answer, .form {
+#question, #answer, .answer, #subtype, .subtype, .form {
 	@extend .panel;
 	padding-bottom:0;
 }
@@ -44,11 +44,11 @@ div .errors {
 	margin-bottom:0;
 }
 
-#question, #answer {
+#question, #answer, #subtype {
 	@extend .callout;
 }
 
-div #question, .question, #answer, .answer {
+div #question, .question, #answer, .answer, #subtype, .subtype {
 	position:relative;
 }
 
@@ -64,7 +64,7 @@ div .header .actions {
   font-size:75%;
 }
 
-.color_supporting_response, .color_opposing_response {
+.color_subtype, .color_support, .color_oppose {
 	position:absolute;
 	left:0;
 	top:0;

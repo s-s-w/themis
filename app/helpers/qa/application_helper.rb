@@ -16,7 +16,7 @@ module Qa
 		
 		def color_type_for node
 			color_type = type_for node
-			color_type.in?( ['support', 'oppose'] ) ? color_type : nil
+			color_type.in?( ['subtype', 'support', 'oppose'] ) ? color_type : nil
 		end
 		
 		def back_link_for node, text='Back', args={}

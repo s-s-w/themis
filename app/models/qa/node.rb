@@ -8,7 +8,7 @@ module Qa
 		validates :parent, presence: true, :unless => lambda { Question == self.class }
 		validate :valid_ancestor_class?
 		
-	#private
+	private
 		
 		def valid_ancestor_class?
 			ancestor = ancestor_excluding_subtype
