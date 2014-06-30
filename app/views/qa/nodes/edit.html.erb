@@ -1,7 +1,7 @@
 <%= link_to 'Cancel', node_path(@node) %>
 
 <h2>
-	Edit <%= @node.type %>
+	Edit <%= type_for(@node).titleize %>
 </h2>
 
 <%= render 'form', node: @node -%>

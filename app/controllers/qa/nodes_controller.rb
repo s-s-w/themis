@@ -1,5 +1,6 @@
 module Qa
 	class NodesController < ApplicationController
+		include ApplicationHelper
 		
 		def show
 			@node = Node.find params[:id]
@@ -11,7 +12,9 @@ module Qa
 		end
 		
 		def create
+			params[:qa_node][:type] = new_class.name
 			@new_node = Node.create node_params
+			
 			if @new_node.valid?
 				redirect_to( node_path(@new_node.parent || @new_node) )
 			else
@@ -37,6 +40,10 @@ module Qa
 		
 		def update
 			@node = Node.find params[:id]
+			
+			params[:qa_node] = params["qa_#{type_for(@node)}"]
+			params[:qa_node][:type] = new_class.name
+			
 			@node.update_attributes node_params
 			@node.valid? ? redirect_to(node_path(@node)) : render('edit')
 		end
@@ -44,10 +51,6 @@ module Qa
 	private
 		
 		def node_params
-			#params[new_type] = params.delete(:qa_node)
-			#params[new_type][:type] = new_class.name
-			#params.require(new_type).permit(:id, :type, :parent_id, :summary, :body)
-			params[:qa_node][:type] = new_class.name
 			params.require(:qa_node).permit(:id, :type, :parent_id, :summary, :body)
 		end
 		
@@ -55,12 +58,8 @@ module Qa
 			"Qa::#{new_short_type.classify}".constantize
 		end
 		
-		def new_type
-			'qa' + new_short_type
-		end
-		
 		def new_short_type
-			(params[:commit] == 'Ask') ? 'question' : params[:commit].downcase
+			(params[:commit] == 'Ask Question') ? 'question' : params[:commit].downcase
 		end
 		
 	end

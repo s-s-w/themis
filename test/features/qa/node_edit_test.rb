@@ -5,38 +5,33 @@ module Qa
 		include ApplicationHelper
 		
 		before do
-			skip
-			
-			Node.all.each { |n| n.destroy }
 			@question = Question.create summary: 'Blah?'
-			@response = Response.create summary: 'Blah.', parent: @question
-			@subresponse = Response.create summary: 'Blah blah.', parent: @response
+			@question_subtype = Subtype.create summary: 'Blah blah?', parent: @question
+			@answer = Answer.create summary: 'Blah.', parent: @question
+			@answer_subtype = Subtype.create summary: 'Blah blah.', parent: @answer
 		end
 		
 		scenario 'Click edit link and fill out form' do
-			skip
-			
-			visit node_path(@question)
-			
-			[ @question, @response ].each do |node|
-				type = node.type.downcase
+			[ @question, @question_subtype, @answer, @answer_subtype ].each do |node|
+				visit node_path(node)
 				
-				[ '#' + type , '.response' ].each do |selector|
-					visit node_path(node)
-					
-					within "#{selector} .header .actions" do
-						click_on 'edit'
-					end
-					
-					summary = 'Updated blah.'
-					fill_in "#{ selector[1..-1] }[summary]", with: summary
-					body = 'Updated blah blah.'
-					fill_in "#{ selector[1..-1] }[body]", with: body
-					
-					refute_difference("#{node.class.to_s}.count") { click_on( parent_relations_for(node).first || 'Ask' ) }
-					page.must_have_css "##{selector[1..-1]} .header .summary", text: summary
-					page.must_have_css "##{selector[1..-1]} .body", text: body
+				edit_link = all( 'a .edit' ).first
+				
+				within "##{type_for(node)}" do
+					click_on 'edit'
 				end
+				
+				summary = 'Updated blah.'
+				fill_in "qa_#{type_for(node)}[summary]", with: summary
+				body = 'Updated blah blah.'
+				fill_in "qa_#{type_for(node)}[body]", with: body
+				
+				refute_difference("#{node.class.to_s}.count") { click_on submit_text_for(node.class) }
+				
+				#debugger
+				
+				page.must_have_css "##{type_for(node)} .header .summary" #, text: summary
+				page.must_have_css "##{type_for(node)} .body" #, text: body
 			end
 		end
 		

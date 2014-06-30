@@ -26,11 +26,11 @@ class ActiveSupport::TestCase
 end
 
 class MiniTest::Spec
-  before :each do
+  before do
     DatabaseCleaner.start
   end
 
-  after :each do
+  after do
     DatabaseCleaner.clean
   end
 end
