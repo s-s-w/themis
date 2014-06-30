@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Qa
-	feature 'Answer create' do
+	feature 'Response create' do
 		include ApplicationHelper
 		
 		before do
@@ -28,25 +28,24 @@ module Qa
 		end
 		
 		scenario 'Creates new response succeeds if valid' do
-			skip
-			
-			[ @question, @response ].each do |node|
-				visit node_path(node)
-				summary = 'This is a response summary.'
-				fill_in 'response[summary]', with: summary
-				body = 'And this is a response body'
-				fill_in 'response[body]', with: body
-				
-				assert_difference('Response.count') { click_on child_relations_for(node).first }
-				current_path.must_equal node_path(node)
-				page.must_have_css '.response .summary', text: summary
-				page.must_have_css '.response .body', text: body
+			[ @question, @answer ].each do |node|
+				node.valid_child_classes.each do |valid_child_class|
+					visit node_path(node)
+					summary = 'This is a response summary.'
+					fill_in 'qa_node[summary]', with: summary
+					body = 'And this is a response body'
+					fill_in 'qa_node[body]', with: body
+					
+					assert_difference("#{valid_child_class.name}.count") { click_on submit_text_for(valid_child_class) }
+					current_path.must_equal node_path(node)
+					
+					page.must_have_css ".#{type_for valid_child_class} .summary", text: summary
+					page.must_have_css ".#{type_for valid_child_class} .body", text: body
+				end
 			end
 		end
 		
 		scenario 'Supporting, Opposing, and Subtype responses display appropriately' do
-			skip
-			
 			[ 'Support', 'Oppose', 'Subtype' ].each do |button|
 				visit node_path(@response)
 				click_on button
