@@ -19,6 +19,10 @@ module Qa
 			color_type.in?( ['subtype', 'support', 'oppose'] ) ? color_type : nil
 		end
 		
+		def wide_for node
+			type_for(node).in?( ['question', 'answer'] )
+		end
+		
 		def back_link_for node, text='Back', args={}
 			parent = node.parent
 			link_to text, (parent.nil? ? questions_path : node_path(parent)), args

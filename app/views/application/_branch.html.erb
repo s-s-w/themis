@@ -1,4 +1,4 @@
-<div id='<%= node == selected ? 'selected' : '' %>' class='branch_header'>
+<div class='branch_header<%= wide_for(node) ? ' wide' : '' %><%= node == selected ? ' selected' : '' %>'>
 	<% if color_type_for(node) -%>
 		<div class='color_<%= color_type_for(node) %>' style='width:5px;'>
 		</div>

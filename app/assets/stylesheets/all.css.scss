@@ -56,11 +56,6 @@ div .errors {
 	@extend .callout;
 }
 
-#selected {
-	padding:0;
-	margin:0;
-}
-
 div #subtype, .subtype, #question, .question, #answer, .answer, #support, .support, #oppose, .oppose {
 	position:relative;
 }
@@ -97,7 +92,7 @@ div .header .actions {
 	background-color:$alert-color;
 }
 
-div .branch_header, div .branch_header_selected {
+.branch_header {
 	@extend .panel;
 	
 	padding: 0 0 0 10px;
@@ -109,12 +104,20 @@ div .branch_header, div .branch_header_selected {
 	position:relative;
 }
 
+.wide {
+	width:100%;
+}
+
 div .branch_body {
 	margin-left: 1px;
 	border-left: 1px dashed $secondary-color;
 }
 
-div #selected {
+.selected {
 	@extend .callout;
 	@extend .branch_header;
+}
+
+.selected .wide {
+	width:100%;
 }
