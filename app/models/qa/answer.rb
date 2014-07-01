@@ -5,6 +5,14 @@ module Qa
 			[Question]
 		end
 		
+		def is_question?
+			false
+		end
+		
+		def is_answer?
+			true
+		end
+		
 		def is_argument?
 			false
 		end

@@ -5,6 +5,14 @@ module Qa
 			[NilClass]
 		end
 		
+		def is_question?
+			true
+		end
+		
+		def is_answer?
+			false
+		end
+		
 		def is_argument?
 			false
 		end

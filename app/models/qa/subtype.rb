@@ -9,6 +9,14 @@ module Qa
 			parent.supports_root?
 		end
 		
+		def is_question?
+			parent.is_question?
+		end
+		
+		def is_answer?
+			parent.is_answer?
+		end
+		
 		def is_argument?
 			parent.is_argument?
 		end

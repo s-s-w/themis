@@ -23,8 +23,12 @@ module Qa
 		def root_color_type_for node
 			if node.is_argument?
 				node.supports_root? ? 'support' : 'oppose'
+			elsif node.is_question?
+				'question'
+			elsif node.is_answer?
+				'answer'
 			else
-				type_for node
+				nil
 			end
 		end
 		
