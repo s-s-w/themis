@@ -1,9 +1,12 @@
 <div class='branch_header<%= wide_for(node) ? ' wide' : '' %><%= node == selected ? ' selected' : '' %>'>
 	<% if color_type_for(node) -%>
-		<div class='color_<%= color_type_for(node) %>' style='width:5px;'>
+		<div class='color_<%= color_type_for(node) %>' style='width:21px;'>
+		</div>
+		
+		<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;'>
 		</div>
 	<% end -%>
-
+	
 	<%= link_to node.summary, node_path(node) -%>
 	
 	<span style='color:grey; margin-left:10px;'>

@@ -5,5 +5,13 @@ module Qa
 			[NilClass]
 		end
 		
+		def is_argument?
+			false
+		end
+		
+		def supports_root?
+			nil
+		end
+		
 	end
 end

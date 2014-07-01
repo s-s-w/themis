@@ -72,7 +72,7 @@ div .header .actions {
   font-size:75%;
 }
 
-.color_subtype, .color_support, .color_oppose {
+.color_question, .color_answer, .color_subtype, .color_support, .color_oppose {
 	position:absolute;
 	left:0;
 	top:0;
@@ -80,23 +80,39 @@ div .header .actions {
 	height:100%;
 }
 
+.root_color_support, .root_color_oppose, .root_color_question, .root_color_answer {
+	position:absolute;
+	right:0;
+	top:0;
+	width:7px;
+	height:100%;
+}
+
+.color_question, .root_color_question {
+	background-color:black;
+}
+
+.color_answer, .root_color_answer {
+	background-color:grey;
+}
+
 .color_subtype {
 	background-color:$primary-color;
 }
 
-.color_support {
+.color_support, .root_color_support {
 	background-color:$success-color;
 }
 
-.color_oppose {
+.color_oppose, .root_color_oppose {
 	background-color:$alert-color;
 }
 
 .branch_header {
 	@extend .panel;
 	
-	padding: 0 0 0 10px;
-	margin-bottom:0;
+	padding: 0 0 0 27px;
+	margin-bottom:-1px;
 	width:800px;
 	height:25px;
 	overflow:hidden;
@@ -105,7 +121,7 @@ div .header .actions {
 }
 
 .wide {
-	width:100%;
+	//width:100%;
 }
 
 div .branch_body {

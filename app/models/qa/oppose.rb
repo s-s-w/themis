@@ -5,5 +5,13 @@ module Qa
 			[Answer, Support, Oppose]
 		end
 		
+		def supports_root?
+			parent.is_argument? ? !parent.supports_root? : false
+		end
+		
+		def is_argument?
+			true
+		end
+		
 	end
 end

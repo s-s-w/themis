@@ -15,8 +15,17 @@ module Qa
 		end
 		
 		def color_type_for node
-			color_type = type_for node
-			color_type.in?( ['subtype', 'support', 'oppose'] ) ? color_type : nil
+			#color_type = type_for node
+			#color_type.in?( ['subtype', 'support', 'oppose'] ) ? color_type : nil
+			type_for node
+		end
+		
+		def root_color_type_for node
+			if node.is_argument?
+				node.supports_root? ? 'support' : 'oppose'
+			else
+				type_for node
+			end
 		end
 		
 		def wide_for node

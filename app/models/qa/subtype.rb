@@ -5,8 +5,12 @@ module Qa
 			Node.all_subclasses
 		end
 		
-		def valid_child_classes
-			parent.valid_child_classes
+		def supports_root?
+			parent.supports_root?
+		end
+		
+		def is_argument?
+			parent.is_argument?
 		end
 		
 	end
