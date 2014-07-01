@@ -17,7 +17,18 @@ module Qa
 		def color_type_for node
 			#color_type = type_for node
 			#color_type.in?( ['subtype', 'support', 'oppose'] ) ? color_type : nil
-			type_for node
+			
+			#type_for node
+			
+			if node.is_question?
+				'question'
+			elsif node.is_answer?
+				'answer'
+			elsif node.is_argument?
+				type_for node
+			else
+				nil
+			end
 		end
 		
 		def root_color_type_for node
