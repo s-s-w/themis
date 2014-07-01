@@ -1,0 +1,22 @@
+<div id='<%= node == selected ? 'selected' : '' %>' class='branch_header'>
+	<% if color_type_for(node) -%>
+		<div class='color_<%= color_type_for(node) %>' style='width:5px;'>
+		</div>
+	<% end -%>
+
+	<%= link_to node.summary, node_path(node) -%>
+	
+	<span style='color:grey; margin-left:10px;'>
+		<%= node.body -%>
+	</span>
+</div>
+
+<div class='branch_body'>
+	<% if node.children.any? -%>
+		<ul>
+			<% node.ordered_children.each do |child| -%>
+				<li><%= render 'branch', node: child, selected: selected -%></li>
+			<% end -%>
+		</ul>
+	<% end -%>
+</div>

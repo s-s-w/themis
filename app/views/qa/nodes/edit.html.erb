@@ -1,4 +1,6 @@
-<%= link_to 'Cancel', node_path(@node) %>
+<p><%= link_to 'Cancel', node_path(@node) %></p>
+
+<%= render 'tree', node: @node.root, selected: @node -%>
 
 <h2>
 	Edit <%= type_for(@node).titleize %>

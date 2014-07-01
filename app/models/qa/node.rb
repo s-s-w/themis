@@ -8,12 +8,24 @@ module Qa
 		validates :parent, presence: true, :unless => lambda { Question == self.class }
 		validate :valid_ancestor_class?
 		
+		def root
+			parent.nil? ? self : parent.root
+		end
+		
+		def ordered_children
+			[ Subtype, Question, Answer, Support, Oppose ].map{ |klass| ordered_children_for klass.name }.flatten
+		end
+		
+		def ordered_children_for node_class_name
+			children.where(type: node_class_name).order(updated_at: :desc)
+		end
+		
 		def valid_child_classes
 			[ Subtype ] +
 			Node.all_subclasses
 				.reject{ |nc| nc == Subtype }
 				.reject{ |nc| !nc.is_valid_child_class_of typed_node_for(self).class }
-				.reverse
+				#.reverse
 		end
 			
 			def self.is_valid_child_class_of klass
