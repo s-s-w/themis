@@ -1,7 +1,7 @@
 module Qa
 	class ::NilClass
 		
-		def valid_child_classes
+		def valid_ordered_child_classes
 			[Qa::Question]
 		end
 		

@@ -17,9 +17,9 @@
 		</div>
 		
 		<div class='row'>
-			<% button_cols = 12 / (node.parent.valid_child_classes.length + 1) -%>
+			<% button_cols = 12 / (node.parent.valid_ordered_child_classes.length + 1) -%>
 			
-			<% node.parent.valid_child_classes.each do |klass| -%>
+			<% node.parent.valid_ordered_child_classes.each do |klass| -%>
 				<div class='medium-<%= button_cols %> small-6 columns'>
 					<%= f.submit submit_text_for(klass), :id => "#{type_for klass}_button" %>
 				</div>

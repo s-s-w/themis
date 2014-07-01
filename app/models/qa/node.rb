@@ -13,11 +13,23 @@ module Qa
 		end
 		
 		def ordered_children
-			[ Subtype, Question, Answer, Support, Oppose ].map{ |klass| ordered_children_for klass.name }.flatten
+			ordered_child_classes.map{ |klass| ordered_children_for klass.name }.flatten
 		end
 		
 		def ordered_children_for node_class_name
 			children.where(type: node_class_name).order(updated_at: :desc)
+		end
+		
+		def ordered_child_classes
+			[ Subtype, Question, Answer, Support, Oppose ]
+		end
+		
+		def valid_ordered_child_classes
+			ordered_child_classes - invalid_child_classes
+		end
+		
+		def invalid_child_classes
+			ordered_child_classes - valid_child_classes
 		end
 		
 		def valid_child_classes
