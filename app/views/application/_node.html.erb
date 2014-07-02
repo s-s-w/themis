@@ -13,13 +13,13 @@
 		<div class='summary'>
 			<%= "<h3>".html_safe unless is_question_list -%>
 			
-			<%= "<span class='strike'>".html_safe if node.archived_at -%>
+			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
 				<% if id_or_class == 'id' -%>
 					<%= node.summary -%>
 				<% elsif id_or_class == 'class' -%>
 					<%= link_to node.summary, node_path(node) -%>
 				<% end -%>
-			<%= "</span>".html_safe if node.archived_at -%>
+			<%= "</strike>".html_safe if node.archived_at -%>
 
 			
 			<%= "</h3>".html_safe unless is_question_list -%>

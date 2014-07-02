@@ -2,7 +2,7 @@ module Qa
 	module ApplicationHelper
 		
 		def strike content
-			content.gsub( '<p>', '<p><span class="strike">' ).gsub( '</p>', '</span></p>').html_safe
+			content.gsub( '<p>', '<p><strike class="strike">' ).gsub( '</p>', '</strike></p>').html_safe
 		end
 		
 		def archived_link_for node

@@ -8,13 +8,15 @@
 				</div>
 			<% end -%>
 			
-			<%= "<span class='strike'>".html_safe if node.archived_at -%>
+			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
 				<%= link_to node.summary, node_path(node) -%>
-			<%= "</span>".html_safe if node.archived_at -%>
+			<%= "</strike>".html_safe if node.archived_at -%>
 			
-			<span class='<%= node.archived_at ? 'strike' : '' -%>' style='color:grey; margin-left:10px;'>
-				<%= node.body -%>
-			</span>
+			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
+				<span class='body'>
+					<%= node.body -%>
+				</span>
+			<%= "</strike>".html_safe if node.archived_at -%>
 		</div>
 		
 		<div class='branch_body'>

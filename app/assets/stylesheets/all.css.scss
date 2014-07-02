@@ -123,29 +123,35 @@ div .header .actions {
 	//width:100%;
 }
 
-div.node {
-	
-}
-
 div.branch_body {
 	position:relative;
 	margin-left: 11px;
 }
 
+div.branch_body .left_vertical_arrow, div.branch_body .left_horizontal_arrow {
+	border: 1px dashed white; //$secondary-color;
+}
+
 div.branch_body .left_vertical_arrow {
-	border-left: 1px dashed $secondary-color;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
 	
 	position:absolute;
 	top:0;
 	bottom:11px;
 }
 
+div.node {	
+}
+
 div.left_horizontal_arrow, div.content {
-	//display:inline;
 }
 
 div.node .left_horizontal_arrow {
-	border-bottom: 1px dashed $secondary-color;
+	border-left:none;
+	border-top:none;
+	border-right:none;
 	
 	height:13px;
 	width:11px;
@@ -154,11 +160,17 @@ div.node .left_horizontal_arrow {
 }
 
 div.content {
-	
+	margin-left:11px;
+	margin-top:-13px;
 }
 
 div.branch_body ul {
 	margin-left:0px;
+}
+
+span.body {
+	margin-left:10px;
+	color:grey;
 }
 
 .selected {
