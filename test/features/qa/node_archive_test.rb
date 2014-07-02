@@ -15,7 +15,7 @@ module Qa
 			@oppose_subtype = create :subtype, parent: @oppose
 		end
 		
-		scenario 'Click edit link and fill out form' do
+		scenario 'Click archive link' do
 			visit node_path(@oppose_subtype)
 			
 			current_path.must_equal node_path(@oppose_subtype)
