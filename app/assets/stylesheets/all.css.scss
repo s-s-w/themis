@@ -136,11 +136,15 @@ div .branch_body {
 	width:100%;
 }
 
-.strike_thin, .strike_thick{
+.strike {
+	text-decoration:line-through;
+}
+
+.strike_thin, .strike_thick {
 	position: relative;
 }
 
-.strike_thin::after, .strike_thick::after{
+.strike_thin::after, .strike_thick::after {
 	content: '';
 	position: absolute;
 	left: 0;

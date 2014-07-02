@@ -26,7 +26,7 @@ module Qa
 		def archive
 			@node = Node.find(params[:id])
 			@node.update_columns archived_at: Time.zone.now
-			redirect_to node_path(@node.parent)
+			redirect_to( @node.parent ? node_path(@node.parent) : node_path(@node) )
 		end
 		
 		def restore

@@ -8,8 +8,20 @@ module Qa
 		validates :parent, presence: true, :unless => lambda { Question == self.class }
 		validate :valid_ancestor_class?
 		
+		def tree_has_archived_nodes?
+			all_nodes_in_tree.reject{ |node| node.archived_at.nil? }.count > 0
+		end
+		
+		def all_nodes_in_tree
+			[root] + root.descendants
+		end
+		
 		def root
 			parent.nil? ? self : parent.root
+		end
+		
+		def descendants
+			children + children.map{ |child| child.descendants }.flatten
 		end
 		
 		def has_ancestor? node

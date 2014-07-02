@@ -2,10 +2,12 @@ module Qa
 	module ApplicationHelper
 		
 		def archived_link_for node
+			return unless node.tree_has_archived_nodes?
+			
 			if params[:archived]
-				link_to( 'archived', node_path(@node) )
+				link_to( 'archived', node_path(node) )
 			else
-				link_to( 'archived', node_path(@node) + '?archived=show' )
+				link_to( 'archived', node_path(node) + '?archived=show' )
 			end
 		end
 		

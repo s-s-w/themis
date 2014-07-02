@@ -35,7 +35,7 @@
 	</div>
 	
 	<% unless is_question_list -%>
-		<div class='body'>
+		<div class='body<%= node.archived_at ? ' strike' : '' %>'>
 			<%= simple_format node.body %>
 		</div>
 	<% end -%>
