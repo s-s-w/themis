@@ -43,7 +43,7 @@ module Qa
 		end
 		
 		def ordered_child_classes
-			[ Subtype, Question, Answer, Support, Oppose ]
+			[ Question, Answer, Support, Oppose, Subtype ]
 		end
 		
 		def valid_ordered_child_classes
@@ -55,11 +55,7 @@ module Qa
 		end
 		
 		def valid_child_classes
-			[ Subtype ] +
-			Node.all_subclasses
-				.reject{ |nc| nc == Subtype }
-				.reject{ |nc| !nc.is_valid_child_class_of typed_node_for(self).class }
-				#.reverse
+			Node.all_subclasses.reject{ |nc| !nc.is_valid_child_class_of typed_node_for(self).class }
 		end
 			
 			def self.is_valid_child_class_of klass

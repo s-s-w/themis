@@ -7,12 +7,18 @@
 		</div>
 		
 		<div>
-			<%= label_with_errors node, :summary %><br />
+			<%= label_with_errors node, :summary %>
+		</div>
+		
+		<div>
 			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: "Be brief!", style: 'height:auto;' %>
 		</div>
 		
 		<div>
-			<%= label_with_errors node, :body %><br />
+			<%= label_with_errors node, :body %>
+		</div>
+		
+		<div>
 			<%= f.text_area :body, rows: 20, cols: 100, placeholder: "Expand here...", style: 'height:auto;' %>
 		</div>
 		
@@ -25,7 +31,7 @@
 				</div>
 			<% end -%>
 			
-			<div class='medium-<%= button_cols %> small-6 columns left'>
+			<div class='medium-<%= button_cols %> small-6 columns'>
 				<%= cancel_link_for node, 'Cancel', :id => 'cancel_button' %>
 			</div>
 		</div>
