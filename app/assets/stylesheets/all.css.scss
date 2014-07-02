@@ -62,13 +62,11 @@ div #subtype, .subtype, #question, .question, #answer, .answer, #support, .suppo
 
 div .header .actions {
 	position:absolute;
-	right:10px;
+	right:12px;
 	top:-4px;
 }
 
-.header .actions a.edit {
-	//$padding: 0.1rem;
-  //@include button($padding);
+.header .actions a.edit, .header .actions a.archive, .header .actions a.restore {
   font-size:75%;
 }
 
@@ -136,4 +134,24 @@ div .branch_body {
 
 .selected .wide {
 	width:100%;
+}
+
+.strike_thin, .strike_thick{
+	position: relative;
+}
+
+.strike_thin::after, .strike_thick::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+}
+
+.strike_thin::after {
+	border-bottom: 2px solid black;
+}
+
+.strike_thick::after {
+	border-bottom: 3px solid black;
 }

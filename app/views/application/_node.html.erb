@@ -9,21 +9,28 @@
 		</div>
 	<% end -%>
 	
-	<div class='header'>
+	<div class='header<%= node.archived_at ? ' archived' : '' %>'>
 		<div class='summary'>
 			<%= "<h3>".html_safe unless is_question_list -%>
 			
-			<% if id_or_class == 'id' -%>
-				<%= node.summary -%>
-			<% elsif id_or_class == 'class' -%>
-				<%= link_to node.summary, node_path(node) -%>
-			<% end -%>
+			<%= "<span class='strike_thick'>".html_safe if node.archived_at -%>
+				<% if id_or_class == 'id' -%>
+					<%= node.summary -%>
+				<% elsif id_or_class == 'class' -%>
+					<%= link_to node.summary, node_path(node) -%>
+				<% end -%>
+			<%= "</span>".html_safe if node.archived_at -%>
+
 			
 			<%= "</h3>".html_safe unless is_question_list -%>
 		</div>
 		
 		<div class='actions'>
-			<%= link_to 'edit', edit_node_path(node), :class => 'edit' unless is_question_list %>
+			<% unless is_question_list -%>
+				<%= edit_link_for node %>
+				<span style='color:lightgrey'>|</span>
+				<%= archive_or_restore_link_for node %>
+			<% end -%>
 		</div>
 	</div>
 	

@@ -23,6 +23,18 @@ module Qa
 			end
 		end
 		
+		def archive
+			@node = Node.find(params[:id])
+			@node.update_columns archived_at: Time.zone.now
+			redirect_to node_path(@node.parent)
+		end
+		
+		def restore
+			@node = Node.find(params[:id])
+			@node.update_columns archived_at: nil
+			redirect_to node_path(@node)
+		end
+		
 		private
 			
 			def path_to_form

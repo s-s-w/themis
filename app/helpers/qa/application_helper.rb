@@ -1,6 +1,26 @@
 module Qa
 	module ApplicationHelper
 		
+		def archived_link_for node
+			if params[:archived]
+				link_to( 'archived', node_path(@node) )
+			else
+				link_to( 'archived', node_path(@node) + '?archived=show' )
+			end
+		end
+		
+		def edit_link_for node
+			link_to 'edit', edit_node_path(node), :class => 'edit'
+		end
+		
+		def archive_or_restore_link_for node
+			if node.archived_at
+				link_to 'restore', restore_node_path(node), :class => 'restore', method: :PATCH
+			else
+				link_to 'archive', archive_node_path(node), :class => 'archive', method: :PATCH
+			end
+		end
+		
 		def submit_text_for new_child_class
 			if Question == new_child_class
 				'Ask Question'
@@ -15,11 +35,6 @@ module Qa
 		end
 		
 		def color_type_for node
-			#color_type = type_for node
-			#color_type.in?( ['subtype', 'support', 'oppose'] ) ? color_type : nil
-			
-			#type_for node
-			
 			if node.is_question?
 				'question'
 			elsif node.is_answer?
@@ -47,7 +62,7 @@ module Qa
 			type_for(node).in?( ['question', 'answer'] )
 		end
 		
-		def back_link_for node, text='Back', args={}
+		def back_link_for node, text='back', args={}
 			parent = node.parent
 			link_to text, (parent.nil? ? questions_path : node_path(parent)), args
 		end

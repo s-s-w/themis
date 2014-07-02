@@ -1,4 +1,12 @@
-<p><%= back_link_for @node %></p>
+<div class='row'>
+	<div class='small-1 column'>
+		<p><%= back_link_for @node %></p>
+	</div>
+	
+	<div class='small-1 column'>
+		<p><%= archived_link_for @node %></p>
+	</div>
+</div>
 
 <%= render 'tree', node: @node.root, selected: @node -%>
 

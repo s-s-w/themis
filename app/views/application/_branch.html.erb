@@ -7,7 +7,9 @@
 		</div>
 	<% end -%>
 	
-	<%= link_to node.summary, node_path(node) -%>
+	<%= "<span class='strike_thin'>".html_safe if node.archived_at -%>
+		<%= link_to node.summary, node_path(node) -%>
+	<%= "</span>".html_safe if node.archived_at -%>
 	
 	<span style='color:grey; margin-left:10px;'>
 		<%= node.body -%>
@@ -18,6 +20,8 @@
 	<% if node.children.any? -%>
 		<ul>
 			<% node.ordered_children.each do |child| -%>
+				<% next if child.archived_at and not params[:archived] and not child == selected -%>
+				
 				<li><%= render 'branch', node: child, selected: selected -%></li>
 			<% end -%>
 		</ul>
