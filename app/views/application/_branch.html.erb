@@ -1,35 +1,41 @@
-<div class='branch_header<%= wide_for(node) ? ' wide' : '' %><%= node == selected ? ' selected' : '' %>'>
-	<% if color_type_for(node) -%>
-		<div class='color_<%= color_type_for(node) %>' style='width:21px;'>
+	<div class='content'>
+		<div class='branch_header<%= wide_for(node) ? ' wide' : '' %><%= node == selected ? ' selected' : '' %>'>
+			<% if color_type_for(node) -%>
+				<div class='color_<%= color_type_for(node) %>' style='width:21px;'>
+				</div>
+				
+				<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;'>
+				</div>
+			<% end -%>
+			
+			<%= "<span class='strike'>".html_safe if node.archived_at -%>
+				<%= link_to node.summary, node_path(node) -%>
+			<%= "</span>".html_safe if node.archived_at -%>
+			
+			<span class='<%= node.archived_at ? 'strike' : '' -%>' style='color:grey; margin-left:10px;'>
+				<%= node.body -%>
+			</span>
 		</div>
 		
-		<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;'>
-		</div>
-	<% end -%>
-	
-	<%= "<span class='strike'>".html_safe if node.archived_at -%>
-		<%= link_to node.summary, node_path(node) -%>
-	<%= "</span>".html_safe if node.archived_at -%>
-	
-	<span class='<%= node.archived_at ? 'strike' : '' -%>' style='color:grey; margin-left:10px;'>
-		<%= node.body -%>
-	</span>
-</div>
-
-<div class='branch_body'>
-	<div class='left_vertical_arrow'>
-	</div>
-	
-	<div class='left_horizontal_arrow'>
-	</div>
-	
-	<% if node.children.any? -%>
-		<ul>
-			<% node.ordered_children.each do |child| -%>
-				<% next if child.archived_at and not params[:archived] and not selected.has_ancestor? child -%>
-				
-				<li><%= render 'branch', node: child, selected: selected -%></li>
+		<div class='branch_body'>
+			<div class='left_vertical_arrow'>
+			</div>
+			
+			<% if node.children.any? -%>
+				<ul>
+					<% node.ordered_children.each do |child| -%>
+						<% next if child.archived_at and not params[:archived] and not selected.has_ancestor? child -%>
+						
+						<li>
+							<div class='node'>
+								<div class='left_horizontal_arrow'>
+								</div>
+								
+								<%= render 'branch', node: child, selected: selected -%>
+							</div>
+						</li>
+					<% end -%>
+				</ul>
 			<% end -%>
-		</ul>
-	<% end -%>
-</div>
+		</div>
+	</div>

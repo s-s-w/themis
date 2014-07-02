@@ -116,10 +116,15 @@ div .header .actions {
 	overflow:hidden;
 	
 	position:relative;
+	//visibility: hidden;
 }
 
 .wide {
 	//width:100%;
+}
+
+div.node {
+	
 }
 
 div.branch_body {
@@ -135,18 +140,25 @@ div.branch_body .left_vertical_arrow {
 	bottom:11px;
 }
 
-//div .branch_body .left_horizontal_arrow {
-//	border-bottom: 1px dashed $secondary-color;
-//	
-//	position:absolute;
-//	top:0px;
-//	height:13px;
-//	left:0px;
-//	right:0px;
-//}
+div.left_horizontal_arrow, div.content {
+	//display:inline;
+}
+
+div.node .left_horizontal_arrow {
+	border-bottom: 1px dashed $secondary-color;
+	
+	height:13px;
+	width:11px;
+	
+	z-index:1000;
+}
+
+div.content {
+	
+}
 
 div.branch_body ul {
-	margin-left:10px;
+	margin-left:0px;
 }
 
 .selected {
