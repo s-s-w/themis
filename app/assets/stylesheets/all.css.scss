@@ -137,25 +137,14 @@ div .branch_body {
 }
 
 .strike {
-	text-decoration:line-through;
-}
-
-.strike_thin, .strike_thick {
 	position: relative;
 }
 
-.strike_thin::after, .strike_thick::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 50%;
-	width: 100%;
-}
-
-.strike_thin::after {
-	border-bottom: 2px solid black;
-}
-
-.strike_thick::after {
-	border-bottom: 3px solid black;
+.strike::after {
+	content:'';
+	border-bottom:2px solid black;
+	position:absolute;
+	left:0;
+	top:50%;
+	width:100%;
 }

@@ -7,11 +7,11 @@
 		</div>
 	<% end -%>
 	
-	<%= "<span class='strike_thin'>".html_safe if node.archived_at -%>
+	<%= "<span class='strike'>".html_safe if node.archived_at -%>
 		<%= link_to node.summary, node_path(node) -%>
 	<%= "</span>".html_safe if node.archived_at -%>
 	
-	<span class='<%= node.archived_at ? 'strike_thin' : '' -%>' style='color:grey; margin-left:10px;'>
+	<span class='<%= node.archived_at ? 'strike' : '' -%>' style='color:grey; margin-left:10px;'>
 		<%= node.body -%>
 	</span>
 </div>

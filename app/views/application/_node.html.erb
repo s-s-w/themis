@@ -9,11 +9,11 @@
 		</div>
 	<% end -%>
 	
-	<div class='header<%= node.archived_at ? ' archived' : '' %>'>
+	<div class='header'>
 		<div class='summary'>
 			<%= "<h3>".html_safe unless is_question_list -%>
 			
-			<%= "<span class='strike_thick'>".html_safe if node.archived_at -%>
+			<%= "<span class='strike'>".html_safe if node.archived_at -%>
 				<% if id_or_class == 'id' -%>
 					<%= node.summary -%>
 				<% elsif id_or_class == 'class' -%>
@@ -35,8 +35,9 @@
 	</div>
 	
 	<% unless is_question_list -%>
-		<div class='body<%= node.archived_at ? ' strike' : '' %>'>
-			<%= simple_format node.body %>
+		<div class='body'>
+			<% content = simple_format(node.body) -%>
+			<%= node.archived_at ? strike(content) : content %>
 		</div>
 	<% end -%>
 </div>
