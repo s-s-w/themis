@@ -1,6 +1,6 @@
 <div class='row'>
 	<div class='small-1 column'>
-		<p><%= back_link_for @node %></p>
+		<p><%= link_to 'questions', questions_path %></p>
 	</div>
 	
 	<div class='small-1 column'>
@@ -10,24 +10,28 @@
 
 <%= render 'tree', node: @node.root, selected: @node -%>
 
-<h1><%= type_for(@node).titleize %></h1>
-<%= render 'node', node: @node, id_or_class: 'id' -%>
-
-<% @node.valid_ordered_child_classes.each do |child_class| -%>
-	<% nodes = @node.ordered_children_for child_class.name -%>
+<a name='selected'>
+	<h1><%= type_for(@node).titleize %></h1>
+	<%= render 'node', node: @node, id_or_class: 'id' -%>
 	
-	<% unless nodes.empty? -%>
-		<% unless 'subtype' == type_for(child_class) -%>
-			<h2><%= type_for(child_class).titleize.pluralize %></h2>
-		<% end -%>
+	<% @node.valid_ordered_child_classes.each do |child_class| -%>
+		<% nodes = @node.ordered_children_for child_class.name -%>
 		
-		<%= render 'list', collection: nodes, list_type: :ol -%>
+		<% unless nodes.empty? -%>
+			<% unless 'subtype' == type_for(child_class) -%>
+				<h2><%= type_for(child_class).titleize.pluralize %></h2>
+			<% end -%>
+			
+			<%= render 'list', collection: nodes, list_type: :ol -%>
+		<% end -%>
 	<% end -%>
-<% end -%>
+</a>
 
 <br>
 <br>
 <br>
 
-<h2>New Response</h2>
-<%= render 'form', node: @new_node -%>
+<a name='form'>
+	<h2>New Response</h2>
+	<%= render 'form', node: @new_node -%>
+</a>

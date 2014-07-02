@@ -17,7 +17,7 @@
 				<% if id_or_class == 'id' -%>
 					<%= node.summary -%>
 				<% elsif id_or_class == 'class' -%>
-					<%= link_to node.summary, node_path(node) -%>
+					<%= link_to node.summary, selected_node_path(node) -%>
 				<% end -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 
@@ -27,6 +27,8 @@
 		
 		<div class='actions'>
 			<% unless is_question_list -%>
+				<%= parent_link_for node %>
+				<span style='color:lightgrey'>|</span>
 				<%= edit_link_for node %>
 				<span style='color:lightgrey'>|</span>
 				<%= archive_or_restore_link_for node %>

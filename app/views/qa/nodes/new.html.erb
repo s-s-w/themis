@@ -1,7 +1,5 @@
-<p><%= back_link_for @new_node %></p>
+<p><%= parent_link_for @new_node, 'back' %></p>
 
-<h2>
-	New Question
-</h2>
+<h2>New Question</h2>
 
 <%= render 'form', node: @new_node -%>

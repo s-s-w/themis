@@ -21,7 +21,7 @@ module Qa
 			current_path.must_equal node_path(@oppose_subtype)
 			assert @oppose_subtype.archived_at.nil?
 			
-			click_on 'archive'
+			click_on 'delete'
 			current_path.must_equal node_path(@oppose_subtype.parent)
 			
 			@oppose_subtype.reload

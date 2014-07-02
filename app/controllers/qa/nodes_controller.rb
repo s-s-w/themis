@@ -16,7 +16,7 @@ module Qa
 			@new_node = Node.create node_params
 			
 			if @new_node.valid?
-				redirect_to( node_path(@new_node.parent || @new_node) )
+				redirect_to selected_node_path(@new_node)
 			else
 				@node = @new_node.parent
 				render path_to_form
@@ -26,13 +26,13 @@ module Qa
 		def archive
 			@node = Node.find(params[:id])
 			@node.update_columns archived_at: Time.zone.now
-			redirect_to( @node.parent ? node_path(@node.parent) : node_path(@node) )
+			redirect_to( @node.parent ? selected_node_path(@node.parent) : selected_node_path(@node) )
 		end
 		
 		def restore
 			@node = Node.find(params[:id])
 			@node.update_columns archived_at: nil
-			redirect_to node_path(@node)
+			redirect_to selected_node_path(@node)
 		end
 		
 		private
@@ -57,7 +57,7 @@ module Qa
 			params[:qa_node][:type] = new_class.name
 			
 			@node.update_attributes node_params
-			@node.valid? ? redirect_to(node_path(@node)) : render('edit')
+			@node.valid? ? redirect_to(selected_node_path @node) : render('edit')
 		end
 		
 	private

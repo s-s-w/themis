@@ -1,6 +1,10 @@
 module Qa
 	module ApplicationHelper
 		
+		def selected_node_path node
+			node_path(node) + (action_name == 'index' ? '' : '#selected')
+		end
+		
 		def strike content
 			content.gsub( '<p>', '<p><strike class="strike">' ).gsub( '</p>', '</strike></p>').html_safe
 		end
@@ -9,21 +13,21 @@ module Qa
 			return unless node.tree_has_archived_nodes?
 			
 			if params[:archived]
-				link_to( 'archived', node_path(node) )
+				link_to( "deletions&nbsp;are&nbsp;visible".html_safe, node_path(node) )
 			else
-				link_to( 'archived', node_path(node) + '?archived=show' )
+				link_to( "deletions&nbsp;are&nbsp;hidden".html_safe, node_path(node) + '?archived=show' )
 			end
 		end
 		
 		def edit_link_for node
-			link_to 'edit', edit_node_path(node), :class => 'edit'
+			link_to 'edit', edit_node_path(node) + '#form', :class => 'edit'
 		end
 		
 		def archive_or_restore_link_for node
 			if node.archived_at
-				link_to 'restore', restore_node_path(node), :class => 'restore', method: :PATCH
+				link_to 'undelete', restore_node_path(node), :class => 'restore', method: :PATCH
 			else
-				link_to 'archive', archive_node_path(node), :class => 'archive', method: :PATCH
+				link_to 'delete', archive_node_path(node), :class => 'archive', method: :PATCH
 			end
 		end
 		
@@ -68,9 +72,26 @@ module Qa
 			type_for(node).in?( ['question', 'answer'] )
 		end
 		
-		def back_link_for node, text='back', args={}
+		def parent_link_for node, text='parent', args={}
 			parent = node.parent
-			link_to text, (parent.nil? ? questions_path : node_path(parent)), args
+			
+			text = 'questions' if parent.nil?
+			url = (parent.nil? ? questions_path : node_path(parent) + '#selected')
+			args.merge!( {:class => 'parent' } )
+			
+			link_to text, url, args
+		end
+		
+		def cancel_link_for node, text='Cancel', args={}
+			parent = node.parent
+			
+			if node.id.nil?
+				url = (parent.nil? ? questions_path : node_path(parent) + '#selected')
+			else
+				url = node_path(node) + '#selected'
+			end
+			
+			link_to text, url, args
 		end
 		
 		def label_with_errors model, attribute

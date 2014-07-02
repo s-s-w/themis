@@ -9,7 +9,7 @@
 			<% end -%>
 			
 			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
-				<%= link_to node.summary, node_path(node) -%>
+				<%= link_to node.summary, selected_node_path(node) -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 			
 			<%= "<strike class='strike'>".html_safe if node.archived_at -%>

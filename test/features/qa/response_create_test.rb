@@ -29,10 +29,8 @@ module Qa
 					fill_in 'qa_node[body]', with: body
 					
 					assert_difference("#{valid_child_class.name}.count") { click_on submit_text_for(valid_child_class) }
-					current_path.must_equal node_path(node)
-					
-					page.must_have_css ".#{type_for valid_child_class} .summary", text: summary
-					page.must_have_css ".#{type_for valid_child_class} .body", text: body
+					page.must_have_css "##{type_for valid_child_class} .summary", text: summary
+					page.must_have_css "##{type_for valid_child_class} .body", text: body
 				end
 			end
 		end

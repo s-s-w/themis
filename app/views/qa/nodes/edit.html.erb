@@ -1,13 +1,11 @@
-<p><%= link_to 'cancel', node_path(@node) %></p>
-
-<br>
-<br>
-<br>
+<div>
+	<p><%= cancel_link_for @node, 'cancel' %></p>
+</div>
 
 <%= render 'tree', node: @node.root, selected: @node -%>
 
-<h2>
-	Edit <%= type_for(@node).titleize %>
-</h2>
-
-<%= render 'form', node: @node -%>
+<a name='form'>
+	<h2>Edit <%= type_for(@node).titleize %></h2>
+	
+	<%= render 'form', node: @node -%>
+</a>
