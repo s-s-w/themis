@@ -12,6 +12,16 @@ module Qa
 			parent.nil? ? self : parent.root
 		end
 		
+		def has_ancestor? node
+			if self == node
+				true
+			elsif parent.nil?
+				false
+			else
+				parent.has_ancestor? node
+			end
+		end
+		
 		def ordered_children
 			ordered_child_classes.map{ |klass| ordered_children_for klass.name }.flatten
 		end
