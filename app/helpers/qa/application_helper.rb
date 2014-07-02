@@ -33,7 +33,7 @@ module Qa
 		
 		def submit_text_for new_child_class
 			if Question == new_child_class
-				'Ask Question'
+				'Question'
 			else
 				new_child_class.name.demodulize
 			end

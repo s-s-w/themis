@@ -25,6 +25,14 @@ div .errors {
   @extend .expand;
  }
 
+#question_button {
+	background-color:black;
+}
+
+#answer_button {
+	background-color:grey;
+}
+
 #support_button {
 	@extend .success;
 }

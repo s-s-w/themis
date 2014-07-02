@@ -71,7 +71,7 @@ module Qa
 		end
 		
 		def new_short_type
-			(params[:commit] == 'Ask Question') ? 'question' : params[:commit].downcase
+			(params[:commit] == 'Question') ? 'question' : params[:commit].downcase
 		end
 		
 	end

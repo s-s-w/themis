@@ -11,7 +11,7 @@ module Qa
 		
 		scenario 'Submitting form does not create new question if invalid' do
 			fill_in 'qa_node[summary]', with: ''
-			refute_difference('Qa::Question.count') { click_on 'Ask' }
+			refute_difference('Qa::Question.count') { click_on 'Question' }
 		end
 		
 		scenario 'Submitting form creates new question if valid' do
@@ -19,7 +19,7 @@ module Qa
 			fill_in 'qa_node[summary]', with: summary
 			body = 'And here is a question body'
 			fill_in 'qa_node[body]', with: body
-			assert_difference('Qa::Question.count') { click_on 'Ask' }
+			assert_difference('Qa::Question.count') { click_on 'Question' }
 			current_path.must_equal node_path(Question.last)
 			page.must_have_content 'Question'
 			page.must_have_css '#question .summary', text: summary
