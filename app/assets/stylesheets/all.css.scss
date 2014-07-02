@@ -122,9 +122,31 @@ div .header .actions {
 	//width:100%;
 }
 
-div .branch_body {
-	margin-left: 1px;
+div.branch_body {
+	position:relative;
+	margin-left: 11px;
+}
+
+div.branch_body .left_vertical_arrow {
 	border-left: 1px dashed $secondary-color;
+	
+	position:absolute;
+	top:0;
+	bottom:11px;
+}
+
+//div .branch_body .left_horizontal_arrow {
+//	border-bottom: 1px dashed $secondary-color;
+//	
+//	position:absolute;
+//	top:0px;
+//	height:13px;
+//	left:0px;
+//	right:0px;
+//}
+
+div.branch_body ul {
+	margin-left:10px;
 }
 
 .selected {
