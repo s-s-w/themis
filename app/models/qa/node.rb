@@ -43,7 +43,7 @@ module Qa
 		end
 		
 		def ordered_child_classes
-			[ Question, Answer, Support, Oppose, Subtype ]
+			[ Subtype, Question, Answer, Support, Oppose ]
 		end
 		
 		def valid_ordered_child_classes

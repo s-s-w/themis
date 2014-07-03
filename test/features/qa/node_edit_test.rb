@@ -26,7 +26,7 @@ module Qa
 				body = 'Updated blah blah.'
 				fill_in "qa_#{type_for(node)}[body]", with: body
 				
-				refute_difference("#{node.class.to_s}.count") { click_on submit_text_for(node.class) }
+				refute_difference("#{node.class.to_s}.count") { click_on submit_text_for(node, node.class) }
 				
 				page.must_have_css "##{type_for(node)} .header .summary", text: summary
 				page.must_have_css "##{type_for(node)} .body", text: body

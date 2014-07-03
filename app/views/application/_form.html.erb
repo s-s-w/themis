@@ -27,7 +27,8 @@
 			
 			<% node.parent.valid_ordered_child_classes.each do |klass| -%>
 				<div class='medium-<%= button_cols %> small-6 columns'>
-					<%= f.submit submit_text_for(klass), :id => "#{type_for klass}_button" %>
+					<% submit_text = submit_text_for(node.parent, klass) -%>
+					<%= f.submit submit_text, :id => "#{submit_text.underscore}_button" %>
 				</div>
 			<% end -%>
 			

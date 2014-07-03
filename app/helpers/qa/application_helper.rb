@@ -31,9 +31,10 @@ module Qa
 			end
 		end
 		
-		def submit_text_for new_child_class
-			if Question == new_child_class
-				'Question'
+		def submit_text_for this_node, new_child_class
+			if Subtype == new_child_class
+				inherited_class_name = this_node.typed_node_for(this_node).class.name.demodulize
+				inherited_class_name.in?( ['Question', 'Answer'] ) ? "Sub-#{inherited_class_name}" : 'Subtype'
 			else
 				new_child_class.name.demodulize
 			end

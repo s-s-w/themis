@@ -12,7 +12,7 @@ module Qa
 			visit node_path(@answer)
 			page.must_have_css 'form'
 			
-			[ 'subtype', 'support', 'oppose', 'cancel' ].each do |action|
+			[ 'sub_answer', 'support', 'oppose', 'cancel' ].each do |action|
 				page.must_have_css "##{action}_button"
 			end
 		end
@@ -27,7 +27,7 @@ module Qa
 				node.valid_child_classes.each do |valid_child_class|
 					visit node_path(node)
 					fill_in 'qa_node[summary]', with: ''
-					refute_difference("#{valid_child_class.name}.count") { click_on submit_text_for(valid_child_class) }
+					refute_difference("#{valid_child_class.name}.count") { click_on submit_text_for(node, valid_child_class) }
 				end
 			end
 		end

@@ -14,7 +14,7 @@ module Qa
 				node.valid_child_classes.each do |valid_child_class|
 					visit node_path(node)
 					fill_in 'qa_node[summary]', with: ''
-					refute_difference("#{valid_child_class.name}.count") { click_on submit_text_for(valid_child_class) }
+					refute_difference("#{valid_child_class.name}.count") { click_on submit_text_for(node, valid_child_class) }
 				end
 			end
 		end
@@ -28,7 +28,7 @@ module Qa
 					body = 'And this is a response body'
 					fill_in 'qa_node[body]', with: body
 					
-					assert_difference("#{valid_child_class.name}.count") { click_on submit_text_for(valid_child_class) }
+					assert_difference("#{valid_child_class.name}.count") { click_on submit_text_for(node, valid_child_class) }
 					page.must_have_css "##{type_for valid_child_class} .summary", text: summary
 					page.must_have_css "##{type_for valid_child_class} .body", text: body
 				end

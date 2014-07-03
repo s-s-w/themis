@@ -71,7 +71,8 @@ module Qa
 		end
 		
 		def new_short_type
-			(params[:commit] == 'Question') ? 'question' : params[:commit].downcase
+			params[:commit] = 'Subtype' if params[:commit].include? 'Sub-'
+			params[:commit].downcase
 		end
 		
 	end

@@ -20,25 +20,29 @@ div .errors {
 	color: red;
 }
 
-#subtype_button, #question_button, #answer_button, #support_button, #oppose_button, #cancel_button {
+#question_button, #sub_question_button, #answer_button, #sub_answer_button, #subtype_button, #support_button, #oppose_button, #cancel_button {
   @extend .button;
   @extend .expand;
  }
 
-#question_button {
+#question_button, #sub_question_button {
 	background-color:#000;
 }
 
-#question_button:hover {
+#question_button:hover, #sub_question_button:hover {
 	background-color:#444;
 }
 
-#answer_button {
+#answer_button, #sub_answer_button {
 	background-color:#666;
 }
 
-#answer_button:hover {
+#answer_button:hover, #sub_answer_button:hover {
 	background-color:#888;
+}
+
+#subtype_button {
+	@extend .primary;
 }
 
 #support_button {
