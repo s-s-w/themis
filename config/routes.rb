@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     member do
       patch 'archive'
       patch 'restore'
-      delete 'destroy', as: 'destroy'
     end
   end
+  
+  delete 'nodes/:id' => 'qa/nodes#destroy', as: 'destroy_node'
   
   resources :questions, only: [ :index ], controller: 'qa/questions'
   
