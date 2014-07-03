@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :nodes, except: [ :delete ], controller: 'qa/nodes' do
+  resources :nodes, except: [ :destroy ], controller: 'qa/nodes' do
     member do
       patch 'archive'
       patch 'restore'
+      delete 'destroy', as: 'destroy'
     end
   end
   

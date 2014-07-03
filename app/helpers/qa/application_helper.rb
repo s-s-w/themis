@@ -25,10 +25,18 @@ module Qa
 		
 		def archive_or_restore_link_for node
 			if node.archived_at
-				link_to 'undelete', restore_node_path(node), :class => 'restore', method: :PATCH
+				html = link_to 'undelete', restore_node_path(node), :class => 'restore', method: :PATCH
+				html += divider
+				html += link_to( 'delete permanently', destroy_node_path(node), :class => 'delete_permanently', method: :DELETE )
 			else
-				link_to 'delete', archive_node_path(node), :class => 'archive', method: :PATCH
+				html = link_to( 'delete', archive_node_path(node), :class => 'archive', method: :PATCH )
 			end
+			
+			html
+		end
+		
+		def divider
+			"<span style='color:lightgrey'> | </span>".html_safe
 		end
 		
 		def submit_text_for this_node, new_child_class

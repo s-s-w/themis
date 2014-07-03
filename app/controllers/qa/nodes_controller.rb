@@ -35,6 +35,12 @@ module Qa
 			redirect_to selected_node_path(@node)
 		end
 		
+		def destroy
+			@node = Node.find(params[:id])
+			@node.destroy
+			redirect_to( @node.parent ? selected_node_path(@node.parent) : selected_node_path(@node) )
+		end
+		
 		private
 			
 			def path_to_form
