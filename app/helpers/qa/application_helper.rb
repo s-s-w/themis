@@ -95,9 +95,9 @@ module Qa
 			link_to text, url, args
 		end
 		
-		def label_with_errors model, attribute
+		def label_with_errors model, attribute, args={}
 			content = attribute.to_s.titleize + errors_for(model, attribute)
-			html :label, content
+			html :label, content, args
 		end
 		
 		def errors_for model, attribute
