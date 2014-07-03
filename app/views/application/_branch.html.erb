@@ -26,7 +26,7 @@
 			<% if node.children.any? -%>
 				<ul>
 					<% node.ordered_children.each do |child| -%>
-						<% next if child.archived_at and not params[:archived] and not selected.has_ancestor? child -%>
+						<% next if child.archived_at and not params[:deleted] and not selected.has_ancestor? child -%>
 						
 						<li>
 							<div class='node'>

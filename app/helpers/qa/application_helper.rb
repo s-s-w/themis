@@ -12,10 +12,10 @@ module Qa
 		def archived_link_for node
 			return unless node.tree_has_archived_nodes?
 			
-			if params[:archived]
+			if params[:deleted]
 				link_to( "deletions&nbsp;are&nbsp;visible".html_safe, node_path(node) )
 			else
-				link_to( "deletions&nbsp;are&nbsp;hidden".html_safe, node_path(node) + '?archived=show' )
+				link_to( "deletions&nbsp;are&nbsp;hidden".html_safe, node_path(node) + '?deleted=show' )
 			end
 		end
 		

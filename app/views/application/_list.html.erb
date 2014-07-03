@@ -1,6 +1,6 @@
 <%= open_tag(list_type).html_safe %>
 	<% collection.each do |element| -%>
-		<% next if element.archived_at and not params[:archived] %>
+		<% next if element.archived_at and not params[:deleted] %>
 		
 		<li><%= render 'node', node: element, id_or_class: 'class' -%></li>
 	<% end -%>
