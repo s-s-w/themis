@@ -26,11 +26,19 @@ div .errors {
  }
 
 #question_button {
-	background-color:black;
+	background-color:#000;
+}
+
+#question_button:hover {
+	background-color:#444;
 }
 
 #answer_button {
-	background-color:grey;
+	background-color:#666;
+}
+
+#answer_button:hover {
+	background-color:#888;
 }
 
 #support_button {
@@ -147,7 +155,7 @@ div.branch_body .left_vertical_arrow {
 	
 	position:absolute;
 	top:0;
-	bottom:11px;
+	bottom:13px;
 }
 
 div.node {	
