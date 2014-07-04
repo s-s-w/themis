@@ -27,7 +27,7 @@ module Qa
 			if node.archived_at
 				html = link_to 'undelete', restore_node_path(node), :class => 'restore', method: :PATCH
 				html += divider
-				html += link_to 'delete permanently', destroy_node_path(node), :class => 'delete_permanently', method: :DELETE, style: 'color:purple;' #,
+				html += link_to 'delete permanently', "/nodes/#{node.id}", :class => 'delete_permanently', method: :DELETE, style: 'color:purple;' #,
 					#data: { confirm: 'WARNING!\n\nTHIS CANNOT BE UNDONE!\n\nARE YOU ABSOLUTELY SURE?' }, style: 'color:purple;'
 			else
 				html = link_to( 'delete', archive_node_path(node), :class => 'archive', method: :PATCH )

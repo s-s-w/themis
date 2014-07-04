@@ -2,7 +2,7 @@ module Qa
 	class Node < ActiveRecord::Base
 		
 		belongs_to :parent, class_name: Node, inverse_of: :children
-		has_many :children, class_name: Node, foreign_key: :parent_id, inverse_of: :parent
+		has_many :children, class_name: Node, foreign_key: :parent_id, inverse_of: :parent, dependent: :destroy
 		
 		validates :summary, presence: true
 		validates :parent, presence: true, :unless => lambda { Question == self.class }
@@ -16,12 +16,44 @@ module Qa
 			[root] + root.descendants
 		end
 		
+		def all_active_nodes_in_tree
+			[root] + root.active_descendants
+		end
+		
+		def is_root?
+			parent.nil?
+		end
+		
 		def root
-			parent.nil? ? self : parent.root
+			@root ||= is_root? ? self : parent.root
+		end
+		
+		def altitude
+			@altitude ||= max_depth - depth
+		end
+		
+		def max_depth
+			if is_root?
+				@max_depth ||= all_active_nodes_in_tree.map{ |node| node.depth }.flatten.max
+			else
+				root.max_depth
+			end
+		end
+		
+		def depth
+			@depth ||= parent.nil? ? 1 : parent.depth + 1
 		end
 		
 		def descendants
 			children + children.map{ |child| child.descendants }.flatten
+		end
+		
+		def active_descendants
+			active_children + active_children.map{ |child| child.active_descendants }.flatten
+		end
+		
+		def active_children
+			children.where( archived_at: nil )
 		end
 		
 		def has_ancestor? node
@@ -34,8 +66,12 @@ module Qa
 			end
 		end
 		
+		def has_active_children?
+			active_children.any?
+		end
+		
 		def has_children?
-			!children.empty?
+			children.any?
 		end
 		
 		def ordered_children
