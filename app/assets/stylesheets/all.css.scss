@@ -68,6 +68,12 @@ div .errors {
 	padding-bottom:0;
 }
 
+#question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
+	// Additional spacing for when book-ended by absolutely positioned color strips (10px wide)
+	padding-left:30px;
+	padding-right:30px;
+}
+
 .question p.empty {
 	margin-bottom:0;
 }
@@ -82,7 +88,7 @@ div #subtype, .subtype, #question, .question, #answer, .answer, #support, .suppo
 
 div .header .actions {
 	position:absolute;
-	right:12px;
+	right:30px;
 	top:-4px;
 }
 
@@ -94,15 +100,15 @@ div .header .actions {
 	position:absolute;
 	left:0;
 	top:0;
-	width:7px;
+	width:10px;
 	height:100%;
 }
 
-.root_color_support, .root_color_oppose, .root_color_question, .root_color_answer {
+.root_color_question, .root_color_answer, .root_color_support, .root_color_oppose {
 	position:absolute;
 	right:0;
 	top:0;
-	width:7px;
+	width:10px;
 	height:100%;
 }
 
@@ -163,7 +169,7 @@ div.branch_body .left_vertical_arrow {
 div.branch_body .left_vertical_arrow_head {
 	position:absolute;
 	
-	top:-15px;
+	top:-16px;
 	left:-4px;
 	
 	color:white;
@@ -179,8 +185,6 @@ div.node .left_horizontal_arrow {
 	
 	height:13px;
 	width:11px;
-	
-	//z-index:1000;
 }
 
 div.content {
