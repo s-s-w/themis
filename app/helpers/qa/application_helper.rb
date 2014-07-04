@@ -78,10 +78,6 @@ module Qa
 			end
 		end
 		
-		def wide_for node
-			type_for(node).in?( ['question', 'answer'] )
-		end
-		
 		def parent_link_for node, text='parent', args={}
 			parent = node.parent
 			

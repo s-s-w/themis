@@ -34,6 +34,10 @@ module Qa
 			end
 		end
 		
+		def has_children?
+			!children.empty?
+		end
+		
 		def ordered_children
 			ordered_child_classes.map{ |klass| ordered_children_for klass.name }.flatten
 		end

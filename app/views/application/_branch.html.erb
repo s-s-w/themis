@@ -1,5 +1,5 @@
 	<div class='content'>
-		<div class='branch_header<%= wide_for(node) ? ' wide' : '' %><%= node == selected ? ' selected' : '' %>'>
+		<div class='branch_header<%= node == selected ? ' selected' : '' %>'>
 			<% if color_type_for(node) -%>
 				<div class='color_<%= color_type_for(node) %>' style='width:21px;'>
 				</div>
@@ -21,6 +21,10 @@
 		
 		<div class='branch_body'>
 			<div class='left_vertical_arrow'>
+			</div>
+			
+			<div class='left_vertical_arrow_head'>
+				<%= "&#9652;".html_safe if node.has_children? %>
 			</div>
 			
 			<% if node.children.any? -%>

@@ -128,19 +128,17 @@ div .header .actions {
 
 .branch_header {
 	@extend .panel;
-	
 	padding: 0 27px 0 27px;
-	margin-bottom:-1px;
+	margin-bottom:5px;
 	width:800px;
-	height:25px;
+	height:50px;
 	overflow:hidden;
 	
 	position:relative;
-	//visibility: hidden;
 }
 
-.wide {
-	//width:100%;
+.branch_header {
+	height:25px;
 }
 
 div.branch_body {
@@ -162,7 +160,13 @@ div.branch_body .left_vertical_arrow {
 	bottom:13px;
 }
 
-div.node {	
+div.branch_body .left_vertical_arrow_head {
+	position:absolute;
+	
+	top:-15px;
+	left:-4px;
+	
+	color:white;
 }
 
 div.left_horizontal_arrow, div.content {
@@ -176,7 +180,7 @@ div.node .left_horizontal_arrow {
 	height:13px;
 	width:11px;
 	
-	z-index:1000;
+	//z-index:1000;
 }
 
 div.content {
@@ -194,12 +198,8 @@ span.body {
 }
 
 .selected {
-	@extend .callout;
 	@extend .branch_header;
-}
-
-.selected .wide {
-	width:100%;
+	background-color:yellow;
 }
 
 .strike {
