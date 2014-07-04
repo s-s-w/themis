@@ -127,5 +127,9 @@ module Qa
 			" &mdash; ".html_safe
 		end
 		
+		def nbsp
+			" &nbsp; ".html_safe
+		end
+		
 	end
 end

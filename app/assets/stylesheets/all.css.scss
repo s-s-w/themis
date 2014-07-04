@@ -107,10 +107,10 @@ div .header .actions {
 
 .color_question, .color_answer, .color_subtype, .color_support, .color_oppose {
 	position:absolute;
-	left:0;
-	top:0;
+	left:1px;
+	top:1px;
+	bottom:1px;
 	width:10px;
-	height:100%;
 }
 
 .root_color_question, .root_color_answer, .root_color_support, .root_color_oppose {
@@ -146,14 +146,10 @@ div .header .actions {
 	padding: 0 27px 0 27px;
 	margin-bottom:5px;
 	min-width:700px;
-	height:50px;
 	overflow:hidden;
+	max-height:75px;
 	
 	position:relative;
-}
-
-.branch_header {
-	height:25px;
 }
 
 div.branch_body {

@@ -3,22 +3,17 @@
 		
 		<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 20 %>px;'>
 			<% if color_type_for(node) -%>
-				<div class='color_<%= color_type_for(node) %>' style='width:21px;'>
+				<div class='color_<%= color_type_for(node) %>' style='width:21px;height_:23px;'>
 				</div>
 				
-				<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;'>
+				<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;height_:23px;'>
 				</div>
 			<% end -%>
 			
 			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
-				<%= link_to node.summary, selected_node_path(node) -%>
+				<%= link_to(node.summary, selected_node_path(node)) + nbsp + node.body -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 			
-			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
-				<span class='body'>
-					<%= node.body -%>
-				</span>
-			<%= "</strike>".html_safe if node.archived_at -%>
 		</div>
 		
 		<div class='branch_body'>
