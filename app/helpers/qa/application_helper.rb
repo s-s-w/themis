@@ -131,5 +131,9 @@ module Qa
 			" &nbsp; ".html_safe
 		end
 		
+		def br
+			" <br /> ".html_safe
+		end
+		
 	end
 end

@@ -4,4 +4,4 @@
 
 <%= render 'empty', element_name: 'question' if @questions.blank? -%>
 
-<%= render 'list', collection: @questions, list_type: :ul, show_body: true if @questions.any? -%>
+<%= render 'list', collection: @questions, list_type: :ul if @questions.any? -%>

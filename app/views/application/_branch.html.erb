@@ -10,8 +10,8 @@
 				</div>
 			<% end -%>
 			
-			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
-				<%= link_to(node.summary, selected_node_path(node)) + nbsp + node.body -%>
+			<%= "<strike>".html_safe if node.archived_at -%>
+				<%= link_to(node.summary, selected_node_path(node)) + br + node.body -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 			
 		</div>
