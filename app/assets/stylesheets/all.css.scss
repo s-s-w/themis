@@ -61,6 +61,8 @@ div .errors {
 	@extend .panel;
 	padding:5px 20px;
 	margin:5px;
+	max-height:110px;
+	overflow:hidden;
 }
 
 #question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose, .form {
