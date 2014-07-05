@@ -2,10 +2,10 @@
 
 <div <%= id_or_class %>='<%= type_for(node) %>'>
 	<% if color_type_for(node) -%>
-		<div class='color_<%= color_type_for(node) %>'>
+		<div class='color_<%= color_type_for(node) %>' style='<%= is_question_list ? 'width:21px;' : '' %>' >
 		</div>
 		
-		<div class='root_color_<%= root_color_type_for(node) %>'>
+		<div class='root_color_<%= root_color_type_for(node) %>' style='<%= is_question_list ? 'width:21px;' : '' %>' >
 		</div>
 	<% end -%>
 	
