@@ -25,7 +25,9 @@
 			</div>
 			
 			<% if (node == selected) and !node.body.blank? -%>
-				<div class='branch_body_text' style='margin-right:<%= node.altitude * 20 %>px;'><%= simple_format node.body %></div>
+				<div class='branch_body_text' style='margin-right:<%= node.altitude * 20 + 21 %>px;'>
+					<%= simple_format node.body %>
+				</div>
 			<% end -%>
 			
 			<% if node.children.any? -%>
