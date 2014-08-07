@@ -140,8 +140,8 @@ div .header .actions {
 .branch_header, .question {
 	@extend .panel;
 	padding: 0 27px 0 27px;
-	margin-bottom:5px;
-	min-width:700px;
+	margin-bottom:0px;
+	//width:700px;
 	overflow:hidden;
 	//max-height:75px;
 	height:25px;
@@ -152,6 +152,14 @@ div .header .actions {
 div.branch_body {
 	position:relative;
 	margin-left: 11px;
+}
+
+div.branch_body_text {
+	@extend .panel;
+	
+	border-top:0;
+	margin-left:12px;
+	margin-bottom:1px;
 }
 
 $arrow-color:white;
@@ -183,7 +191,7 @@ div.branch_body .left_vertical_arrow {
 
 div.branch_body .left_vertical_arrow_head {
 	position:absolute;
-	top:-16px;
+	top:-11px;
 	left:-4px;
 	
 	//color: $arrow-color;
@@ -197,11 +205,12 @@ div.branch_node .left_horizontal_arrow {
 	border-top:none;
 	border-right:none;
 	
-	height:13px;
+	height:18px;
 	width:11px;
 }
 
 div.content {
+	min-width:700px;
 	margin-left:11px;
 	margin-top:-13px;
 }

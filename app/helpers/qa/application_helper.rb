@@ -2,7 +2,7 @@ module Qa
 	module ApplicationHelper
 		
 		def selected_node_path node
-			node_path(node) + (action_name == 'index' ? '' : '#selected')
+			node_path(node) #+ (action_name == 'index' ? '' : '#selected')
 		end
 		
 		def strike content

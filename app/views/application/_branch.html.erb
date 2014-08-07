@@ -11,7 +11,7 @@
 			<% end -%>
 			
 			<%= "<strike>".html_safe if node.archived_at -%>
-				<%= link_to(node.summary, selected_node_path(node)) + br + node.body -%>
+				<%= link_to(node.summary, selected_node_path(node)) -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 			
 		</div>
@@ -23,6 +23,10 @@
 			<div class='left_vertical_arrow_head <%= color_type_for node %>_arrow'>
 				<%= "&#9652;".html_safe if node.has_active_children? %>
 			</div>
+			
+			<% if (node == selected) and !node.body.blank? -%>
+				<div class='branch_body_text' style='margin-right:<%= node.altitude * 20 %>px;'><%= simple_format node.body %></div>
+			<% end -%>
 			
 			<% if node.children.any? -%>
 				<ul>
