@@ -1,8 +1,4 @@
-@import 'foundation_and_overrides';
-
-html body {
-	background:#bcd;
-}
+@import 'foundation';
 
 label {
 	font-weight: bold;
@@ -24,6 +20,12 @@ div .errors {
   @extend .button;
   @extend .expand;
  }
+
+$black-color:#000;
+$light-black-color:#444;
+$grey-color:#666;
+$light-grey-color:#888;
+
 
 #question_button, #sub_question_button {
 	background-color:#000;
@@ -116,11 +118,11 @@ div .header .actions {
 }
 
 .color_question, .root_color_question {
-	background-color:black;
+	background-color:$black-color;
 }
 
 .color_answer, .root_color_answer {
-	background-color:grey;
+	background-color:$grey-color;
 }
 
 .color_subtype {
@@ -152,9 +154,22 @@ div.branch_body {
 	margin-left: 11px;
 }
 
+$arrow-color:white;
+
 div.branch_body .left_vertical_arrow, div.branch_body .left_horizontal_arrow {
-	border: 1px dashed white; //$secondary-color;
+	border-width: 1px;
+	border-style: dashed;
 }
+
+.left_vertical_arrow, .left_vertical_arrow_head, .left_horizontal_arrow {
+	//border-color: $arrow-color;
+}
+
+.question_arrow { border-color:$black-color;		color:$black-color;	}
+.answer_arrow 	{ border-color:$grey-color;			color:$grey-color;	}
+.subtype_arrow 	{ border-color:$primary-color;	color:$primary-color;	}
+.support_arrow 	{ border-color:$success-color;	color:$success-color;	} 
+.oppose_arrow 	{ border-color:$alert-color;		color:$alert-color;	} 
 
 div.branch_body .left_vertical_arrow {
 	border-top:none;
@@ -168,11 +183,10 @@ div.branch_body .left_vertical_arrow {
 
 div.branch_body .left_vertical_arrow_head {
 	position:absolute;
-	
 	top:-16px;
 	left:-4px;
 	
-	color:white;
+	//color: $arrow-color;
 }
 
 div.left_horizontal_arrow, div.content {

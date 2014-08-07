@@ -13,11 +13,6 @@ require 'database_cleaner'
 
 Rails.application.eager_load!
 
-#class ActionDispatch::IntegrationTest
-#	include Capybara::DSL
-#	include Capybara::Assertions
-#end
-
 class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
   
