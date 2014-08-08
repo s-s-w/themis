@@ -1,7 +1,7 @@
 	<div class='content'>
 		<% selection = (node == selected) ? ' selected' : '' -%>
 		
-		<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 20 %>px;'>
+		<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 21 %>px;'>
 			<% if color_type_for(node) -%>
 				<div class='color_<%= color_type_for(node) %>' style='width:21px;height_:23px;'>
 				</div>
@@ -24,10 +24,12 @@
 				<%= "&#9652;".html_safe if node.has_active_children? %>
 			</div>
 			
-			<% if (node == selected) and !node.body.blank? -%>
-				<div class='branch_body_text' style='margin-right:<%= node.altitude * 20 + 21 %>px;'>
-					<%= simple_format node.body %>
-				</div>
+			<% if (node == selected) %>
+				<% unless node.body.blank? -%>
+					<div class='branch_body_text' style='margin-right:<%= (node.altitude + 1) * 21 %>px;'>
+						<%= simple_format node.body %>
+					</div>
+				<% end -%>
 			<% end -%>
 			
 			<% if node.children.any? -%>

@@ -18,6 +18,7 @@ div .errors {
 
 #question_button, #sub_question_button, #answer_button, #sub_answer_button, #subtype_button, #support_button, #oppose_button, #cancel_button {
   @extend .button;
+  @extend .small;
   @extend .expand;
  }
 
@@ -83,8 +84,12 @@ $light-grey-color:#888;
 }
 
 .form {
-	margin-left:24px;
-	margin-right:24px;
+	//margin-left:24px;
+	//margin-right:24px;
+	
+	margin-left:11px;
+	margin-top:-2px;
+	margin-bottom:2px;
 }
 
 div #subtype, .subtype, #question, .question, #answer, .answer, #support, .support, #oppose, .oppose {
