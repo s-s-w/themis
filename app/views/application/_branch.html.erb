@@ -3,10 +3,12 @@
 	
 	<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 21 %>px;'>
 		<% if color_type_for(node) -%>
-			<div class='color_<%= color_type_for(node) %>' style='width:21px;'>
+			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
+				<%= node.active_children.count unless node.children.blank? %>
 			</div>
 			
-			<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;'>
+			<div class='root_color_<%= root_color_type_for(node) %>' style='min-width:21px;'>
+				<%= node.active_descendants.length unless node.active_descendants.blank? %>
 			</div>
 		<% end -%>
 		
