@@ -62,7 +62,7 @@ module Qa
 			elsif node.is_argument?
 				type_for node
 			else
-				nil
+				'new_node'
 			end
 		end
 		
@@ -74,7 +74,7 @@ module Qa
 			elsif node.is_answer?
 				'answer'
 			else
-				nil
+				'new_node'
 			end
 		end
 		

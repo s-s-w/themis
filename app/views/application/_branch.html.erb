@@ -1,52 +1,59 @@
-	<div class='content'>
-		<% selection = (node == selected) ? ' selected' : '' -%>
-		
-		<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 21 %>px;'>
-			<% if color_type_for(node) -%>
-				<div class='color_<%= color_type_for(node) %>' style='width:21px;height_:23px;'>
-				</div>
-				
-				<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;height_:23px;'>
-				</div>
-			<% end -%>
+<div class='content'>
+	<% selection = (node == selected) ? ' selected' : '' -%>
+	
+	<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 21 %>px;'>
+		<% if color_type_for(node) -%>
+			<div class='color_<%= color_type_for(node) %>' style='width:21px;height_:23px;'>
+			</div>
 			
+			<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;height_:23px;'>
+			</div>
+		<% end -%>
+		
+		<% if node.new_record? -%>
+			<input type="text" id="qa_node_summary" name="qa_node[summary]" placeholder="Title / Summary" style="height:23px; width:105%; padding:6px; margin-top_:-1px; margin-left:-4px; margin-right:-5px; border:0;"></input>
+		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
 				<%= link_to(node.summary, selected_node_path(node)) -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
-			
+		<% end -%>
+		
+	</div>
+	
+	<div class='branch_body'>
+		<div class='left_vertical_arrow <%= color_type_for node %>_arrow'>
 		</div>
 		
-		<div class='branch_body'>
-			<div class='left_vertical_arrow <%= color_type_for node %>_arrow'>
-			</div>
-			
-			<div class='left_vertical_arrow_head <%= color_type_for node %>_arrow'>
-				<%= "&#9652;".html_safe if node.has_active_children? %>
-			</div>
-			
-			<% if (node == selected) %>
-				<% unless node.body.blank? -%>
-					<div class='branch_body_text' style='margin-right:<%= (node.altitude + 1) * 21 %>px;'>
-						<%= simple_format node.body %>
-					</div>
-				<% end -%>
-			<% end -%>
-			
-			<% if node.children.any? -%>
-				<ul>
-					<% node.ordered_children.each do |child| -%>
-						<% next if child.archived_at and not params[:deleted] and not selected.has_ancestor? child -%>
-						
-						<li>
-							<div class='branch_node'>
-								<div class='left_horizontal_arrow <%= color_type_for node %>_arrow'>
-								</div>
-								
-								<%= render 'branch', node: child, selected: selected -%>
-							</div>
-						</li>
-					<% end -%>
-				</ul>
-			<% end -%>
+		<div class='left_vertical_arrow_head <%= color_type_for node %>_arrow'>
+			<%= "&#9652;".html_safe if node.has_active_children? %>
 		</div>
+		
+		<% if ((node == selected) and !node.body.blank?) or (node.new_record?) %>
+			<div class='branch_body_text' style='margin-right:<%= (node.altitude + 1) * 21 %>px;'>
+				<% if node.new_record? -%>
+					<%= '[PUT BODY FIELD HERE]' %>
+				<% else -%>
+					<%= simple_format node.body %>
+				<% end -%>
+			</div>
+		<% end -%>
+		
+		<% if node.children.any? or (node == selected) -%>
+			<ul>
+				
+				<% ( [(node == selected ? @new_node : nil)] + node.ordered_children ).compact.each do |child| -%>
+					<% next if child.archived_at and not params[:deleted] and not selected.has_ancestor? child -%>
+					
+					<li>
+						<div class='branch_node'>
+							<div class='left_horizontal_arrow <%= color_type_for node %>_arrow'></div>
+							
+							<%= render 'branch', node: child, selected: selected -%>
+						</div>
+					</li>
+				<% end -%>
+				
+			</ul>
+		<% end -%>
 	</div>
+</div>
