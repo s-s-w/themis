@@ -13,7 +13,7 @@
 		<% end -%>
 		
 		<% if (node == @new_node) -%>
-			<%= link_to 'Respond', js_void, onclick: "toggleResponseVisibility()" %>
+			<%= link_to 'respond', js_void, onclick: "toggleResponseVisibility()" %>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
 				<%= link_to(node.summary, selected_node_path(node)) -%>
@@ -66,10 +66,10 @@
 	
 	function toggleResponseVisibility(){
 		if (responseVisibility()) {
-			$('.response').hide();
+			$('.response').hide(400);
 		}
 		else {
-			$('.response').show();
+			$('.response').show(400);
 		}
   };
 </script>
