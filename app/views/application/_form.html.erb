@@ -1,40 +1,32 @@
+<% inline = false unless inline -%>
 <% url = node.new_record? ? nodes_path : node_path(node) -%>
 
-<div class='form'>
-	<%= form_for node, url: url do |f| %>
-		<div style='display:none;'>
-			<%= f.text_field :parent_id %>
-		</div>
+<%= form_for node, url: url do |f| %>
+	<div style='display:none;'>
+		<%= f.text_field :parent_id %>
+	</div>
+	
+	<div>
+		<%= f.text_field :summary, placeholder: 'Title / Summary' %>
+	</div>
+	
+	<div>
+		<% rows = inline ? 5 : 20 -%>
+		<%= f.text_area :body, rows: rows, cols: 100, placeholder: "Body...", style: 'height:auto;' %>
+	</div>
+	
+	<div class='row'>
+		<% button_cols = 12 / (node.parent.valid_ordered_child_classes.length + 1) -%>
 		
-		<div>
-			<%= label_with_errors node, 'Title / Summary' %>
-		</div>
-		
-		<div>
-			<%= f.text_area :summary, rows: 3, cols: 100, placeholder: "Be brief!", style: 'height:auto;' %>
-		</div>
-		
-		<div>
-			<%= label_with_errors node, :body %>
-		</div>
-		
-		<div>
-			<%= f.text_area :body, rows: 20, cols: 100, placeholder: "Expand here...", style: 'height:auto;' %>
-		</div>
-		
-		<div class='row'>
-			<% button_cols = 12 / (node.parent.valid_ordered_child_classes.length + 1) -%>
-			
-			<% node.parent.valid_ordered_child_classes.each do |klass| -%>
-				<div class='medium-<%= button_cols %> small-6 columns'>
-					<% submit_text = submit_text_for(node.parent, klass) -%>
-					<%= f.submit submit_text, :id => "#{submit_text.underscore}_button" %>
-				</div>
-			<% end -%>
-			
+		<% node.parent.valid_ordered_child_classes.each do |klass| -%>
 			<div class='medium-<%= button_cols %> small-6 columns'>
-				<%= cancel_link_for node, 'Cancel', :id => 'cancel_button' %>
+				<% submit_text = submit_text_for(node.parent, klass) -%>
+				<%= f.submit submit_text, :id => "#{submit_text.underscore}_button", style: 'margin-bottom:0;' %>
 			</div>
+		<% end -%>
+		
+		<div class='medium-<%= button_cols %> small-6 columns'>
+			<%= cancel_link_for node, 'Cancel', :id => 'cancel_button', style: 'margin-bottom:0;' %>
 		</div>
-	<% end -%>
-</div>
+	</div>
+<% end -%>

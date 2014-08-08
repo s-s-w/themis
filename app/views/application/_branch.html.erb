@@ -3,21 +3,20 @@
 	
 	<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 21 %>px;'>
 		<% if color_type_for(node) -%>
-			<div class='color_<%= color_type_for(node) %>' style='width:21px;height_:23px;'>
+			<div class='color_<%= color_type_for(node) %>' style='width:21px;height:21px;'>
 			</div>
 			
-			<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;height_:23px;'>
+			<div class='root_color_<%= root_color_type_for(node) %>' style='width:21px;height:21px;'>
 			</div>
 		<% end -%>
 		
-		<% if node.new_record? -%>
-			<input type="text" id="qa_node_summary" name="qa_node[summary]" placeholder="Title / Summary" style="height:23px; width:105%; padding:6px; margin-top_:-1px; margin-left:-4px; margin-right:-5px; border:0;"></input>
+		<% if (node == @new_node) -%>
+			<%= link_to 'Respond', js_void, onclick: "toggleResponseVisibility()" %>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
 				<%= link_to(node.summary, selected_node_path(node)) -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 		<% end -%>
-		
 	</div>
 	
 	<div class='branch_body'>
@@ -25,13 +24,13 @@
 		</div>
 		
 		<div class='left_vertical_arrow_head <%= color_type_for node %>_arrow'>
-			<%= "&#9652;".html_safe if node.has_active_children? %>
+			<%= "&#9652;".html_safe if node.has_active_children? or (node == selected) %>
 		</div>
 		
 		<% if ((node == selected) and !node.body.blank?) or (node.new_record?) %>
-			<div class='branch_body_text' style='margin-right:<%= (node.altitude + 1) * 21 %>px;'>
+			<div class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; <%= 'display:none;' if node.new_record? %>'>
 				<% if node.new_record? -%>
-					<%= '[PUT BODY FIELD HERE]' %>
+					<%= render 'form', node: @new_node, inline: true %>
 				<% else -%>
 					<%= simple_format node.body %>
 				<% end -%>
@@ -57,3 +56,18 @@
 		<% end -%>
 	</div>
 </div>
+
+<script>
+	function responseVisibility(){
+		return $('.response').css('display') != 'none';
+	}
+	
+	function toggleResponseVisibility(){
+		if (responseVisibility()) {
+			$('.response').hide();
+		}
+		else {
+			$('.response').show();
+		}
+  };
+</script>

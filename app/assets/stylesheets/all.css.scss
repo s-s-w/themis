@@ -64,9 +64,13 @@ $light-grey-color:#888;
 	@extend .secondary;
 }
 
-#question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose, .form {
+#question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
 	@extend .panel;
 	padding-bottom:0;
+}
+
+.form {
+	@extend .panel;
 }
 
 #question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
@@ -120,10 +124,11 @@ div .header .actions {
 
 .root_color_question, .root_color_answer, .root_color_support, .root_color_oppose, .root_color_new_node {
 	position:absolute;
-	right:0;
-	top:0;
+	right:1px;
+	top:1px;
+	bottom:1px;
 	width:10px;
-	height:100%;
+	//height:100%;
 }
 
 .color_question, .root_color_question {
@@ -147,7 +152,7 @@ div .header .actions {
 }
 
 .color_new_node, .root_color_new_node {
-	background-color:yellow;
+	background-color:white;
 }
 
 .branch_header, .question {
@@ -173,6 +178,8 @@ div.branch_body_text {
 	border-top:0;
 	margin-left:12px;
 	margin-bottom:1px;
+	
+	//background-color:white;
 }
 
 $arrow-color:white;
@@ -191,7 +198,7 @@ div.branch_body .left_vertical_arrow, div.branch_body .left_horizontal_arrow {
 .subtype_arrow 	{ border-color:$primary-color;	color:$primary-color;	}
 .support_arrow 	{ border-color:$success-color;	color:$success-color;	} 
 .oppose_arrow 	{ border-color:$alert-color;		color:$alert-color;		} 
-.new_node_arrow { border-color:yellow;					color:yellow;					} 
+.new_node_arrow { border-color:white;						color:white;					} 
 
 div.branch_body .left_vertical_arrow {
 	border-top:none;
