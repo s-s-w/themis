@@ -248,6 +248,7 @@ span.body {
 .selected {
 	@extend .branch_header;
 	background-color:yellow;
+	height:100%;
 }
 
 .strike {
