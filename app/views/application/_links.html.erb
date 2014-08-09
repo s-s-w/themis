@@ -1,0 +1,9 @@
+<div class='actions'>
+	<% unless is_question_list -%>
+		<%= parent_link_for node %>
+		<%= divider %>
+		<%= edit_link_for node %>
+		<%= divider %>
+		<%= archive_or_restore_link_for node %>
+	<% end -%>
+</div>

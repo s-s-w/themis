@@ -10,22 +10,20 @@
 
 <%= render 'tree', node: @node.root, selected: @node -%>
 
-<a name='selected'>
-	<h1><%= type_for(@node).titleize %></h1>
-	<%= render 'node', node: @node, id_or_class: 'id' -%>
+<h1><%= type_for(@node).titleize %></h1>
+<%= render 'node', node: @node, id_or_class: 'id' -%>
+
+<% @node.valid_ordered_child_classes.each do |child_class| -%>
+	<% nodes = @node.ordered_children_for child_class.name -%>
 	
-	<% @node.valid_ordered_child_classes.each do |child_class| -%>
-		<% nodes = @node.ordered_children_for child_class.name -%>
-		
-		<% unless nodes.empty? -%>
-			<% unless 'subtype' == type_for(child_class) -%>
-				<h2><%= type_for(child_class).titleize.pluralize %></h2>
-			<% end -%>
-			
-			<%= render 'list', collection: nodes, list_type: :ol -%>
+	<% unless nodes.empty? -%>
+		<% unless 'subtype' == type_for(child_class) -%>
+			<h2><%= type_for(child_class).titleize.pluralize %></h2>
 		<% end -%>
+		
+		<%= render 'list', collection: nodes, list_type: :ol -%>
 	<% end -%>
-</a>
+<% end -%>
 
 <br>
 <br>

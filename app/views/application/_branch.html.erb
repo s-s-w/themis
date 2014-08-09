@@ -1,7 +1,9 @@
 <% selected = nil unless selected -%>
-<% css_selected = (node == selected ? 'selected' : '') -%>
+<% css_selected = (node == selected ? 'selected' : nil) -%>
 
 <div class='content'>
+	<a name='<%= css_selected %>'></a>
+	
 	<div class='branch_header <%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px;'>
 		<% if color_type_for(node) -%>
 			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
