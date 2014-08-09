@@ -1,7 +1,5 @@
 <div class='content'>
-	<% selection = (node == selected) ? ' selected' : '' -%>
-	
-	<div class='branch_header<%= selection %>' style='margin-right:<%= node.altitude * 21 %>px;'>
+	<div class='branch_header' style='margin-right:<%= node.altitude * 21 %>px;'>
 		<% if color_type_for(node) -%>
 			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
 				<%= node.active_children.count unless node.active_children.blank? %>
@@ -12,8 +10,8 @@
 			</div>
 		<% end -%>
 		
-		<% if (node == @new_node) -%>
-			<%= link_to 'respond', js_void, onclick: "toggleVisibility('.response')" %>
+		<% if node.new_record? -%>
+			New Response
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
 				<%= link_to node.summary, js_void, onclick: "toggleVisibility('##{node.id}')" -%>
@@ -26,34 +24,41 @@
 		</div>
 		
 		<div class='left_vertical_arrow_head <%= color_type_for node %>_arrow'>
-			<%= "&#9652;".html_safe if node.has_active_children? or (node == selected) %>
+			<%= "&#9652;".html_safe if node.has_active_children? %>
 		</div>
 		
-		<% if (!node.body.blank?) or (node.new_record?) %>
-			<div id='<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; display:none;'>
-				<% if node.new_record? -%>
-					<%= render 'form', node: @new_node, inline: true %>
-				<% else -%>
-					<%= simple_format node.body %>
-				<% end -%>
-			</div>
-		<% end -%>
+		<div id='<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; <%= node.new_record? ? '' : 'display:none;' %>'>
+			<% if node.new_record? %>
+				<%= render 'form', node: node, inline: true %>
+			<% else -%>
+				<%= simple_format node.body unless node.body.blank? %>
+				<%= link_to 'respond', js_void, onclick: "toggleVisibility('#response_to_#{node.id}')" %>
+			<% end -%>
+		</div>
 		
-		<% if node.children.any? or (node == selected) -%>
+		<% unless node.new_record? -%>
 			<ul>
+				<li id='response_to_<%= node.id %>' style='display:none;'>
+					<div class='branch_node'>
+						<div class='left_horizontal_arrow <% color_type_for node %>_arrow'></div>
+						
+						<%= render 'branch', node: @new_nodes[node.id] -%>
+					</div>
+				</li>
 				
-				<% ( [(node == selected ? @new_node : nil)] + node.ordered_children ).compact.each do |child| -%>
-					<% next if child.archived_at and not params[:deleted] and not selected.has_ancestor? child -%>
-					
-					<li>
-						<div class='branch_node'>
-							<div class='left_horizontal_arrow <%= color_type_for node %>_arrow'></div>
-							
-							<%= render 'branch', node: child, selected: selected -%>
-						</div>
-					</li>
+				<% if node.children.any? -%>
+					<% node.ordered_children.each do |child| -%>
+						<% next if child.archived_at and not params[:deleted] -%>
+						
+						<li>
+							<div class='branch_node'>
+								<div class='left_horizontal_arrow <%= color_type_for node %>_arrow'></div>
+								
+								<%= render 'branch', node: child -%>
+							</div>
+						</li>
+					<% end -%>
 				<% end -%>
-				
 			</ul>
 		<% end -%>
 	</div>

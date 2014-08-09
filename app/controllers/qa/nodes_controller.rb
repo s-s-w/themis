@@ -4,7 +4,13 @@ module Qa
 		
 		def show
 			@node = Node.find params[:id]
-			@new_node = Node.new parent: @node
+			#@new_node = Node.new parent: @node
+			
+			@new_nodes = {}
+			
+			@node.all_active_nodes_in_tree.each do |node|
+				@new_nodes[node.id] = Node.new parent: node
+			end
 		end
 		
 		def new
