@@ -2,6 +2,6 @@
 	<% collection.each do |element| -%>
 		<% next if element.archived_at and not params[:deleted] %>
 		
-		<li><%= render 'node', node: element, id_or_class: 'class' -%></li>
+		<li class='full_node'><%= render 'node', node: element, id_or_class: 'class' -%></li>
 	<% end -%>
 <%= close_tag(list_type).html_safe %>

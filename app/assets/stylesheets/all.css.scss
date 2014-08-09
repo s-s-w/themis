@@ -104,14 +104,23 @@ div #subtype, .subtype, #question, .question, #answer, .answer, #support, .suppo
 	position:relative;
 }
 
-div .header .actions {
+div .branch_body_text {
+	position:relative;
+	padding-top:0px;
+}
+
+div.actions {
 	position:absolute;
-	right:30px;
+	right:5px;
 	top:-4px;
 }
 
-.header .actions a {
+.actions a {
   font-size:75%;
+}
+
+.full_node div.actions {
+	right:15px;
 }
 
 .color_question, .color_answer, .color_subtype, .color_support, .color_oppose, .color_new_node {
@@ -130,6 +139,7 @@ div .header .actions {
 	right:1px;
 	top:1px;
 	bottom:1px;
+	width:10px;
 	
 	color: white;
 	text-align: center;
