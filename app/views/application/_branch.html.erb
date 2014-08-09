@@ -13,10 +13,10 @@
 		<% end -%>
 		
 		<% if (node == @new_node) -%>
-			<%= link_to 'respond', js_void, onclick: "toggleResponseVisibility()" %>
+			<%= link_to 'respond', js_void, onclick: "toggleVisibility('.response')" %>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
-				<%= link_to(node.summary, selected_node_path(node)) -%>
+				<%= link_to node.summary, js_void, onclick: "toggleVisibility('##{node.id}')" -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 		<% end -%>
 	</div>
@@ -29,8 +29,8 @@
 			<%= "&#9652;".html_safe if node.has_active_children? or (node == selected) %>
 		</div>
 		
-		<% if ((node == selected) and !node.body.blank?) or (node.new_record?) %>
-			<div class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; <%= 'display:none;' if node.new_record? %>'>
+		<% if (!node.body.blank?) or (node.new_record?) %>
+			<div id='<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; display:none;'>
 				<% if node.new_record? -%>
 					<%= render 'form', node: @new_node, inline: true %>
 				<% else -%>
@@ -60,16 +60,10 @@
 </div>
 
 <script>
-	function responseVisibility(){
-		return $('.response').css('display') != 'none';
+	function toggleVisibility(selector){
+		if( $(selector).css('display') === 'none' )
+			{ $(selector).show(400); }
+		else
+			{ $(selector).hide(400); }
 	}
-	
-	function toggleResponseVisibility(){
-		if (responseVisibility()) {
-			$('.response').hide(400);
-		}
-		else {
-			$('.response').show(400);
-		}
-  };
 </script>
