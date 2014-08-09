@@ -68,28 +68,3 @@
 		<% end -%>
 	</div>
 </div>
-
-<script>
-	function toggleVisibility(selector) {
-		if( $(selector).css('display') === 'none' ) {
-				$(selector).show(400);
-		} else
-			{ $(selector).hide(400); }
-	}
-	
-	function toggleExpanded(selector) {
-		if( $(selector)[0].className.search('expanded') != -1 ) {
-			$(selector)[0].className = $(selector)[0].className.replace('branch_header expanded', 'branch_header');
-		} else {
-			$(selector)[0].className = $(selector)[0].className.replace('branch_header', 'branch_header expanded');
-		}
-	}
-	
-	function toggleBodyTextVisibility(selector) {
-		var branch_body_text_id = selector.replace('#', '#branch_body_text_');
-		var branch_header_id 		= selector.replace('#', '#branch_header_');
-		
-		toggleVisibility(branch_body_text_id);
-		toggleExpanded(branch_header_id);
-	}
-</script>

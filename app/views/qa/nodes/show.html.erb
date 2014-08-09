@@ -45,15 +45,15 @@
 
 
 <script>
-	function toggleExpanded(selector) {
-		$(selector).each( function(i, el) {
-			if( el.className.search('expanded') != -1 ) {
-				el.className = el.className.replace('branch_header expanded', 'branch_header');
-			} else {
-				el.className = el.className.replace('branch_header', 'branch_header expanded');
-			}
-		});
-	}
+	//function toggleExpanded(selector) {
+	//	$(selector).each( function(i, el) {
+	//		if( el.className.search('expanded') != -1 ) {
+	//			el.className = el.className.replace('branch_header expanded', 'branch_header');
+	//		} else {
+	//			el.className = el.className.replace('branch_header', 'branch_header expanded');
+	//		}
+	//	});
+	//}
 	
 	function expandAll() {
 		$('.branch_body_text').show(1000);
@@ -65,5 +65,33 @@
 		toggleExpanded('.branch_header');
 		
 		$('.response').css('display', 'visible');
+	}
+	
+	function toggleVisibility(selector) {
+		if( $(selector).css('display') === 'none' ) {
+				$(selector).show(400);
+		} else
+			{ $(selector).hide(400); }
+	}
+	
+	function toggleExpanded(selector) {
+		if( $(selector)[0].className.search('expanded') != -1 ) {
+			$(selector).animate({ height : '25px' }, 400, function () {
+	 			$(selector)[0].className = $(selector)[0].className.replace('branch_header expanded', 'branch_header');
+			});
+		}
+		else {
+			$(selector).animate({ height : '100%' }, 400, function () {
+				$(selector)[0].className = $(selector)[0].className.replace('branch_header', 'branch_header expanded');
+			});
+		}
+	}
+	
+	function toggleBodyTextVisibility(selector) {
+		var branch_body_text_id = selector.replace('#', '#branch_body_text_');
+		var branch_header_id 		= selector.replace('#', '#branch_header_');
+		
+		toggleVisibility(branch_body_text_id);
+		toggleExpanded(branch_header_id);
 	}
 </script>
