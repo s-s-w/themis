@@ -260,8 +260,10 @@ span.body {
 }
 
 .selected {
-	@extend .branch_header;
 	background-color:yellow;
+}
+
+div .expanded {
 	height:100%;
 }
 

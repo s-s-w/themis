@@ -1,10 +1,10 @@
 <% selected = nil unless selected -%>
-<% css_selected = (node == selected ? 'selected' : nil) -%>
+<% css_selected = (node == selected ? ' expanded selected' : nil) -%>
 
-<div class='content'>
+<div id='<%= node.id || 'new_node' %>' class='content'>
 	<a name='<%= css_selected %>'></a>
 	
-	<div class='branch_header <%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px;'>
+	<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header<%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px;'>
 		<% if color_type_for(node) -%>
 			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
 				<%= node.active_children.count unless node.active_children.blank? %>
@@ -16,10 +16,10 @@
 		<% end -%>
 		
 		<% if node.new_record? -%>
-			<%= link_to 'New Response', js_void, onclick: "toggleVisibility('#response_to_#{node.parent_id}')" %>
+			<%= link_to 'New Response', js_void, onclick: "toggleVisibility('#response_to_#{node.parent_id}');" %>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
-				<%= link_to node.summary, js_void, onclick: "toggleVisibility('##{node.id}')" -%>
+				<%= link_to node.summary, js_void, onclick: "toggleBodyTextVisibility('##{node.id}')" -%>
 			<%= "</strike>".html_safe if node.archived_at -%>
 		<% end -%>
 	</div>
@@ -32,7 +32,7 @@
 			<%= "&#9652;".html_safe if node.has_active_children? %>
 		</div>
 		
-		<div id='<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? '_response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 + 1 %>px; <%= (node.new_record? or node == selected) ? '' : 'display:none;' %>'>
+		<div id='branch_body_text_<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? '_response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 + 1 %>px; <%= (node.new_record? or node == selected) ? '' : 'display:none;' %>'>
 			<% if node.new_record? %>
 				<%= render 'form', node: node, inline: true %>
 			<% else -%>
@@ -71,9 +71,25 @@
 
 <script>
 	function toggleVisibility(selector) {
-		if( $(selector).css('display') === 'none' )
-			{ $(selector).show(400); }
-		else
+		if( $(selector).css('display') === 'none' ) {
+				$(selector).show(400);
+		} else
 			{ $(selector).hide(400); }
+	}
+	
+	function toggleExpanded(selector) {
+		if( $(selector)[0].className.search('expanded') != -1 ) {
+			$(selector)[0].className = $(selector)[0].className.replace('branch_header expanded', 'branch_header');
+		} else {
+			$(selector)[0].className = $(selector)[0].className.replace('branch_header', 'branch_header expanded');
+		}
+	}
+	
+	function toggleBodyTextVisibility(selector) {
+		var branch_body_text_id = selector.replace('#', '#branch_body_text_');
+		var branch_header_id 		= selector.replace('#', '#branch_header_');
+		
+		toggleVisibility(branch_body_text_id);
+		toggleExpanded(branch_header_id);
 	}
 </script>

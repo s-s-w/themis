@@ -45,13 +45,25 @@
 
 
 <script>
+	function toggleExpanded(selector) {
+		$(selector).each( function(i, el) {
+			if( el.className.search('expanded') != -1 ) {
+				el.className = el.className.replace('branch_header expanded', 'branch_header');
+			} else {
+				el.className = el.className.replace('branch_header', 'branch_header expanded');
+			}
+		});
+	}
+	
 	function expandAll() {
 		$('.branch_body_text').show(1000);
+		toggleExpanded('.branch_header');
 	}
-
+	
 	function collapseAll() {
 		$('.branch_body_text').hide(1000);
-		//$('.response').show();
+		toggleExpanded('.branch_header');
+		
 		$('.response').css('display', 'visible');
 	}
 </script>
