@@ -5,9 +5,9 @@
 	
 	<div class='small-6 columns' style='text-align:right;'>
 		<p>
-			<%= link_to 'expand all', js_void, onclick: "$('.branch_body_text').show(1000)" %>
+			<%= link_to 'expand all', js_void, onclick: "expandAll()" %>
 			<%= divider %>
-			<%= link_to 'collapse all', js_void, onclick: "$('.branch_body_text').hide(1000)" %>
+			<%= link_to 'collapse all', js_void, onclick: "collapseAll()" %>
 			<br />
 			<%= archived_link_for @node %>
 		</p>
@@ -42,3 +42,16 @@
 <div class='form'>
 	<%= render 'form', node: @node.children.build -%>
 </div>
+
+
+<script>
+	function expandAll() {
+		$('.branch_body_text').show(1000);
+	}
+
+	function collapseAll() {
+		$('.branch_body_text').hide(1000);
+		//$('.response').show();
+		$('.response').css('display', 'visible');
+	}
+</script>

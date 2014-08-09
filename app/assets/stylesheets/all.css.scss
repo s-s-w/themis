@@ -186,7 +186,7 @@ div.branch_body {
 	margin-left: 10px;
 }
 
-div.branch_body_text {
+div.branch_body_text, div.branch_body_text_response {
 	@extend .panel;
 	
 	border-top:0;
