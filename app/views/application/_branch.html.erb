@@ -1,5 +1,8 @@
+<% selected = nil unless selected -%>
+<% css_selected = (node == selected ? 'selected' : '') -%>
+
 <div class='content'>
-	<div class='branch_header' style='margin-right:<%= node.altitude * 21 %>px;'>
+	<div class='branch_header <%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px;'>
 		<% if color_type_for(node) -%>
 			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
 				<%= node.active_children.count unless node.active_children.blank? %>
@@ -11,7 +14,7 @@
 		<% end -%>
 		
 		<% if node.new_record? -%>
-			New Response
+			<b>New Response</b>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
 				<%= link_to node.summary, js_void, onclick: "toggleVisibility('##{node.id}')" -%>
@@ -27,7 +30,7 @@
 			<%= "&#9652;".html_safe if node.has_active_children? %>
 		</div>
 		
-		<div id='<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; <%= node.new_record? ? '' : 'display:none;' %>'>
+		<div id='<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? ' response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 %>px; <%= (node.new_record? or node == selected) ? '' : 'display:none;' %>'>
 			<% if node.new_record? %>
 				<%= render 'form', node: node, inline: true %>
 			<% else -%>
@@ -42,7 +45,7 @@
 					<div class='branch_node'>
 						<div class='left_horizontal_arrow <% color_type_for node %>_arrow'></div>
 						
-						<%= render 'branch', node: @new_nodes[node.id] -%>
+						<%= render 'branch', node: node.children.build, selected: selected -%>
 					</div>
 				</li>
 				
@@ -54,7 +57,7 @@
 							<div class='branch_node'>
 								<div class='left_horizontal_arrow <%= color_type_for node %>_arrow'></div>
 								
-								<%= render 'branch', node: child -%>
+								<%= render 'branch', node: child, selected: selected -%>
 							</div>
 						</li>
 					<% end -%>
