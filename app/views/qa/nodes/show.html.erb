@@ -8,9 +8,7 @@
 			<%= link_to 'expand all', js_void, onclick: "$('.branch_body_text').show(1000)" %>
 			<%= divider %>
 			<%= link_to 'collapse all', js_void, onclick: "$('.branch_body_text').hide(1000)" %>
-		</p>
-		
-		<p>
+			<br />
 			<%= archived_link_for @node %>
 		</p>
 	</div>
