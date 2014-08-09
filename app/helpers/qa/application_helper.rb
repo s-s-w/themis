@@ -91,7 +91,10 @@ module Qa
 		def cancel_link_for node, text='Cancel', args={}
 			parent = node.parent
 			
-			if node.id.nil?
+			if node.new_record?
+				url = js_void
+				args.merge!( {onclick: "toggleVisibility('#response_to_#{node.parent_id}')"} )
+			elsif node.id.nil?
 				url = (parent.nil? ? questions_path : node_path(parent) + '#selected')
 			else
 				url = node_path(node) + '#selected'

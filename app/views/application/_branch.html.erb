@@ -16,7 +16,7 @@
 		<% end -%>
 		
 		<% if node.new_record? -%>
-			<b>New Response</b>
+			<%= link_to 'New Response', js_void, onclick: "toggleVisibility('#response_to_#{node.parent_id}')" %>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
 				<%= link_to node.summary, js_void, onclick: "toggleVisibility('##{node.id}')" -%>
