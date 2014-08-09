@@ -70,10 +70,14 @@
 </div>
 
 <script>
-	function toggleVisibility(selector){
+	function toggleVisibility(selector) {
 		if( $(selector).css('display') === 'none' )
 			{ $(selector).show(400); }
 		else
 			{ $(selector).hide(400); }
+	}
+	
+	function showAll() {
+		$('.branch_body_text').show(1000);
 	}
 </script>

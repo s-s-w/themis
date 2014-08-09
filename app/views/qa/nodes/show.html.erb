@@ -1,10 +1,18 @@
 <div class='row'>
-	<div class='small-1 column'>
+	<div class='small-6 column'>
 		<p><%= link_to 'questions', questions_path %></p>
 	</div>
 	
-	<div class='small-1 column'>
-		<p><%= archived_link_for @node %></p>
+	<div class='small-6 columns' style='text-align:right;'>
+		<p>
+			<%= link_to 'expand all', js_void, onclick: "$('.branch_body_text').show(1000)" %>
+			<%= divider %>
+			<%= link_to 'collapse all', js_void, onclick: "$('.branch_body_text').hide(1000)" %>
+		</p>
+		
+		<p>
+			<%= archived_link_for @node %>
+		</p>
 	</div>
 </div>
 
