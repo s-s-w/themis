@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"class",
+				"className"
+			],
+			[
+				"branch_",
+				"branch_body_text_id"
+			],
+			[
+				"branch",
+				"branch_body_text"
+			],
+			[
 				"submit_",
 				"submit_text_for"
 			],
@@ -502,23 +514,19 @@
 			[
 				"profile",
 				"profile_obfuscation_id"
-			],
-			[
-				"copy",
-				"copy_to_student"
-			],
-			[
-				"user",
-				"USER_NAME"
-			],
-			[
-				"USER",
-				"USER_EMAILS_PASSWORD"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "app/views/qa/nodes/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 1636,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
 	"command_palette":
@@ -553,35 +561,40 @@
 	},
 	"file_history":
 	[
+		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/all.css.scss",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_branch.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/show.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_node.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_list.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_links.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/app/helpers/qa/application_helper.rb",
+		"/Users/Scott/Dropbox/Rails/themis/Gemfile",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_tree.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_form.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/controllers/qa/nodes_controller.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/edit.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/new.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/node.rb",
+		"/Users/Scott/Dropbox/Rails/mpt4/app/models/grades_one_to_eight_subject.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/foundation_and_overrides.scss",
+		"/Users/Scott/Dropbox/Rails/themis/db/schema.rb",
+		"/Users/Scott/Dropbox/Rails/jquery-ui-1.10.3.custom/development-bundle/demos/droppable/shopping-cart.html",
+		"/Users/Scott/Dropbox/Rails/themis/status",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/questions/index.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/app/controllers/qa/questions_controller.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_node.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_branch.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/all.css.scss",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/question.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/answer.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/subtype.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/support.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/oppose.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/node.rb",
 		"/Users/Scott/Dropbox/Rails/themis/config/routes.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/controllers/qa/nodes_controller.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_tree.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/foundation_and_overrides.scss",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_form.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/response_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/node_edit_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_list.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/support_and_oppose_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/layouts/application.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/question_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/application.css",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/node_archive_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/show.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/edit.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/new.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/db/schema.rb",
 		"/Users/Scott/Dropbox/Rails/themis/db/migrate/20140702041348_add_archived_at_to_node.rb",
 		"/Users/Scott/Dropbox/Rails/mpt4/db/migrate/20140501191554_add_archive_column_to_student.rb",
 		"/Users/Scott/Dropbox/Rails/mpt4/db/migrate/20140407225935_move_travel_allowance_rate_id_from_billable_travel_to_price.rb",
@@ -616,7 +629,6 @@
 		"/Users/Scott/Dropbox/Rails/mpt4/config/environments/production.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/response_show_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/answer_create_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/Gemfile",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/questions_index_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_empty.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/test/models/qa/node_test.rb",
@@ -676,11 +688,7 @@
 		"/Users/Scott/Dropbox/Rails/themis/app/models/assertion.rb",
 		"/Users/Scott/Dropbox/Rails/deligately/app/controllers/questions_controller.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/questions/_empty_questions.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/Rakefile",
-		"/Users/Scott/Dropbox/Rails/deligately/test/models/node_test.rb",
-		"/Users/Scott/Dropbox/Rails/deligately/config/application.rb",
-		"/Users/Scott/Dropbox/Rails/deligately/Gemfile",
-		"/Users/Scott/Dropbox/Rails/deligately/test/test_helper.rb"
+		"/Users/Scott/Dropbox/Rails/themis/Rakefile"
 	],
 	"find":
 	{
@@ -725,6 +733,26 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"branch_header_id",
+			"tor)",
+			"branch_body_text",
+			"response",
+			"id",
+			"selected",
+			"selection",
+			"bodyText(",
+			"js_void",
+			"li",
+			"question",
+			"content",
+			"form",
+			"100",
+			"selected",
+			"panel",
+			"branch_header",
+			".question",
+			"support",
+			"black",
 			"D",
 			"#question",
 			"active_children",
@@ -832,27 +860,7 @@
 			"lesson_request_availabilities",
 			"time_blocks",
 			"availabilities",
-			"time_blocks",
-			"can't be blnk",
-			"destroy",
-			"time_block",
-			"availabilities",
-			"schedulable",
-			"t.",
-			"t",
-			"trait",
-			"tutor",
-			"tutor_availability",
-			":",
-			"inclusion",
-			"details",
-			"t.valid",
-			"valid",
-			"tutor_",
-			"travel",
-			", inverse_of: :from_lesson",
-			"Actual",
-			", :boolean"
+			"time_blocks"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -955,8 +963,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/views/qa/nodes/show.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1636,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1587,
+								1587
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1010,6 +1048,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"gemfile",
+				"themis/Gemfile"
+			],
+			[
+				"schema",
+				"themis/db/schema.rb"
+			],
 			[
 				"dbmarchi",
 				"themis/db/migrate/20140702041348_add_archived_at_to_node.rb"
@@ -1385,10 +1431,6 @@
 			[
 				"untitl",
 				"app/models/untitled.rb"
-			],
-			[
-				"schema",
-				"db/schema.rb"
 			],
 			[
 				"mig/rate_id",

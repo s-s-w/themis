@@ -15,11 +15,17 @@
 			</div>
 		<% end -%>
 		
+		<div style='display:block; float:right; margin:0; padding:0;'>
+			<label class='label round' style='vertical-align:middle; margin: 0 -2px 0 0; padding:4px;'>
+				<%= time_ago_in_words(node.updated_at || Time.zone.now).gsub('about ', '').send(:+, ' ago').gsub('less than a minute ago', 'just now').gsub('minute', 'min').gsub(' ', '&nbsp;').html_safe %>
+			</label>
+		</div>
+		
 		<% if node.new_record? -%>
 			<%= link_to 'New Response', js_void, onclick: "toggleVisibility('#response_to_#{node.parent_id}');" %>
 		<% else -%>
 			<%= "<strike>".html_safe if node.archived_at -%>
-				<%= link_to node.summary, js_void, onclick: "toggleBodyTextVisibility('##{node.id}')" -%>
+				<%= link_to node.summary, js_void, onclick: "toggleBodyTextVisibility('##{node.id}')" %>
 			<%= "</strike>".html_safe if node.archived_at -%>
 		<% end -%>
 	</div>
