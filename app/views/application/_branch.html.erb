@@ -4,13 +4,7 @@
 <div id='<%= node.id || 'new_node' %>' class='content'>
 	<a name='<%= css_selected %>'></a>
 	
-	<div style='margin:0; padding:0; position:absolute; top:0px; right:-100px;'>
-		<label class='label round' style='vertical-align:middle; margin: 0 -2px 0 0; padding:4px; color:darkgrey; background-color:#<%= gradient_for node %>;'>
-			<%= time_ago_in_words(node.updated_at || Time.zone.now).gsub('about ', '').send(:+, ' ago').gsub('less than a minute ago', 'just now').gsub('minute', 'min').gsub(' ', '&nbsp;').html_safe %>
-		</label>
-	</div>
-		
-	<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header<%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px;'>
+	<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header<%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px; background-color:#<%= gradient_for node %>;'>
 		<% if color_type_for(node) -%>
 			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
 				<%= node.active_children.count unless node.active_children.blank? %>
@@ -39,9 +33,14 @@
 		</div>
 		
 		<div id='branch_body_text_<%= node.id || 'new_node' %>' class='branch_body_text<%= node.new_record? ? '_response' : '' %>' style='margin-right:<%= (node.altitude + 1) * 21 + 1 %>px; <%= (node.new_record? or node == selected) ? '' : 'display:none;' %>'>
+			
 			<% if node.new_record? %>
 				<%= render 'form', node: node, inline: true %>
 			<% else -%>
+				<div class='updated_at'>
+					<%= time_ago_in_words(node.updated_at || Time.zone.now).gsub('about ', '').send(:+, ' ago').gsub('less than a minute ago', 'just now').gsub('minute', 'min').gsub(' ', '&nbsp;').html_safe %>
+				</div>
+			
 				<%= render 'links', node: node, is_question_list: false %>
 				<%= simple_format '<br />' + node.body unless node.body.blank? %>
 			<% end -%>
