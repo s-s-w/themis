@@ -1,6 +1,18 @@
 module Qa
 	module ApplicationHelper
 		
+		def gradient_for node
+			@oldest ||= node.root.created_at
+			@newest ||= Time.zone.now
+			current = node.updated_at || @oldest
+			
+			n = Math.log10(@newest - current) / Math.log10(@newest - @oldest) * 255
+			n = n.round
+			hex = n.to_s(16)
+			hex = '0' + hex if hex.length == 1
+			'ffff' + hex
+		end
+		
 		def selected_node_path node
 			node_path(node) + (action_name == 'index' ? '' : '#selected')
 		end
