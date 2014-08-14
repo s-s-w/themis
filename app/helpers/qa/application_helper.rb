@@ -6,10 +6,10 @@ module Qa
 			@newest ||= Time.zone.now
 			current = node.updated_at || @oldest
 			
-			n = Math.log10(@newest - current) / Math.log10(@newest - @oldest) * 255
-			n = n.round
-			hex = n.to_s(16)
+			n = Math.log10(@newest - current + 1) / Math.log10(@newest - @oldest + 1) * 255
+			hex = n.round.to_s(16)
 			hex = '0' + hex if hex.length == 1
+			
 			'ffff' + hex
 		end
 		
