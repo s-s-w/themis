@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
 gem 'rails', '4.1.1'
 
@@ -16,6 +16,7 @@ gem 'spring', group: :development
 gem 'rails_12factor', '~> 0.0.2', group: :production 	# Required by Heroku
 
 gem 'foundation-rails'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'minitest-rails'
@@ -25,6 +26,6 @@ group :test do
 end
 
 group :development, :test do
-	gem 'debugger'
+	gem 'byebug'
 	gem 'factory_girl_rails', '~> 4.0'
 end
