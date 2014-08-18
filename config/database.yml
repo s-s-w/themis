@@ -7,6 +7,10 @@ development:
   <<: *default
   database: db/themis_development
 
+profile:
+  <<: *default
+  database: db/themis_development
+
 test:
   <<: *default
   database: db/themis_test

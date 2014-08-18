@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore compiled assets
+/public/assets
+
+# Ignore profile tool output
+/profile
