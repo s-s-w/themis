@@ -8,9 +8,10 @@ module Qa
 		validates :parent, presence: true, :unless => lambda { self.class.in? [Title, Question, Answer] }
 		validate :valid_ancestor_class?
 		
-		def is_question?() false; end
-		def is_answer?() false; end
-		def is_argument?() false; end
+		def is_title?()			false; end
+		def is_question?()	false; end
+		def is_answer?()		false; end
+		def is_argument?()	false; end
 		
 		scope :root_nodes, -> { where(parent: nil) }
 		
@@ -94,7 +95,7 @@ module Qa
 		end
 		
 		def ordered_child_classes
-			[ Subtype, Question, Answer, Support, Oppose ]
+			[ Subtype, Title, Question, Answer, Support, Oppose ]
 		end
 		
 		def valid_ordered_child_classes

@@ -20,7 +20,7 @@ div .errors {
 	color: red;
 }
 
-#question_button, #sub_question_button, #answer_button, #sub_answer_button, #subtype_button, #support_button, #oppose_button, #cancel_button {
+#tree_button, #title_button, #sub_title_button, #question_button, #sub_question_button, #answer_button, #sub_answer_button, #subtype_button, #support_button, #oppose_button, #cancel_button {
   @extend .button;
   @extend .small;
   @extend .expand;
@@ -31,6 +31,14 @@ $light-black-color:#444;
 $grey-color:#666;
 $light-grey-color:#888;
 
+#tree_button {
+	background-color: white;
+	color:$primary-color;
+}
+
+#title_button, #sub_title_button {
+	background-color:purple;
+}
 
 #question_button, #sub_question_button {
 	background-color:#000;
@@ -64,7 +72,7 @@ $light-grey-color:#888;
 	@extend .secondary;
 }
 
-#question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
+#title, #question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
 	@extend .panel;
 	padding-bottom:0;
 }
@@ -73,21 +81,21 @@ $light-grey-color:#888;
 	@extend .panel;
 }
 
-#question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
+#title, #question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
 	// Additional spacing for when book-ended by absolutely positioned color strips (10px wide)
 	padding-left:30px;
 	padding-right:30px;
 }
 
-.question p.empty {
+.title p.empty, .question p.empty, .answer p.empty {
 	margin-bottom:0;
 }
 
-#subtype, #question, #answer, #support, #oppose {
+#subtype, #title, #question, #answer, #support, #oppose {
 	@extend .callout;
 }
 
-.subtype, .question, .answer, .support, .oppose {
+.subtype, .title, .question, .answer, .support, .oppose {
 	margin-right:24px;
 }
 
@@ -100,7 +108,7 @@ $light-grey-color:#888;
 	margin-bottom:2px;
 }
 
-div #subtype, .subtype, #question, .question, #answer, .answer, #support, .support, #oppose, .oppose {
+div #subtype, .subtype, #title, .question, #question, .question, #answer, .answer, #support, .support, #oppose, .oppose {
 	position:relative;
 }
 
@@ -131,7 +139,7 @@ div.actions {
 	right:15px;
 }
 
-.color_question, .color_answer, .color_subtype, .color_support, .color_oppose, .color_new_node {
+.color_title, .color_question, .color_answer, .color_subtype, .color_support, .color_oppose, .color_new_node {
 	position:absolute;
 	left:1px;
 	top:1px;
@@ -142,7 +150,7 @@ div.actions {
 	text-align: center;
 }
 
-.root_color_question, .root_color_answer, .root_color_support, .root_color_oppose, .root_color_new_node {
+.root_color_title, .root_color_question, .root_color_answer, .root_color_support, .root_color_oppose, .root_color_new_node {
 	position:absolute;
 	right:1px;
 	top:1px;
@@ -151,6 +159,10 @@ div.actions {
 	
 	color: white;
 	text-align: center;
+}
+
+.color_title, .root_color_title {
+	background-color:purple;
 }
 
 .color_question, .root_color_question {
@@ -177,7 +189,7 @@ div.actions {
 	background-color:white;
 }
 
-.branch_header, .question {
+.branch_header, .title, .question, .answer {
 	@extend .panel;
 	padding: 0 27px 0 27px;
 	margin-bottom:0px;
@@ -191,7 +203,7 @@ div.actions {
 
 div.branch_body {
 	position:relative;
-	margin-left: 10px;
+	margin-left: 12px;
 }
 
 div.branch_body_text, div.branch_body_text_response {
@@ -215,6 +227,7 @@ div.branch_body .left_vertical_arrow, div.branch_body .left_horizontal_arrow {
 	//border-color: $arrow-color;
 }
 
+.title_arrow		{ border-color:purple;					color:purple;		}
 .question_arrow { border-color:$black-color;		color:$black-color;		}
 .answer_arrow 	{ border-color:$grey-color;			color:$grey-color;		}
 .subtype_arrow 	{ border-color:$primary-color;	color:$primary-color;	}

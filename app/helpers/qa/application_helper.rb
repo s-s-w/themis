@@ -55,7 +55,7 @@ module Qa
 		def submit_text_for this_node, new_child_class
 			if Subtype == new_child_class
 				inherited_class_name = this_node.typed_node_for(this_node).class.name.demodulize
-				inherited_class_name.in?( ['Question', 'Answer'] ) ? "Sub-#{inherited_class_name}" : 'Subtype'
+				inherited_class_name.in?( ['Title', 'Question', 'Answer'] ) ? "Sub-#{inherited_class_name}" : 'Subtype'
 			else
 				new_child_class.name.demodulize
 			end
@@ -67,7 +67,9 @@ module Qa
 		end
 		
 		def color_type_for node
-			if node.is_question?
+			if node.is_title?
+				'title'
+			elsif node.is_question?
 				'question'
 			elsif node.is_answer?
 				'answer'
@@ -81,6 +83,8 @@ module Qa
 		def root_color_type_for node
 			if node.is_argument?
 				node.supports_root? ? 'support' : 'oppose'
+			elsif node.is_title?
+				'title'
 			elsif node.is_question?
 				'question'
 			elsif node.is_answer?
@@ -93,8 +97,8 @@ module Qa
 		def parent_link_for node, text='parent', args={}
 			parent = node.parent
 			
-			text = 'questions' if parent.nil?
-			url = (parent.nil? ? questions_path : node_path(parent) + '#selected')
+			text = 'trees' if parent.nil?
+			url = (parent.nil? ? trees_path : node_path(parent) + '#selected')
 			args.merge!( {:class => 'parent' } )
 			
 			link_to text, url, args
@@ -107,7 +111,7 @@ module Qa
 				url = js_void
 				args.merge!( {onclick: "toggleVisibility('#response_to_#{node.parent_id}')"} )
 			elsif node.id.nil?
-				url = (parent.nil? ? questions_path : node_path(parent) + '#selected')
+				url = (parent.nil? ? trees_path : node_path(parent) + '#selected')
 			else
 				url = node_path(node) + '#selected'
 			end
