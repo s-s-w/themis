@@ -1,0 +1,7 @@
+<%#= link_to 'New Tree', new_node_path, id: 'tree_button', style: 'width:auto; padding:20px;' %>
+
+<h1>Trees</h>
+
+<%= render 'empty', element_name: 'root_node' if @root_nodes.blank? -%>
+
+<%= render 'list', collection: @root_nodes, list_type: :ul if @root_nodes.any? -%>

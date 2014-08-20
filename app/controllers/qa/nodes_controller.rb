@@ -2,6 +2,10 @@ module Qa
 	class NodesController < ApplicationController
 		include ApplicationHelper
 		
+		def trees
+			@root_nodes = Node.root_nodes
+		end
+		
 		def show
 			@node = Node.find params[:id]
 		end

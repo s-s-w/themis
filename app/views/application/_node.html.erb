@@ -1,17 +1,17 @@
-<% is_question_list = ('question' == type_for(node) and 'class' == id_or_class) -%>
+<% is_tree_list = (node.is_root? and 'class' == id_or_class) -%>
 
 <div <%= id_or_class %>='<%= type_for(node) %>'>
 	<% if color_type_for(node) -%>
-		<div class='color_<%= color_type_for(node) %>' style='<%= is_question_list ? 'width:21px;' : '' %>' >
+		<div class='color_<%= color_type_for(node) %>' style='<%= is_tree_list ? 'width:21px;' : '' %>' >
 		</div>
 		
-		<div class='root_color_<%= root_color_type_for(node) %>' style='<%= is_question_list ? 'width:21px;' : '' %>' >
+		<div class='root_color_<%= root_color_type_for(node) %>' style='<%= is_tree_list ? 'width:21px;' : '' %>' >
 		</div>
 	<% end -%>
 	
 	<div class='header full_node'>
 		<div class='summary'>
-			<%= "<h3>".html_safe unless is_question_list -%>
+			<%= "<h3>".html_safe unless is_tree_list -%>
 			
 			<%= "<strike class='strike'>".html_safe if node.archived_at -%>
 				<% if id_or_class == 'id' -%>
@@ -22,10 +22,10 @@
 			<%= "</strike>".html_safe if node.archived_at -%>
 
 			
-			<%= "</h3>".html_safe unless is_question_list -%>
+			<%= "</h3>".html_safe unless is_tree_list -%>
 		</div>
 		
-		<%= render 'links', node: node, is_question_list: is_question_list %>
+		<%= render 'links', node: node, is_tree_list: is_tree_list %>
 	</div>
 	
 	<div class='body'>

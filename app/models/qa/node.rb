@@ -12,6 +12,8 @@ module Qa
 		def is_answer?() false; end
 		def is_argument?() false; end
 		
+		scope :root_nodes, -> { where(parent: nil) }
+		
 		def tree_has_archived_nodes?
 			all_nodes_in_tree.reject{ |node| node.archived_at.nil? }.count > 0
 		end

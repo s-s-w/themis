@@ -1,7 +1,7 @@
 require 'test_helper'
 
 module Qa
-	feature 'Question create' do
+	feature 'Tree create' do
 		
 		before do
 			visit questions_path
