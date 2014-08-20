@@ -1,11 +1,11 @@
 module Qa
-	class Answer < Node
+	class Title < Node
 		
 		def self.valid_parent_classes
-			[NilClass, Title, Question]
+			[NilClass]
 		end
 		
-		def is_answer?
+		def is_title?
 			true
 		end
 		

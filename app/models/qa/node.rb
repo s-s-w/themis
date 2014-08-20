@@ -5,7 +5,7 @@ module Qa
 		has_many :children, class_name: Node, foreign_key: :parent_id, inverse_of: :parent, dependent: :destroy
 		
 		validates :summary, presence: true
-		validates :parent, presence: true, :unless => lambda { Question == self.class }
+		validates :parent, presence: true, :unless => lambda { self.class.in? [Title, Question, Answer] }
 		validate :valid_ancestor_class?
 		
 		def is_question?() false; end
@@ -23,6 +23,11 @@ module Qa
 		def all_active_nodes_in_tree
 			[root] + root.active_descendants
 		end
+		
+		def is_title?()			false; end
+		def is_question?()	false; end
+		def is_answer?()		false; end
+		def is_argument?()	false; end
 		
 		def is_root?
 			parent.nil?
