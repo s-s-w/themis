@@ -1,0 +1,24 @@
+<% is_list = nil unless is_list -%>
+<% margin_right = is_list ? 0 : node.altitude * 21 unless margin_right -%>
+
+<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header' style='margin-right:<%= margin_right %>px; background-color:#<%= gradient_for node %>;'>
+	<% if color_type_for(node) -%>
+		<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
+			<%= node.active_children.count unless node.active_children.blank? %>
+		</div>
+		
+		<div class='root_color_<%= root_color_type_for(node) %>' style='min-width:21px;'>
+			<%= node.active_descendants.length unless node.active_descendants.blank? %>
+		</div>
+	<% end -%>
+	
+	<% if is_list -%>
+		<%= link_to node.summary, nodes_path + "/#{node.id}" %>
+	<% elsif node.new_record? -%>
+		<%= link_to 'New Response', js_void, onclick: "toggleVisibility('#response_to_#{node.parent_id}');" %>
+	<% else -%>
+		<%= "<strike>".html_safe if node.archived_at -%>
+			<%= link_to node.summary, js_void, onclick: "toggleBodyTextVisibility('##{node.id}')" %>
+		<%= "</strike>".html_safe if node.archived_at -%>
+	<% end -%>
+</div>

@@ -1,28 +1,9 @@
 <% selected = nil unless selected -%>
-<% css_selected = (node == selected ? ' expanded selected' : nil) -%>
 
 <div id='<%= node.id || 'new_node' %>' class='content'>
-	<a name='<%= css_selected %>'></a>
+	<a name='<%= 'selected' if node == selected %>'></a>
 	
-	<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header<%= css_selected %>' style='margin-right:<%= node.altitude * 21 %>px; background-color:#<%= gradient_for node %>;'>
-		<% if color_type_for(node) -%>
-			<div class='color_<%= color_type_for(node) %>' style='min-width:21px;'>
-				<%= node.active_children.count unless node.active_children.blank? %>
-			</div>
-			
-			<div class='root_color_<%= root_color_type_for(node) %>' style='min-width:21px;'>
-				<%= node.active_descendants.length unless node.active_descendants.blank? %>
-			</div>
-		<% end -%>
-		
-		<% if node.new_record? -%>
-			<%= link_to 'New Response', js_void, onclick: "toggleVisibility('#response_to_#{node.parent_id}');" %>
-		<% else -%>
-			<%= "<strike>".html_safe if node.archived_at -%>
-				<%= link_to node.summary, js_void, onclick: "toggleBodyTextVisibility('##{node.id}')" %>
-			<%= "</strike>".html_safe if node.archived_at -%>
-		<% end -%>
-	</div>
+	<%= render 'header', node: node -%>
 	
 	<div class='branch_body'>
 		<div class='left_vertical_arrow <%= color_type_for node %>_arrow'>

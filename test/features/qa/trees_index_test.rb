@@ -14,7 +14,7 @@ module Qa
 				visit trees_path
 				
 				css_class = klass.name.split(':').last.downcase
-				page.must_have_css ".#{css_class} .summary a" #, text: question.summary
+				page.must_have_css "li.#{css_class} .branch_header a" #, text: question.summary
 			end
 		end
 		

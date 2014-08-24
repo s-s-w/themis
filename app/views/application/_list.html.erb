@@ -1,7 +1,10 @@
 <%= open_tag(list_type).html_safe %>
-	<% collection.each do |element| -%>
-		<% next if element.archived_at and not params[:deleted] %>
-		
-		<li class='full_node'><%= render 'node', node: element, id_or_class: 'class' -%></li>
-	<% end -%>
+	<ul>
+		<% collection.each do |node| -%>
+			<% next if node.archived_at and not params[:deleted] %>
+			
+			<% css_class = node.type.split(':').last.downcase -%>
+			<li class='<%= css_class %>' style='padding:0;'><%= render 'header', node: node, is_list: true -%></li>
+		<% end -%>
+	</ul>
 <%= close_tag(list_type).html_safe %>
