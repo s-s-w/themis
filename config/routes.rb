@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete 'nodes/:id' => 'qa/nodes#destroy', as: 'destroy_node'
   
   resources :questions, only: [ :index ], controller: 'qa/questions'
-  get 'trees' => 'qa/nodes#trees', as: 'trees'
+  get 'trees' => 'qa/trees#index', as: 'trees'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

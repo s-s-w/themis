@@ -520,26 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "Gemfile",
+			"file": "test/features/qa/tree_create_test.rb",
 			"settings":
 			{
-				"buffer_size": 684,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/newrelic.yml",
-			"settings":
-			{
-				"buffer_size": 9489,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config.ru",
-			"settings":
-			{
-				"buffer_size": 226,
+				"buffer_size": 1436,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,111 +531,15 @@
 			"file": "app/controllers/qa/nodes_controller.rb",
 			"settings":
 			{
-				"buffer_size": 1731,
+				"buffer_size": 1785,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/environments/profile.rb",
+			"file": "test/models/qa/node_test.rb",
 			"settings":
 			{
-				"buffer_size": 3350,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/database.yml",
-			"settings":
-			{
-				"buffer_size": 302,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/secrets.yml",
-			"settings":
-			{
-				"buffer_size": 1122,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/application/_branch.html.erb",
-			"settings":
-			{
-				"buffer_size": 2928,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/application/_form.html.erb",
-			"settings":
-			{
-				"buffer_size": 1028,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/helpers/qa/application_helper.rb",
-			"settings":
-			{
-				"buffer_size": 4005,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/initializers/qa/node_subclasses_discovery.rb",
-			"settings":
-			{
-				"buffer_size": 45,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/qa/node.rb",
-			"settings":
-			{
-				"buffer_size": 3218,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/qa/question.rb",
-			"settings":
-			{
-				"buffer_size": 245,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/qa/answer.rb",
-			"settings":
-			{
-				"buffer_size": 243,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/qa/subtype.rb",
-			"settings":
-			{
-				"buffer_size": 312,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/qa/support.rb",
-			"settings":
-			{
-				"buffer_size": 306,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/qa/oppose.rb",
-			"settings":
-			{
-				"buffer_size": 307,
+				"buffer_size": 1986,
 				"line_ending": "Unix"
 			}
 		}
@@ -689,53 +577,74 @@
 	},
 	"file_history":
 	[
-		"/Users/Scott/Dropbox/Rails/themis/profile/empty.png",
-		"/Users/Scott/Dropbox/Rails/html5Forms.js-master/shared/js/jscalendar-1.0/calendar-old.js",
-		"/Users/Scott/Dropbox/Rails/themis/config.ru",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/node.rb",
-		"/Users/Scott/Dropbox/Rails/mpt4/app/models/grades_one_to_eight_subject.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/controllers/qa/nodes_controller.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/trees.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_form.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/app/helpers/qa/application_helper.rb",
-		"/Users/Scott/Dropbox/Rails/jquery-ui-rails-2.0.2/testapp/test/performance/browsing_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/bin/bundle",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_branch.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/all.css.scss",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/subtype.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/title.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/show.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_tree.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/db/schema.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_node.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_list.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_links.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/Gemfile",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_form.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/controllers/qa/nodes_controller.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/edit.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/node.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/all.css.scss",
+		"/Users/Scott/Dropbox/Rails/themis/config/initializers/qa/nil_class.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/new.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/tmp/miniprofiler/mp_timers_r9rto3n77pl7a0en349x",
+		"/Users/Scott/Dropbox/Rails/jquery-ui-1.10.3.custom/development-bundle/docs/transfer-effect.html",
+		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/trees_index_test.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_links.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_list.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_node.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_empty.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/tree_create_test.rb",
+		"/Users/Scott/Dropbox/Rails/themis/config/routes.rb",
+		"/Users/Scott/Dropbox/Rails/zen/trunk/vendor/rails/actionpack/lib/action_controller/routing_optimisation.rb",
+		"/Users/Scott/Dropbox/Rails/themis/Rakefile",
+		"/Users/Scott/Dropbox/Rails/themis/test/factories/qa/nodes.rb",
+		"/Users/Scott/Dropbox/Rails/themis/test/models/qa/node_test.rb",
+		"/Users/Scott/Dropbox/Rails/themis/profile/nodes-1-flat.txt",
+		"/Users/Scott/Dropbox/Rails/deligately/app/models/node.rb",
+		"/Users/Scott/Dropbox/Rails/themis/config/initializers/qa/node_subclasses_discovery.rb",
+		"/Users/Scott/Dropbox/Rails/themis/config/newrelic.yml",
+		"/Users/Scott/Dropbox/Rails/themis/tmp/miniprofiler/mp_timers_i05jvuukytzwjcn2yka4",
+		"/Users/Scott/Dropbox/Rails/themis/themis.sublime-project",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/question.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/answer.rb",
+		"/Users/Scott/Dropbox/Rails/test_spikes/test_force_diagrams/app/views/layouts/application.html_NEW",
+		"/Users/Scott/Dropbox/Rails/themis/config/application.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/support.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/oppose.rb",
+		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/node_archive_test.rb",
+		"/Users/Scott/Dropbox/Rails/themis/Gemfile",
+		"/Users/Scott/Dropbox/Rails/themis/config.ru",
+		"/Users/Scott/Dropbox/Rails/themis/config/environments/profile.rb",
+		"/Users/Scott/Dropbox/Rails/themis/config/database.yml",
+		"/Users/Scott/Dropbox/Rails/themis/config/secrets.yml",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_branch.html.erb",
+		"/Users/Scott/Dropbox/Rails/themis/profile/empty.png",
+		"/Users/Scott/Dropbox/Rails/html5Forms.js-master/shared/js/jscalendar-1.0/calendar-old.js",
+		"/Users/Scott/Dropbox/Rails/mpt4/app/models/grades_one_to_eight_subject.rb",
+		"/Users/Scott/Dropbox/Rails/jquery-ui-rails-2.0.2/testapp/test/performance/browsing_test.rb",
+		"/Users/Scott/Dropbox/Rails/themis/bin/bundle",
+		"/Users/Scott/Dropbox/Rails/themis/db/schema.rb",
+		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/nodes/edit.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/foundation_and_overrides.scss",
 		"/Users/Scott/Dropbox/Rails/jquery-ui-1.10.3.custom/development-bundle/demos/droppable/shopping-cart.html",
 		"/Users/Scott/Dropbox/Rails/themis/status",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/qa/questions/index.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/app/controllers/qa/questions_controller.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/question.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/answer.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/subtype.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/support.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/models/qa/oppose.rb",
-		"/Users/Scott/Dropbox/Rails/themis/config/routes.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/response_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/node_edit_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/support_and_oppose_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/layouts/application.html.erb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/question_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/assets/stylesheets/application.css",
-		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/node_archive_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/db/migrate/20140702041348_add_archived_at_to_node.rb",
 		"/Users/Scott/Dropbox/Rails/mpt4/db/migrate/20140501191554_add_archive_column_to_student.rb",
 		"/Users/Scott/Dropbox/Rails/mpt4/db/migrate/20140407225935_move_travel_allowance_rate_id_from_billable_travel_to_price.rb",
 		"/Users/Scott/Dropbox/Rails/jquery-ui-1.10.3.custom/development-bundle/demos/autocomplete/maxheight.html",
 		"/Users/Scott/Dropbox/Rails/zen/trunk/vendor/rails/actionpack/test/controller/deprecation/deprecated_base_methods_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/tmp/cache/assets/development/sass/c4c8dce854674ff383f4e257fb3ce4d4e3737ca7/_dropdown-buttons.scssc",
-		"/Users/Scott/Dropbox/Rails/themis/config/database.yml",
-		"/Users/Scott/Dropbox/Rails/themis/config/initializers/qa/nil_class.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa_debate/oppose.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa_debate/support.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/question_create_test.rb",
@@ -751,11 +660,8 @@
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa-debate/support.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/qa-debate/oppose.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/factories/qa-debate/response_nodes.rb",
-		"/Users/Scott/Dropbox/Rails/themis/test/factories/qa/nodes.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/test_helper.rb",
-		"/Users/Scott/Dropbox/Rails/themis/config/initializers/qa/node_subclasses_discovery.rb",
 		"/Users/Scott/Dropbox/Rails/themis/config/initializers/nil_class.rb",
-		"/Users/Scott/Dropbox/Rails/themis/config/application.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/oppose.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/support.rb",
 		"/Users/Scott/Dropbox/Rails/themis/config/environments/production.rb",
@@ -763,8 +669,6 @@
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/response_show_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/answer_create_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/test/features/qa/questions_index_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_empty.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/test/models/qa/node_test.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/models/nil_class.rb",
 		"/Users/Scott/Dropbox/Rails/themis/nil_class.rb",
 		"/Users/Scott/Dropbox/Rails/mpt4/config/application.rb",
@@ -798,25 +702,9 @@
 		"/Users/Scott/Dropbox/Rails/mpt4/Gemfile",
 		"/Users/Scott/Dropbox/Rails/themis/db/migrate/20140623213017_change_in_support_to_parent_relation_for_node.rb",
 		"/Users/Scott/Dropbox/Rails/zen/trunk/vendor/rails/actionpack/test/fixtures/multipart/text_file",
-		"/Users/Scott/Dropbox/Rails/themis/themis.sublime-project",
 		"/Users/Scott/Dropbox/Rails/mpt4/app/models/account.rb",
 		"/Users/Scott/Dropbox/Rails/themis/app/views/questions/index.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/nodes/edit.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/nodes/new.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/nodes/show.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/test/features/response_show_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/test/features/questions_list_display_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/test/features/questions_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/test/features/responses_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/controllers/questions_controller.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/controllers/responses_controller.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/nodes/_form.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/application/_heading.html.erb",
-		"/Users/Scott/Dropbox/Rails/deligately/test/integration/member/questions_and_answers_test.rb",
-		"/Users/Scott/Dropbox/Rails/themis/db/migrate/20140618193259_remove_parent_type_from_node.rb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/questions/show.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/app/views/questions/new.html.erb",
-		"/Users/Scott/Dropbox/Rails/themis/db/migrate/20140618192153_remove_parent_type_from_node.rb"
+		"/Users/Scott/Dropbox/Rails/themis/app/views/nodes/edit.html.erb"
 	],
 	"find":
 	{
@@ -861,6 +749,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"branch_body",
+			"question",
+			"Question",
+			"question",
+			"is_question_list",
 			"template",
 			"typed_node_for",
 			"button_cols",
@@ -983,12 +876,7 @@
 			"i.",
 			"{ :user, :child }",
 			"is_student",
-			"t =",
-			"t.",
-			"_request",
-			"lesson",
-			"lesson:",
-			"scheduled_duration"
+			"t ="
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1091,485 +979,24 @@
 	"groups":
 	[
 		{
-			"selected": 16,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Gemfile",
+					"file": "test/features/qa/tree_create_test.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 684,
+						"buffer_size": 1436,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								76,
-								76
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "config/newrelic.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9489,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8390,
-								8390
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2691.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "config.ru",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								197,
-								197
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/controllers/qa/nodes_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1731,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								98,
-								98
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "config/environments/profile.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3350,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								574,
-								574
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "config/database.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								141,
-								141
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "config/secrets.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1122,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								659,
-								659
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 10.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/views/application/_branch.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2928,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1696,
-								1696
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 170.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/views/application/_form.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1028,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								659,
-								659
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/helpers/qa/application_helper.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4005,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1914,
-								1914
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 504.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "config/initializers/qa/node_subclasses_discovery.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 45,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								12,
-								12
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/models/qa/node.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3218,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2259,
-								2259
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 710.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "app/models/qa/question.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 245,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								115,
-								115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "app/models/qa/answer.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 243,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								105,
-								105
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "app/models/qa/subtype.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 312,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								114,
-								114
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "app/models/qa/support.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 306,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								106,
-								106
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "app/models/qa/oppose.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 307,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								105,
-								105
+								277,
+								277
 							]
 						],
 						"settings":
@@ -1582,6 +1009,65 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/controllers/qa/nodes_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1785,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 119.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "test/models/qa/node_test.rb",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1986,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1638,6 +1124,30 @@
 		"selected_items":
 		[
 			[
+				"trees",
+				"themis/app/views/qa/nodes/trees.html.erb"
+			],
+			[
+				"node",
+				"themis/app/models/qa/node.rb"
+			],
+			[
+				"routes",
+				"themis/config/routes.rb"
+			],
+			[
+				"nodes.rb",
+				"themis/test/factories/qa/nodes.rb"
+			],
+			[
+				"title",
+				"themis/app/models/qa/title.rb"
+			],
+			[
+				"answer",
+				"themis/app/models/qa/answer.rb"
+			],
+			[
 				"gem",
 				"Rails/themis/Gemfile"
 			],
@@ -1684,10 +1194,6 @@
 			[
 				"v/q/i",
 				"deligately/app/views/questions/index.html.erb"
-			],
-			[
-				"routes",
-				"deligately/config/routes.rb"
 			],
 			[
 				"route",
@@ -2128,22 +1634,6 @@
 			[
 				"apmope",
 				"app/models/person.rb"
-			],
-			[
-				"temolo",
-				"test/models/location_test.rb"
-			],
-			[
-				"testmodlo",
-				"test/models/location_test.rb"
-			],
-			[
-				"m",
-				"mpt4/mpt4.sublime-project"
-			],
-			[
-				"app",
-				"assets/stylesheets/application.css.scss"
 			]
 		],
 		"width": 0.0
