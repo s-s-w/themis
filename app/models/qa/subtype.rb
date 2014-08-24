@@ -5,6 +5,14 @@ module Qa
 			Node.all_subclasses
 		end
 		
+		def is_subtype?
+			true
+		end
+		
+		def is_argument?
+			parent.is_argument?
+		end
+		
 		def supports_root?
 			parent.supports_root?
 		end
@@ -19,10 +27,6 @@ module Qa
 		
 		def is_answer?
 			parent.is_answer?
-		end
-		
-		def is_argument?
-			parent.is_argument?
 		end
 		
 	end

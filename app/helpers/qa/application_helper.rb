@@ -67,7 +67,9 @@ module Qa
 		end
 		
 		def color_type_for node
-			if node.is_title?
+			if node.is_subtype?
+				'subtype'
+			elsif node.is_title?
 				'title'
 			elsif node.is_question?
 				'question'
@@ -81,7 +83,9 @@ module Qa
 		end
 		
 		def root_color_type_for node
-			if node.is_argument?
+			if node.is_subtype?
+				'subtype'
+			elsif node.is_argument?
 				node.supports_root? ? 'support' : 'oppose'
 			elsif node.is_title?
 				'title'
