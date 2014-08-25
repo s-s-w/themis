@@ -1,5 +1,9 @@
 @import 'foundation';
 
+hr {
+	padding-bottom:15px;
+}
+
 li {
 	list-style-type:none;
 }
@@ -163,7 +167,15 @@ div.actions {
 
 .color_subtype, .root_color_subtype {
 	background-color:white;
-	color:grey;
+	color:lightgrey;
+}
+
+.color_subtype {
+	border-right: 1px solid lightgrey;
+}
+
+.root_color_subtype {
+	border-left: 1px solid lightgrey;
 }
 
 .color_title, .root_color_title {
@@ -211,8 +223,8 @@ div.branch_body_text, div.branch_body_text_response {
 	@extend .panel;
 	
 	border-top:0;
-	margin-left:12px;
-	margin-bottom:1px;
+	margin-left:10px;
+	margin-bottom:0px;
 	
 	//background-color:white;
 }
@@ -259,14 +271,14 @@ div.branch_node .left_horizontal_arrow {
 	border-top:none;
 	border-right:none;
 	
-	height:18px;
+	height:12px;
 	width:11px;
 }
 
 div.content {
 	position:relative;
 	min-width:700px;
-	margin-left:13px;
+	margin-left:10px;
 	margin-top:-13px;
 }
 
