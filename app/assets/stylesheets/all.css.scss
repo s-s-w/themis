@@ -152,10 +152,6 @@ div.actions {
 	
 	color: white;
 	text-align: center;
-	
-	//padding-left: 2px;
-	//padding-right: 1px;
-	//border-right: 1px solid lightgrey;
 }
 
 .color_subtype a, .color_title a, .color_question a, .color_answer a, .color_support a, .color_oppose a, .color_new_node a {
@@ -179,11 +175,11 @@ div.actions {
 
 .color_subtype, .root_color_subtype {
 	background-color:white;
-	color:lightgrey;
+	color:grey;
 }
 
 .color_subtype a, .root_color_subtype a {
-	color:lightgrey;
+	color:grey;
 }
 
 .color_subtype {
