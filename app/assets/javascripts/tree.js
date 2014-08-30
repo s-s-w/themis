@@ -11,9 +11,9 @@ function hide_all() {
 
 function show_or_hide(selector) {
 	if( $(selector).css('display') === 'none' ) {
-		$(selector).show(400);
+		$(selector).show(500);
 	} else {
-		$(selector).hide(400);
+		$(selector).hide(500);
 	}
 }
 
@@ -30,9 +30,9 @@ function expand_or_collapse_children(num) {
 	var list_of_children = $('#ul_' + num);
 	
 	if( list_of_children.css('display') === 'none' ) {
-		list_of_children.show(1000);
+		list_of_children.show(500);
 	} else {
-		parent.find('ul').hide(1000);
+		parent.find('ul').hide(500);
 	}
 }
 
@@ -41,8 +41,8 @@ function expand_or_collapse_descendants(num) {
 	var list_of_children = $('#ul_' + num);
 	
 	if( list_of_children.css('display') === 'none' ) {
-		parent.find('ul').show(1000);
+		parent.find('ul').show(500);
 	} else {
-		parent.find('ul').hide(1000);
+		parent.find('ul').hide(500);
 	}
 }
