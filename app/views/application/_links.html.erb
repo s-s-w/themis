@@ -3,7 +3,7 @@
 
 <div class='actions'>
 	<% unless is_tree_list or is_question_list -%>
-		<%= link_to 'respond', js_void, onclick: "toggleVisibility('#response_to_#{node.id}');" %>
+		<%= link_to 'respond', js_void, onclick: "show_or_hide('#response_to_#{node.id}');" %>
 		<%= divider %>
 		<%= link_to 'select', nodes_path + "/#{node.id}#selected" %>
 		<%= divider %>

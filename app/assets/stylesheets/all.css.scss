@@ -145,21 +145,25 @@ div.actions {
 
 .color_subtype, .color_title, .color_question, .color_answer, .color_support, .color_oppose, .color_new_node {
 	position:absolute;
-	left:1px;
-	top:1px;
-	bottom:1px;
-	width:10px;
+	left:0px;
+	top:0px;
+	bottom:0px;
+	min-width:25px;
 	
 	color: white;
 	text-align: center;
+	
+	//padding-left: 2px;
+	//padding-right: 1px;
+	//border-right: 1px solid lightgrey;
 }
 
 .root_color_subtype, .root_color_title, .root_color_question, .root_color_answer, .root_color_support, .root_color_oppose, .root_color_new_node {
 	position:absolute;
-	right:1px;
-	top:1px;
-	bottom:1px;
-	width:10px;
+	right:0px;
+	top:0px;
+	bottom:0px;
+	min-width:25px;
 	
 	color: white;
 	text-align: center;
@@ -216,14 +220,14 @@ div.actions {
 
 div.branch_body {
 	position:relative;
-	margin-left: 12px;
+	margin-left: 13px;
 }
 
 div.branch_body_text, div.branch_body_text_response {
 	@extend .panel;
 	
 	border-top:0;
-	margin-left:10px;
+	margin-left:12px;
 	margin-bottom:0px;
 	
 	//background-color:white;
@@ -271,15 +275,15 @@ div.branch_node .left_horizontal_arrow {
 	border-top:none;
 	border-right:none;
 	
-	height:12px;
-	width:11px;
+	height:13px;
+	width:12px;
 }
 
 div.content {
 	position:relative;
 	min-width:700px;
-	margin-left:10px;
-	margin-top:-13px;
+	margin-left:12px;
+	margin-top:-14px;
 }
 
 div.branch_body ul {
@@ -295,7 +299,7 @@ span.body {
 	background-color:yellow;
 }
 
-div .expanded {
+div .shown {
 	height:100%;
 }
 

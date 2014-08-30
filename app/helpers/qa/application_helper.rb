@@ -113,7 +113,7 @@ module Qa
 			
 			if node.new_record?
 				url = js_void
-				args.merge!( {onclick: "toggleVisibility('#response_to_#{node.parent_id}')"} )
+				args.merge!( {onclick: "show_or_hide('#response_to_#{node.parent_id}')"} )
 			elsif node.id.nil?
 				url = (parent.nil? ? trees_path : node_path(parent) + '#selected')
 			else
