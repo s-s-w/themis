@@ -3,7 +3,7 @@
 <div id='<%= node.id || 'new_node' %>' class='content'>
 	<a name='<%= 'selected' if node == selected %>'></a>
 	
-	<%= render 'header', node: node -%>
+	<%= render 'header', node: node, selected: selected -%>
 	
 	<div id='branch_body_<%= node.id %>' class='branch_body'>
 		<div class='left_vertical_arrow <%= color_type_for node %>_arrow'>

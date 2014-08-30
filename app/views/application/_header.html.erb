@@ -1,7 +1,8 @@
 <% is_list = nil unless is_list -%>
 <% margin_right = is_list ? 0 : node.altitude * 25 unless margin_right -%>
+<% selected = nil unless selected -%>
 
-<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header' style='margin-right:<%= margin_right %>px; background-color:#<%= gradient_for node %>;'>
+<div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header <%= node == selected ? 'shown' : '' %>' style='margin-right:<%= margin_right %>px; background-color:#<%= gradient_for node %>;'>
 	<% if color_type_for(node) -%>
 		<div class='color_<%= color_type_for(node) %>'>
 			<% unless node.active_children.blank? -%>
