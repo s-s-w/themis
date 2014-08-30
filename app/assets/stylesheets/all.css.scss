@@ -158,6 +158,10 @@ div.actions {
 	//border-right: 1px solid lightgrey;
 }
 
+.color_subtype a, .color_title a, .color_question a, .color_answer a, .color_support a, .color_oppose a, .color_new_node a {
+	color: white;
+}
+
 .root_color_subtype, .root_color_title, .root_color_question, .root_color_answer, .root_color_support, .root_color_oppose, .root_color_new_node {
 	position:absolute;
 	right:0px;
@@ -169,8 +173,16 @@ div.actions {
 	text-align: center;
 }
 
+.root_color_subtype a, .root_color_title a, .root_color_question a, .root_color_answer a, .root_color_support a, .root_color_oppose a, .root_color_new_node a {
+	color: white;
+}
+
 .color_subtype, .root_color_subtype {
 	background-color:white;
+	color:lightgrey;
+}
+
+.color_subtype a, .root_color_subtype a {
 	color:lightgrey;
 }
 
@@ -208,7 +220,7 @@ div.actions {
 
 .branch_header, .title, .question, .answer {
 	@extend .panel;
-	padding: 0 27px 0 27px;
+	padding: 0 31px 0 31px;
 	margin-bottom:0px;
 	//width:700px;
 	overflow:hidden;

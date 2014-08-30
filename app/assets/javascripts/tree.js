@@ -26,21 +26,23 @@ function show_or_hide_body_text(selector) {
 }
 
 function expand_or_collapse_children(num) {
-	var list_of_children = $('#ul_' + num)
+	var parent = $('#' + num);
+	var list_of_children = $('#ul_' + num);
 	
 	if( list_of_children.css('display') === 'none' ) {
-		list_of_children.show();
+		list_of_children.show(1000);
 	} else {
-		list_of_children.hide();
+		parent.find('ul').hide(1000);
 	}
 }
 
 function expand_or_collapse_descendants(num) {
-	var body = $('#branch_body_' + num);
+	var parent = $('#' + num);
+	var list_of_children = $('#ul_' + num);
 	
-	if( body.css('display') === 'none' ) {
-		body.show();
+	if( list_of_children.css('display') === 'none' ) {
+		parent.find('ul').show(1000);
 	} else {
-		body.hide();
+		parent.find('ul').hide(1000);
 	}
 }
