@@ -5,7 +5,7 @@
 	
 	<%= render 'header', node: node -%>
 	
-	<div class='branch_body'>
+	<div id='branch_body_<%= node.id %>' class='branch_body'>
 		<div class='left_vertical_arrow <%= color_type_for node %>_arrow'>
 		</div>
 		
@@ -28,7 +28,7 @@
 		</div>
 		
 		<% unless node.new_record? -%>
-			<ul>
+			<ul id='ul_<%= node.id %>'>
 				<li id='response_to_<%= node.id %>' style='display:none;'>
 					<div class='branch_node'>
 						<div class='left_horizontal_arrow <% color_type_for node %>_arrow'></div>

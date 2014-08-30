@@ -4,18 +4,22 @@
 <div id='branch_header_<%= node.id || 'new_node' %>'class='branch_header' style='margin-right:<%= margin_right %>px; background-color:#<%= gradient_for node %>;'>
 	<% if color_type_for(node) -%>
 		<div class='color_<%= color_type_for(node) %>'>
-			<%= node.active_children.count unless node.active_children.blank? %>
+			<% unless node.active_children.blank? -%>
+				<%= link_to(node.active_children.count, js_void, onclick: "expand_or_collapse_children('#{node.id}')") %>
+			<% end -%>
 		</div>
 		
 		<div class='root_color_<%= root_color_type_for(node) %>'>
-			<%= node.active_descendants.length unless node.active_descendants.blank? %>
+			<% unless node.active_descendants.blank? -%>
+				<%= link_to(node.active_descendants.count, js_void, onclick: "expand_or_collapse_descendants('#{node.id}')") %>
+			<% end -%>
 		</div>
 	<% end -%>
 	
 	<% if is_list -%>
 		<%= link_to node.summary, nodes_path + "/#{node.id}" %>
 	<% elsif node.new_record? -%>
-		<%= link_to 'New Response', js_void, onclick: "show_or_hide('#response_to_#{node.parent_id}');" %>
+		<%= link_to 'New Response', js_void, onclick: "show_or_hide('#response_to_#{node.parent_id}')" %>
 	<% else -%>
 		<%= "<strike>".html_safe if node.archived_at -%>
 			<%= link_to node.summary, js_void, onclick: "show_or_hide_body_text('##{node.id}')" %>

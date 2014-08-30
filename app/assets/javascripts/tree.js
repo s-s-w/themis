@@ -11,9 +11,10 @@ function hide_all() {
 
 function show_or_hide(selector) {
 	if( $(selector).css('display') === 'none' ) {
-			$(selector).show(400);
-	} else
-		{ $(selector).hide(400); }
+		$(selector).show(400);
+	} else {
+		$(selector).hide(400);
+	}
 }
 
 function show_or_hide_body_text(selector) {
@@ -22,4 +23,24 @@ function show_or_hide_body_text(selector) {
 	
 	show_or_hide(branch_body_text_id);
 	$(branch_header_id).toggleClass('shown');
+}
+
+function expand_or_collapse_children(num) {
+	var list_of_children = $('#ul_' + num)
+	
+	if( list_of_children.css('display') === 'none' ) {
+		list_of_children.show();
+	} else {
+		list_of_children.hide();
+	}
+}
+
+function expand_or_collapse_descendants(num) {
+	var body = $('#branch_body_' + num);
+	
+	if( body.css('display') === 'none' ) {
+		body.show();
+	} else {
+		body.hide();
+	}
 }
