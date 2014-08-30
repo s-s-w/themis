@@ -2,8 +2,30 @@
 <% url = node.new_record? ? nodes_path : node_path(node) -%>
 
 <%= form_for node, url: url do |f| %>
-	<div style='display:none;'>
-		<%= f.text_field :parent_id %>
+	<div class='row'>
+		<div class='large-2 medium-4 small-6 columns'>
+			<div class='row collapse'>
+				<div class='small-6 columns'>
+					<%= f.label :parent_id, 'Parent', :class => 'prefix' %>
+				</div>
+				
+				<div class='small-6 columns'>
+					<%= f.text_field :parent_id, style: 'text-align:center;' %>
+				</div>
+			</div>
+		</div>
+		
+		<div class='large-2 medium-4 small-6 columns end'>
+			<div class='row collapse'>
+				<div class='small-6 columns'>
+					<%#= f.label :order, :class => 'prefix' %>
+				</div>
+				
+				<div class='small-6 columns'>
+					<%#= f.text_field :order, style: 'text-align:center;' %>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<div>

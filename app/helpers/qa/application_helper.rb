@@ -55,7 +55,9 @@ module Qa
 		def submit_text_for this_node, new_child_class
 			if Subtype == new_child_class
 				inherited_class_name = this_node.typed_node_for(this_node).class.name.demodulize
-				inherited_class_name.in?( ['Title', 'Question', 'Answer'] ) ? "Sub-#{inherited_class_name}" : 'Subtype'
+				is_known_class_name = inherited_class_name.in? ['Title', 'Question', 'Answer']
+				is_not_edit = 'edit' != params[:action]
+				(is_known_class_name and is_not_edit) ? "Sub-#{inherited_class_name}" : 'Subtype'
 			else
 				new_child_class.name.demodulize
 			end
