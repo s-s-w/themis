@@ -32,8 +32,8 @@ div .errors {
 
 $black-color:#000;
 $light-black-color:#444;
-$grey-color:#666;
-$light-grey-color:#888;
+$grey-color:#888;
+$light-grey-color:#aaa;
 
 #tree_button {
 	background-color: white;
@@ -45,19 +45,19 @@ $light-grey-color:#888;
 }
 
 #question_button, #sub_question_button {
-	background-color:#000;
+	background-color:$black-color;
 }
 
 #question_button:hover, #sub_question_button:hover {
-	background-color:#444;
+	background-color:$light-black-color;
 }
 
 #answer_button, #sub_answer_button {
-	background-color:#666;
+	background-color:$grey-color;
 }
 
 #answer_button:hover, #sub_answer_button:hover {
-	background-color:#888;
+	background-color:$light-grey-color;
 }
 
 #subtype_button {
