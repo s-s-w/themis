@@ -1,0 +1,49 @@
+
+   19   1.5%    19  1.52%    0.4  app/assets/javascripts/application.js
+   67   5.4%    48  3.83%    1.0  app/assets/javascripts/tree.js
+   72   5.8%     5  0.40%    0.1  app/controllers/application_controller.rb
+  156  12.5%    84  6.71%    1.7  app/controllers/qa/nodes_controller.rb
+  165  13.2%     9  0.72%    0.2  app/controllers/qa/questions_controller.rb
+  174  13.9%     9  0.72%    0.2  app/controllers/qa/trees_controller.rb
+  191  15.3%    17  1.36%    0.3  app/models/qa/answer.rb
+  346  27.6%   155  12.38%    3.1  app/models/qa/node.rb
+  363  29.0%    17  1.36%    0.3  app/models/qa/oppose.rb
+  380  30.4%    17  1.36%    0.3  app/models/qa/question.rb
+  413  33.0%    33  2.64%    0.7  app/models/qa/subtype.rb
+  430  34.3%    17  1.36%    0.3  app/models/qa/support.rb
+  447  35.7%    17  1.36%    0.3  app/models/qa/title.rb
+  503  40.2%    56  4.47%    1.1  app/views/application/_branch.html.erb
+  508  40.6%     5  0.40%    0.1  app/views/application/_empty.html.erb
+  562  44.9%    54  4.31%    1.1  app/views/application/_form.html.erb
+  591  47.2%    29  2.32%    0.6  app/views/application/_header.html.erb
+  607  48.5%    16  1.28%    0.3  app/views/application/_links.html.erb
+  617  49.3%    10  0.80%    0.2  app/views/application/_list.html.erb
+  647  51.7%    30  2.40%    0.6  app/views/application/_node.html.erb
+  656  52.4%     9  0.72%    0.2  app/views/application/_tree.html.erb
+  682  54.5%    26  2.08%    0.5  app/views/layouts/application.html.erb
+  695  55.5%    13  1.04%    0.3  app/views/qa/nodes/edit.html.erb
+  702  56.1%     7  0.56%    0.1  app/views/qa/nodes/new.html.erb
+  746  59.6%    44  3.51%    0.9  app/views/qa/nodes/show.html.erb
+  753  60.1%     7  0.56%    0.1  app/views/qa/questions/index.html.erb
+  760  60.7%     7  0.56%    0.1  app/views/qa/trees/index.html.erb
+  829  66.2%    69  5.51%    1.4  config/routes.rb
+  836  66.8%     7  0.56%    0.1  db/seeds.rb
+  850  67.9%    14  1.12%    0.3  db/migrate/20140618174200_create_nodes.rb
+  855  68.3%     5  0.40%    0.1  db/migrate/20140618193259_remove_parent_type_from_node.rb
+  866  69.2%    11  0.88%    0.2  db/migrate/20140623213017_change_in_support_to_parent_relation_for_node.rb
+  871  69.6%     5  0.40%    0.1  db/migrate/20140627185544_remove_parent_relation_from_node.rb
+  876  70.0%     5  0.40%    0.1  db/migrate/20140702041348_add_archived_at_to_node.rb
+  881  70.4%     5  0.40%    0.1  db/migrate/20140830182357_add_order_to_node.rb
+  934  74.6%    53  4.23%    1.1  test/factories/qa/nodes.rb
+  968  77.3%    34  2.72%    0.7  test/features/qa/node_archive_test.rb
+ 1005  80.3%    37  2.96%    0.7  test/features/qa/node_edit_test.rb
+ 1044  83.4%    39  3.12%    0.8  test/features/qa/response_create_test.rb
+ 1080  86.3%    36  2.88%    0.7  test/features/qa/support_and_oppose_create_test.rb
+ 1136  90.7%    56  4.47%    1.1  test/features/qa/tree_create_test.rb
+ 1158  92.5%    22  1.76%    0.4  test/features/qa/trees_index_test.rb
+ 1219  97.4%    61  4.87%    1.2  test/models/qa/node_test.rb
+ 1252 100.0%    33  2.64%    0.7  test/test_helper.rb
+-----        -----         -----  ------------
+ cum          1252          25.0  44
+             lines         pages  files
+
