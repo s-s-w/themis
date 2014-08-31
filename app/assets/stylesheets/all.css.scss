@@ -147,12 +147,15 @@ div.actions {
 	right:15px;
 }
 
+$radius:13px;
+
 .color_subtype, .color_title, .color_question, .color_answer, .color_support, .color_oppose, .color_new_node {
 	position:absolute;
 	left:0px;
 	top:0px;
 	bottom:0px;
 	min-width:25px;
+	border-radius:$radius 0 0 $radius;
 	
 	color: white;
 	text-align: center;
@@ -168,6 +171,7 @@ div.actions {
 	top:0px;
 	bottom:0px;
 	min-width:25px;
+	border-radius:0 $radius 0 0;
 	
 	color: white;
 	text-align: center;
@@ -222,10 +226,9 @@ div.actions {
 	@extend .panel;
 	padding: 0 31px 0 31px;
 	margin-bottom:0px;
-	//width:700px;
 	overflow:hidden;
-	//max-height:75px;
 	height:27px;
+	border-radius:$radius $radius 0 $radius;
 	
 	position:relative;
 }
@@ -241,6 +244,7 @@ div.branch_body_text, div.branch_body_text_response {
 	border-top:0;
 	margin-left:12px;
 	margin-bottom:0px;
+	border-radius:0 0 $radius $radius;
 	
 	//background-color:white;
 }
