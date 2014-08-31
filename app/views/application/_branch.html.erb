@@ -23,7 +23,10 @@
 				</div>
 			
 				<%= render 'links', node: node, is_question_list: false %>
-				<%= simple_format '<br />' + node.body unless node.body.blank? %>
+				
+				<%= "<strike>".html_safe if node.archived_at -%>
+					<%= simple_format('<br />' + node.body) unless node.body.blank? %>
+				<%= "</strike>".html_safe if node.archived_at -%>
 			<% end -%>
 		</div>
 		

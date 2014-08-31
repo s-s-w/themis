@@ -10,7 +10,7 @@
 	<div class='header full_node'>
 		<div class='summary'>
 			<h3>
-				<%= "<strike class='strike'>".html_safe if node.archived_at -%>
+				<%= "<strike>".html_safe if node.archived_at -%>
 					<% if id_or_class == 'id' -%>
 						<%= node.summary -%>
 					<% elsif id_or_class == 'class' -%>
@@ -24,7 +24,6 @@
 	</div>
 	
 	<div class='body'>
-		<% content = simple_format(node.body) -%>
-		<%= node.archived_at ? strike(content) : content %>
+		<% simple_format(node.body) -%>
 	</div>
 </div>

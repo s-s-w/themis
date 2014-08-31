@@ -441,16 +441,3 @@ span.body {
 div .shown {
 	height:100%;
 }
-
-.strike {
-	position: relative;
-}
-
-.strike::after {
-	content:'';
-	border-bottom:2px solid black;
-	position:absolute;
-	left:0;
-	top:50%;
-	width:100%;
-}

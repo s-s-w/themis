@@ -17,10 +17,6 @@ module Qa
 			node_path(node) + (action_name == 'index' ? '' : '#selected')
 		end
 		
-		def strike content
-			content.gsub( '<p>', '<p><strike class="strike">' ).gsub( '</p>', '</strike></p>').html_safe
-		end
-		
 		def archived_link_for node
 			return unless node.tree_has_archived_nodes?
 			
