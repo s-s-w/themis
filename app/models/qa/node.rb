@@ -6,7 +6,9 @@ module Qa
 		
 		validates :summary, presence: true
 		validates :parent, presence: true, :unless => lambda { self.class.in? [Title, Question, Answer] }
-		validate :valid_ancestor_class?
+		#validate :valid_ancestor_class?
+		
+		after_update :make_class_valid_child_of_parent
 		
 		def is_subtype?()		false; end
 		def is_title?()			false; end
@@ -117,15 +119,23 @@ module Qa
 		
  	#private
 		
-		def valid_ancestor_class?
+		def make_class_valid_child_of_parent
 			ancestor = typed_node_for parent
 			
 			unless ancestor.class.in? self.class.valid_parent_classes
-				message  = "is #{demodulized_name_for ancestor.class} "
-				message += "but must be #{demodulized_names_for self.class.valid_parent_classes}"
-				errors.add(:parent, message)
+				update_columns type: Subtype.name
 			end
 		end
+		
+		#def valid_ancestor_class?
+		#	ancestor = typed_node_for parent
+		#	
+		#	unless ancestor.class.in? self.class.valid_parent_classes
+		#		message  = "is #{demodulized_name_for ancestor.class} "
+		#		message += "but must be #{demodulized_names_for self.class.valid_parent_classes}"
+		#		errors.add(:parent, message)
+		#	end
+		#end
 			
 			def demodulized_names_for klasses
 				klasses.map{ |klass| demodulized_name_for klass }

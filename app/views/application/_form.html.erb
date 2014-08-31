@@ -1,5 +1,8 @@
 <% inline = false unless inline -%>
+<% is_edit = nil unless is_edit -%>
 <% url = node.new_record? ? nodes_path : node_path(node) -%>
+
+<%= render 'errors', record: node %>
 
 <%= form_for node, url: url do |f| %>
 	<div class='row'>
@@ -10,7 +13,7 @@
 				</div>
 				
 				<div class='small-6 columns'>
-					<%= f.text_field :parent_id, style: 'text-align:center;' %>
+					<%= f.text_field :parent_id, style: 'text-align:center;', onclick: 'parent_changed()' %>
 				</div>
 			</div>
 		</div>
@@ -37,13 +40,32 @@
 		<%= f.text_area :body, rows: rows, cols: 100, placeholder: "Body...", style: 'height:auto;' %>
 	</div>
 	
+ <div id='regular_buttons'>
 	<div class='row'>
-		<% button_cols = 12 / (node.parent.valid_ordered_child_classes.length + 1) -%>
+		<% klasses = node.parent.valid_ordered_child_classes -%>
+		<% button_cols = 12 / (klasses.length + 1) -%>
 		
-		<% node.parent.valid_ordered_child_classes.each do |klass| -%>
+		<% klasses.each do |klass| -%>
 			<div class='medium-<%= button_cols %> small-6 columns'>
-				<% submit_text = submit_text_for(node.parent, klass) -%>
+				<% submit_text = submit_text_for(node.parent, klass, is_edit) -%>
 				<%= f.submit submit_text, :id => "#{submit_text.underscore}_button", style: 'margin-bottom:0;' %>
+			</div>
+		<% end -%>
+		
+		<div class='medium-<%= button_cols %> small-6 columns'>
+			<%= cancel_link_for node, 'Cancel', :id => 'cancel_button', style: 'margin-bottom:0;' %>
+		</div>
+	</div>
+ </div>
+	
+ <div id='parent_changed_buttons' style='display:none;'>
+	<div class='row'>
+		<% types = ['Title', 'Question', 'Answer', 'Support', 'Oppose'] -%>
+		<% button_cols = 12 / (types.length + 1) -%>
+		
+		<% types.each do |type| -%>
+			<div class='medium-<%= button_cols %> small-6 columns'>
+				<%= f.submit type, :id => "#{type.underscore}_button", style: 'margin-bottom:0;' %>
 			</div>
 		<% end -%>
 		
