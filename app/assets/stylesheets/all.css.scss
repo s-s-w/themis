@@ -218,6 +218,8 @@ $radius:13px;
 	
 	//border-radius:$radius 0 0 $radius;
 	border-radius:$radius;
+	padding-left:2px;
+	padding-right:2px;
 	
 	color: white;
 	text-align: center;
@@ -248,6 +250,8 @@ $radius:13px;
 	
 	//border-radius:0 $radius $radius 0;
 	border-radius:$radius;
+	padding-left:2px;
+	padding-right:2px;
 	
 	color: white;
 	text-align: center;
