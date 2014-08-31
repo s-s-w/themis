@@ -20,7 +20,8 @@ label {
 	margin-bottom: 0;
 }
 
-.field_with_errors input, .field_with_errors textarea {
+.field_with_errors input,
+.field_with_errors textarea {
 	border: 1px solid red;
 }
 
@@ -28,7 +29,17 @@ div .errors {
 	color: red;
 }
 
-#tree_button, #title_button, #sub_title_button, #question_button, #sub_question_button, #answer_button, #sub_answer_button, #subtype_button, #support_button, #oppose_button, #cancel_button {
+#tree_button,
+#title_button,
+#sub_title_button,
+#question_button,
+#sub_question_button,
+#answer_button,
+#sub_answer_button,
+#subtype_button,
+#support_button,
+#oppose_button,
+#cancel_button {
   @extend .button;
   @extend .small;
   @extend .expand;
@@ -44,23 +55,28 @@ $light-grey-color:#aaa;
 	color:$primary-color;
 }
 
-#title_button, #sub_title_button {
+#title_button,
+#sub_title_button {
 	background-color:purple;
 }
 
-#question_button, #sub_question_button {
+#question_button,
+#sub_question_button {
 	background-color:$black-color;
 }
 
-#question_button:hover, #sub_question_button:hover {
+#question_button:hover,
+#sub_question_button:hover {
 	background-color:$light-black-color;
 }
 
-#answer_button, #sub_answer_button {
+#answer_button,
+#sub_answer_button {
 	background-color:$grey-color;
 }
 
-#answer_button:hover, #sub_answer_button:hover {
+#answer_button:hover,
+#sub_answer_button:hover {
 	background-color:$light-grey-color;
 }
 
@@ -80,7 +96,16 @@ $light-grey-color:#aaa;
 	@extend .secondary;
 }
 
-#title, #question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
+#title,
+#question,
+#subtype,
+.subtype,
+#answer,
+.answer,
+#support,
+.support,
+#oppose,
+.oppose {
 	@extend .panel;
 	padding-bottom:0;
 }
@@ -89,34 +114,63 @@ $light-grey-color:#aaa;
 	@extend .panel;
 }
 
-#title, #question, #subtype, .subtype, #answer, .answer, #support, .support, #oppose, .oppose {
+#title,
+#question,
+#subtype,
+.subtype,
+#answer,
+.answer,
+#support,
+.support,
+#oppose,
+.oppose {
 	// Additional spacing for when book-ended by absolutely positioned color strips (10px wide)
 	padding-left:30px;
 	padding-right:30px;
 }
 
-.title p.empty, .question p.empty, .answer p.empty {
+.title p.empty,
+.question p.empty,
+.answer p.empty {
 	margin-bottom:0;
 }
 
-#subtype, #title, #question, #answer, #support, #oppose {
+#subtype,
+#title,
+#question,
+#answer,
+#support,
+#oppose {
 	@extend .callout;
 }
 
-.subtype, .title, .question, .answer, .support, .oppose {
+.subtype,
+.title,
+.question,
+.answer,
+.support,
+.oppose {
 	margin-right:24px;
 }
 
 .form {
-	//margin-left:24px;
-	//margin-right:24px;
-	
 	margin-left:11px;
 	margin-top:-2px;
 	margin-bottom:2px;
 }
 
-div #subtype, .subtype, #title, .question, #question, .question, #answer, .answer, #support, .support, #oppose, .oppose {
+#subtype,
+.subtype,
+#title,
+.title,
+#question,
+.question,
+#answer,
+.answer,
+#support,
+.support,
+#oppose,
+.oppose {
 	position:relative;
 }
 
@@ -149,44 +203,93 @@ div.actions {
 
 $radius:13px;
 
-.color_subtype, .color_title, .color_question, .color_answer, .color_support, .color_oppose, .color_new_node {
+.color_subtype,
+.color_title,
+.color_question,
+.color_answer,
+.color_support,
+.color_oppose,
+.color_new_node {
 	position:absolute;
 	left:0px;
 	top:0px;
 	bottom:0px;
 	min-width:25px;
-	border-radius:$radius 0 0 $radius;
+	
+	//border-radius:$radius 0 0 $radius;
+	border-radius:$radius;
 	
 	color: white;
 	text-align: center;
 }
 
-.color_subtype a, .color_title a, .color_question a, .color_answer a, .color_support a, .color_oppose a, .color_new_node a {
+.color_subtype a,
+.color_title a,
+.color_question a,
+.color_answer a,
+.color_support a,
+.color_oppose a,
+.color_new_node a {
 	color: white;
 }
 
-.root_color_subtype, .root_color_title, .root_color_question, .root_color_answer, .root_color_support, .root_color_oppose, .root_color_new_node {
+.root_color_subtype,
+.root_color_title,
+.root_color_question,
+.root_color_answer,
+.root_color_support,
+.root_color_oppose,
+.root_color_new_node {
 	position:absolute;
 	right:0px;
 	top:0px;
 	bottom:0px;
 	min-width:25px;
-	border-radius:0 $radius 0 0;
+	
+	//border-radius:0 $radius $radius 0;
+	border-radius:$radius;
 	
 	color: white;
 	text-align: center;
 }
 
-.root_color_subtype a, .root_color_title a, .root_color_question a, .root_color_answer a, .root_color_support a, .root_color_oppose a, .root_color_new_node a {
+#branch_header_new_node,
+#branch_header_new_node .color_new_node,
+#branch_header_new_node .root_color_new_node,
+.shown .color_subtype,
+.shown .color_title,
+.shown .color_question,
+.shown .color_answer,
+.shown .color_support,
+.shown .color_oppose,
+.shown .root_color_subtype,
+.shown .root_color_title,
+.shown .root_color_question,
+.shown .root_color_answer,
+.shown .root_color_support,
+.shown .root_color_oppose,
+.shown .root_color_new_node {
+	border-bottom-right-radius:0;
+}
+
+.root_color_subtype		a,
+.root_color_title			a,
+.root_color_question	a,
+.root_color_answer		a,
+.root_color_support		a,
+.root_color_oppose		a,
+.root_color_new_node	a {
 	color: white;
 }
 
-.color_subtype, .root_color_subtype {
+.color_subtype,
+.root_color_subtype {
 	background-color:white;
 	color:grey;
 }
 
-.color_subtype a, .root_color_subtype a {
+.color_subtype 			a,
+.root_color_subtype	a {
 	color:grey;
 }
 
@@ -198,65 +301,81 @@ $radius:13px;
 	border-left: 1px solid lightgrey;
 }
 
-.color_title, .root_color_title {
+.color_title,
+.root_color_title {
 	background-color:purple;
 }
 
-.color_question, .root_color_question {
+.color_question,
+.root_color_question {
 	background-color:$black-color;
 }
 
-.color_answer, .root_color_answer {
+.color_answer,
+.root_color_answer {
 	background-color:$grey-color;
 }
 
-.color_support, .root_color_support {
+.color_support,
+.root_color_support {
 	background-color:$success-color;
 }
 
-.color_oppose, .root_color_oppose {
+.color_oppose,
+.root_color_oppose {
 	background-color:$alert-color;
 }
 
-.color_new_node, .root_color_new_node {
+.color_new_node,
+.root_color_new_node {
 	background-color:$primary-color;
 }
 
-.branch_header, .title, .question, .answer {
+.branch_header,
+.title,
+.question,
+.answer {
 	@extend .panel;
 	padding: 0 31px 0 31px;
 	margin-bottom:0px;
 	overflow:hidden;
 	height:27px;
-	border-radius:$radius $radius 0 $radius;
+	//border-radius:$radius $radius $radius $radius;
+	border-radius:$radius;
 	
 	position:relative;
 }
+.branch_header.shown {
+	border-bottom-right-radius:0;
+}
+
 
 div.branch_body {
 	position:relative;
 	margin-left: 13px;
 }
 
-div.branch_body_text, div.branch_body_text_response {
+div.branch_body_text,
+div.branch_body_text_response {
 	@extend .panel;
 	
 	border-top:0;
 	margin-left:12px;
 	margin-bottom:0px;
 	border-radius:0 0 $radius $radius;
-	
-	//background-color:white;
 }
 
 $arrow-color:white;
 
-div.branch_body .left_vertical_arrow, div.branch_body .left_horizontal_arrow {
+div.branch_body .left_vertical_arrow,
+div.branch_body .left_horizontal_arrow {
 	border-width: 1px;
 	border-style: dashed;
 }
 
-.left_vertical_arrow, .left_vertical_arrow_head, .left_horizontal_arrow {
+.left_vertical_arrow,
+.left_vertical_arrow_head,
+.left_horizontal_arrow {
 	//border-color: $arrow-color;
 }
 
