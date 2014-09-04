@@ -181,7 +181,7 @@ div .branch_body_text {
 
 div.updated_at {
 	position:absolute;
-	left:5px;
+	left:7px;
 	top:2px;
 	font-size:75%;
 	color:darkgrey;
@@ -189,7 +189,7 @@ div.updated_at {
 
 div.actions {
 	position:absolute;
-	right:5px;
+	right:7px;
 	top:-4px;
 }
 
@@ -198,7 +198,7 @@ div.actions {
 }
 
 .full_node div.actions {
-	right:15px;
+	right:30px;
 }
 
 $radius:13px;
@@ -367,6 +367,8 @@ div.branch_body_text_response {
 	margin-left:12px;
 	margin-bottom:0px;
 	border-radius:0 0 25px 25px;
+	
+	min-height:27px;
 }
 
 $arrow-color:white;
